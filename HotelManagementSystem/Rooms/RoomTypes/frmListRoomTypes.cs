@@ -22,9 +22,9 @@ namespace HotelManagementSystem
             InitializeComponent();
         }
 
-        private void _RefreshRoomTypesList()
+        private async Task _RefreshRoomTypesList()
         {
-            _DataView = clsRoomType.GetAllRoomTypes().DefaultView;
+            _DataView = (await clsRoomType.GetAllRoomTypesAsync()).DefaultView;
             dgvRoomTypesList.DataSource = _DataView;
 
             cbFilterByOptions.SelectedIndex = 0;
@@ -79,9 +79,9 @@ namespace HotelManagementSystem
             }
         }
 
-        private void frmListRoomTypes_Load(object sender, EventArgs e)
+        private async void frmListRoomTypes_Load(object sender, EventArgs e)
         {
-            _RefreshRoomTypesList();
+            await _RefreshRoomTypesList();
         }
 
         private void dgvRoomTypesList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -97,20 +97,20 @@ namespace HotelManagementSystem
             txtFilterValue.Focus();
         }
 
-        private void btnAddRoomType_Click(object sender, EventArgs e)
+        private async void btnAddRoomType_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateRoomType();
             frm.ShowDialog();
-            frmListRoomTypes_Load(null, null);
+            await _RefreshRoomTypesList();
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int RoomTypeID = (int)dgvRoomTypesList.CurrentRow.Cells[0].Value;
 
             Form frm = new frmAddUpdateRoomType(RoomTypeID);
             frm.ShowDialog();
-            frmListRoomTypes_Load(null, null);
+            await _RefreshRoomTypesList();
         }
 
     }

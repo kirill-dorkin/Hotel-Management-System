@@ -103,9 +103,22 @@ namespace Hotel_BusinessLayer
             return clsMenuItemData.DeleteMenuItem(ItemID);
         }
 
-        public static DataTable GetAllMenuItems()
+        private static DataTable _menuItemsCache;
+        private static readonly object _menuItemsLock = new object();
+
+        public static DataTable GetAllMenuItems(bool forceRefresh = false)
         {
-            return clsMenuItemData.GetAllMenuItems();
+            lock (_menuItemsLock)
+            {
+                if (_menuItemsCache == null || forceRefresh)
+                    _menuItemsCache = clsMenuItemData.GetAllMenuItems();
+                return _menuItemsCache.Copy();
+            }
+        }
+
+        public static Task<DataTable> GetAllMenuItemsAsync(bool forceRefresh = false)
+        {
+            return Task.Run(() => GetAllMenuItems(forceRefresh));
         }
     }
 }

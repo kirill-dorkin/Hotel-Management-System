@@ -24,9 +24,9 @@ namespace HotelManagementSystem.Payments
             InitializeComponent();
         }
 
-        private void _RefreshPaymentsList()
+        private async Task _RefreshPaymentsList()
         {
-            _DataView = clsPayment.GetAllPayments().DefaultView;
+            _DataView = (await clsPayment.GetAllPaymentsAsync()).DefaultView;
             dgvPaymentsList.DataSource = _DataView;
 
             cbFilterByOptions.SelectedIndex = 0;
@@ -46,9 +46,9 @@ namespace HotelManagementSystem.Payments
                 _DataView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", cbFilterByOptions.Text, txtFilterValue.Text.Trim());
         }
 
-        private void frmListPayments_Load(object sender, EventArgs e)
+        private async void frmListPayments_Load(object sender, EventArgs e)
         {
-            _RefreshPaymentsList();
+            await _RefreshPaymentsList();
         }
 
         private void dgvPaymentsList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

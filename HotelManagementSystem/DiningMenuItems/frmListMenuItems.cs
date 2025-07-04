@@ -43,9 +43,9 @@ namespace HotelManagementSystem.MenuItems
 
         }
 
-        private void _RefreshMenuItemsList()
+        private async Task _RefreshMenuItemsList()
         {
-            _DataView = clsMenuItem.GetAllMenuItems().DefaultView;
+            _DataView = (await clsMenuItem.GetAllMenuItemsAsync()).DefaultView;
             dgvMenuItemsList.DataSource = _DataView;
           
             cbItemType.Visible = false;
@@ -73,9 +73,9 @@ namespace HotelManagementSystem.MenuItems
             _RefreshMenuItems();
         }
 
-        private void frmListMenuItems_Load(object sender, EventArgs e)
+        private async void frmListMenuItems_Load(object sender, EventArgs e)
         {
-            _RefreshMenuItemsList();
+            await _RefreshMenuItemsList();
         }
 
         private void dgvMenuItemsList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -153,15 +153,15 @@ namespace HotelManagementSystem.MenuItems
 
         }
 
-        private void btnAddMenuItem_Click(object sender, EventArgs e)
+        private async void btnAddMenuItem_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateMenuItem();
             frm.Show();
-            frmListMenuItems_Load(null, null);
+            await _RefreshMenuItemsList();
 
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dgvMenuItemsList.CurrentRow == null || dgvMenuItemsList.CurrentRow.Index < 0)
             {
@@ -173,7 +173,7 @@ namespace HotelManagementSystem.MenuItems
 
             Form frm = new frmAddUpdateMenuItem(ItemID);
             frm.Show();
-            frmListMenuItems_Load(null, null);
+            await _RefreshMenuItemsList();
 
         }
     }

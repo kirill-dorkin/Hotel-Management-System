@@ -133,9 +133,22 @@ namespace Hotel_BusinessLayer
             return clsUserData.UpdateUserPassword(UserID, hashedPassword);
         }
 
-        public static DataTable GetAllUsers()
+        private static DataTable _usersCache;
+        private static readonly object _usersLock = new object();
+
+        public static DataTable GetAllUsers(bool forceRefresh = false)
         {
-            return clsUserData.GetAllUsers();
+            lock (_usersLock)
+            {
+                if (_usersCache == null || forceRefresh)
+                    _usersCache = clsUserData.GetAllUsers();
+                return _usersCache.Copy();
+            }
+        }
+
+        public static Task<DataTable> GetAllUsersAsync(bool forceRefresh = false)
+        {
+            return Task.Run(() => GetAllUsers(forceRefresh));
         }
 
         public static int GetUsersCount()
