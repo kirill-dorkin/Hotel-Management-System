@@ -237,9 +237,16 @@ namespace Hotel_DataAccessLayer
                 InsertedRowID = command.ExecuteScalar();
 
                 //Check if the new BookingID was successfully inserted
-                if (InsertedRowID != null && int.TryParse(InsertedRowID.ToString(), out int InsertedID))
+                if (InsertedRowID != null)
                 {
-                    BookingID = InsertedID;
+                    try
+                    {
+                        BookingID = Convert.ToInt32(InsertedRowID);
+                    }
+                    catch
+                    {
+                        BookingID = -1;
+                    }
                 }
 
                 // Set BookingID to -1 to indicate failure
