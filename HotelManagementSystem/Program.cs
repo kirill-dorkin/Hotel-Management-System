@@ -1,4 +1,5 @@
 ﻿using HotelManagementSystem.Login;
+using HotelManagementSystem.GlobalClasses;
 using System;
 using System.Windows.Forms;
 
@@ -15,10 +16,18 @@ namespace HotelManagementSystem
             if (Environment.OSVersion.Version.Major >= 6)
                 SetProcessDPIAware();
 
-           
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+
+            Application.Idle += (s, e) =>
+            {
+                foreach (Form frm in Application.OpenForms)
+                    clsUtility.RemoveIconAnimation(frm);
+            };
+
+            frmLogin loginForm = new frmLogin();
+            clsUtility.RemoveIconAnimation(loginForm);
+            Application.Run(loginForm);
 
         }
 

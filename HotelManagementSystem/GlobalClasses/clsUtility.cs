@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace HotelManagementSystem
 {
@@ -65,6 +66,38 @@ namespace HotelManagementSystem
 
             SourceFile = DestinationFile;
             return true;
+        }
+
+        public static void RemoveIconAnimation(Control parent)
+        {
+            foreach (Control ctrl in parent.Controls)
+            {
+                if (ctrl is Guna2Button btn)
+                {
+                    if (btn.HoverState.Image != null)
+                        btn.Image = btn.HoverState.Image;
+
+                    if (!btn.HoverState.ImageSize.IsEmpty)
+                        btn.ImageSize = btn.HoverState.ImageSize;
+
+                    btn.HoverState.Image = btn.Image;
+                    btn.HoverState.ImageSize = btn.ImageSize;
+                }
+                else if (ctrl is Guna2ImageButton imgBtn)
+                {
+                    if (imgBtn.HoverState.Image != null)
+                        imgBtn.Image = imgBtn.HoverState.Image;
+
+                    if (!imgBtn.HoverState.ImageSize.IsEmpty)
+                        imgBtn.ImageSize = imgBtn.HoverState.ImageSize;
+
+                    imgBtn.HoverState.Image = imgBtn.Image;
+                    imgBtn.HoverState.ImageSize = imgBtn.ImageSize;
+                }
+
+                if (ctrl.HasChildren)
+                    RemoveIconAnimation(ctrl);
+            }
         }
 
     }
