@@ -29,7 +29,8 @@ namespace HotelManagementSystem
 
         public static bool ValidateFloat(string Number)
         {
-            string Pattern = @"^[0-9]*(?:\.[0-9]*)?$";
+            // Accept both dot and comma as decimal separators
+            string Pattern = @"^[0-9]*(?:[\.,][0-9]*)?$";
 
             Regex regex = new Regex(Pattern);
 

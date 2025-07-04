@@ -82,7 +82,8 @@ namespace HotelManagementSystem.Rooms.RoomServices
 
             _RoomService.RoomServiceTitle = txtTitle.Text.Trim();
             _RoomService.RoomServiceDescription = txtDescription.Text.Trim();
-            _RoomService.RoomServiceFees =  Convert.ToSingle(txtFees.Text);
+            string feesText = txtFees.Text.Replace(',', '.');
+            _RoomService.RoomServiceFees =  float.Parse(feesText, System.Globalization.CultureInfo.InvariantCulture);
 
             if (_RoomService.Save())
             {
