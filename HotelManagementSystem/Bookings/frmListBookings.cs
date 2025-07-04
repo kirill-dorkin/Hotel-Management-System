@@ -36,13 +36,13 @@ namespace HotelManagementSystem.Bookings
 
         private void _FilterBookingsList()
         {
-            if (txtFilterValue.Text.Trim() == "" || cbFilterByOptions.Text == "None")
+            if (txtFilterValue.Text.Trim() == "" || cbFilterByOptions.Text == "Нет")
             {
                 _DataView.RowFilter = "";
                 return;
             }
 
-            if (cbFilterByOptions.Text != "Guest")
+            if (cbFilterByOptions.Text != "Гость")
                 _DataView.RowFilter = string.Format("[{0}] = {1}", cbFilterByOptions.Text, int.Parse(txtFilterValue.Text.Trim()));
             else
                 _DataView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", cbFilterByOptions.Text, txtFilterValue.Text.Trim());
@@ -63,7 +63,7 @@ namespace HotelManagementSystem.Bookings
 
         private void cbFilterByOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbFilterByOptions.Text == "Status")
+            if (cbFilterByOptions.Text == "Статус")
             {
                 txtFilterValue.Visible = false;
                 cbStatus.Visible = true;
@@ -73,7 +73,7 @@ namespace HotelManagementSystem.Bookings
 
             else
             {
-                txtFilterValue.Visible = (cbFilterByOptions.Text != "None");
+                txtFilterValue.Visible = (cbFilterByOptions.Text != "Нет");
                 cbStatus.Visible = false;
                 txtFilterValue.Text = "";
                 txtFilterValue.Focus();
@@ -83,7 +83,7 @@ namespace HotelManagementSystem.Bookings
 
         private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbStatus.Text == "All")
+            if (cbStatus.Text == "Все")
             {
                 _DataView.RowFilter = null;
                 return;
@@ -99,7 +99,7 @@ namespace HotelManagementSystem.Bookings
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (cbFilterByOptions.Text != "Guest")
+            if (cbFilterByOptions.Text != "Гость")
                 e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
         }
 
