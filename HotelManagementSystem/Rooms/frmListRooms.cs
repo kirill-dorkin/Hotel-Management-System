@@ -186,7 +186,7 @@ namespace HotelManagementSystem.Rooms
             }
         }
 
-        private void putUnderMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void putUnderMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int RoomID = (int)dgvRoomsList.CurrentRow.Cells[0].Value;
 
