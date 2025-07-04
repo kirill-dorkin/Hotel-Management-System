@@ -42,6 +42,10 @@ namespace HotelManagementSystem
         {
             Series serie = chart1.Series["RoomsStatus"];
 
+            // Ensure that the series always contains three points
+            while (serie.Points.Count < 3)
+                serie.Points.Add(0);
+
             serie.Points[0].SetValueY(clsRoom.GetRoomsCountPerStatus(clsRoom.enAvailabilityStatus.Booked));
             serie.Points[1].SetValueY(clsRoom.GetRoomsCountPerStatus(clsRoom.enAvailabilityStatus.Available));
             serie.Points[2].SetValueY(clsRoom.GetRoomsCountPerStatus(clsRoom.enAvailabilityStatus.UnderMaintenance));
