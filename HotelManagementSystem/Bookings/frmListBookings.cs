@@ -113,6 +113,9 @@ namespace HotelManagementSystem.Bookings
 
             checkOutToolStripMenuItem.Enabled = Booking.Status == clsBooking.enStatus.Ongoing;
 
+            editToolStripMenuItem.Enabled = true;
+            deleteToolStripMenuItem.Enabled = true;
+
         }
 
         private async void checkOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,6 +152,39 @@ namespace HotelManagementSystem.Bookings
 
             Form frm = new frmShowGuestCompanions(BookingID);
             frm.ShowDialog();
+        }
+
+        private async void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmAddUpdateBooking();
+            frm.ShowDialog();
+            await _RefreshBookingsList();
+        }
+
+        private async void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int BookingID = (int)dgvBookingsList.CurrentRow.Cells[0].Value;
+            Form frm = new frmAddUpdateBooking(BookingID);
+            frm.ShowDialog();
+            await _RefreshBookingsList();
+        }
+
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure do want to delete this booking?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            int BookingID = (int)dgvBookingsList.CurrentRow.Cells[0].Value;
+
+            if (clsBooking.DeleteBooking(BookingID))
+            {
+                MessageBox.Show("Booking deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await _RefreshBookingsList();
+            }
+            else
+            {
+                MessageBox.Show("Booking is not deleted.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     
     }
