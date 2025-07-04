@@ -185,7 +185,15 @@ namespace Hotel_BusinessLayer
 
         public static string GetBookingStatus(enStatus Status)
         {
-            return Status.ToString();
+            switch (Status)
+            {
+                case enStatus.Ongoing:
+                    return "В процессе";
+                case enStatus.Completed:
+                    return "Завершено";
+                default:
+                    return Status.ToString();
+            }
         }
 
         public string GetBookingStatus()
