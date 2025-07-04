@@ -137,6 +137,16 @@ namespace Hotel_BusinessLayer
             return clsReservationData.GetAllReservations(ReservationPersonID);
         }
 
+        public static Task<DataTable> GetAllReservationsAsync()
+        {
+            return Task.Run(() => clsReservationData.GetAllReservations());
+        }
+
+        public static Task<DataTable> GetAllReservationsAsync(int ReservationPersonID)
+        {
+            return Task.Run(() => clsReservationData.GetAllReservations(ReservationPersonID));
+        }
+
         public static bool IsRoomHasActiveReservationAt(int RoomID, DateTime ReservationDate)
         {
             return clsReservationData.IsRoomHasActiveReservationAt(RoomID, ReservationDate);

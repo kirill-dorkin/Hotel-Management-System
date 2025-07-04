@@ -156,6 +156,16 @@ namespace Hotel_BusinessLayer
             return clsBookingData.GetAllGuestBookings(GuestID);
         }
 
+        public static Task<DataTable> GetAllBookingsAsync()
+        {
+            return Task.Run(() => clsBookingData.GetAllBookings());
+        }
+
+        public static Task<DataTable> GetAllGuestBookingsAsync(int GuestID)
+        {
+            return Task.Run(() => clsBookingData.GetAllGuestBookings(GuestID));
+        }
+
         public static string GetBookingStatus(enStatus Status)
         {
             return Status.ToString();
