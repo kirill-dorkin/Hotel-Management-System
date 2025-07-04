@@ -68,12 +68,12 @@
             this.cbFilterByOptions.ForeColor = System.Drawing.Color.Black;
             this.cbFilterByOptions.ItemHeight = 35;
             this.cbFilterByOptions.Items.AddRange(new object[] {
-            "None",
-            "Room ID",
-            "Room Type",
-            "Room Number",
-            "Floor Number",
-            "Status"});
+            "Нет",
+            "ID номера",
+            "Тип номера",
+            "Номер комнаты",
+            "Номер этажа",
+            "Статус"});
             this.cbFilterByOptions.Location = new System.Drawing.Point(136, 349);
             this.cbFilterByOptions.Name = "cbFilterByOptions";
             this.cbFilterByOptions.Size = new System.Drawing.Size(231, 41);
@@ -88,7 +88,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 23;
-            this.label2.Text = "Filter By :";
+            this.label2.Text = "Фильтр по :";
             // 
             // dgvRoomsList
             // 
@@ -187,7 +187,7 @@
             this.showDetailsToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.bed__2_;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
             this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(307, 42);
-            this.showDetailsToolStripMenuItem.Text = "&Show Room Details";
+            this.showDetailsToolStripMenuItem.Text = "&Показать детали номера";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
@@ -202,7 +202,7 @@
             this.AddRoomtoolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.classroom;
             this.AddRoomtoolStripMenuItem.Name = "AddRoomtoolStripMenuItem";
             this.AddRoomtoolStripMenuItem.Size = new System.Drawing.Size(307, 42);
-            this.AddRoomtoolStripMenuItem.Text = "Add &New Room";
+            this.AddRoomtoolStripMenuItem.Text = "Добавить &номер";
             this.AddRoomtoolStripMenuItem.Click += new System.EventHandler(this.AddRoomtoolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
@@ -222,7 +222,7 @@
             this.deleteToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.classroom__1_;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(307, 42);
-            this.deleteToolStripMenuItem.Text = "&Delete";
+            this.deleteToolStripMenuItem.Text = "&Удалить";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
@@ -237,7 +237,7 @@
             this.putUnderMaintenanceToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.technician;
             this.putUnderMaintenanceToolStripMenuItem.Name = "putUnderMaintenanceToolStripMenuItem";
             this.putUnderMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(307, 42);
-            this.putUnderMaintenanceToolStripMenuItem.Text = "Put Under Maintenance";
+            this.putUnderMaintenanceToolStripMenuItem.Text = "Отправить на обслуживание";
             this.putUnderMaintenanceToolStripMenuItem.Click += new System.EventHandler(this.putUnderMaintenanceToolStripMenuItem_Click);
             // 
             // releaseToolStripMenuItem
@@ -247,7 +247,7 @@
             this.releaseToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.tick_mark;
             this.releaseToolStripMenuItem.Name = "releaseToolStripMenuItem";
             this.releaseToolStripMenuItem.Size = new System.Drawing.Size(307, 42);
-            this.releaseToolStripMenuItem.Text = "Release From Maintenance";
+            this.releaseToolStripMenuItem.Text = "Снять с обслуживания";
             this.releaseToolStripMenuItem.Click += new System.EventHandler(this.releaseToolStripMenuItem_Click);
             // 
             // comboBox
@@ -277,7 +277,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(337, 59);
             this.label1.TabIndex = 20;
-            this.label1.Text = "Manage Rooms";
+            this.label1.Text = "Управление номерами";
             // 
             // guna2BorderlessForm1
             // 
@@ -309,7 +309,7 @@
             this.txtFilterValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFilterValue.Name = "txtFilterValue";
             this.txtFilterValue.PasswordChar = '\0';
-            this.txtFilterValue.PlaceholderText = "Search ...";
+            this.txtFilterValue.PlaceholderText = "Поиск ...";
             this.txtFilterValue.SelectedText = "";
             this.txtFilterValue.Size = new System.Drawing.Size(315, 50);
             this.txtFilterValue.TabIndex = 26;

@@ -54,7 +54,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(180, 45);
             this.btnClose.TabIndex = 169;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Закрыть";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblTitle
@@ -66,7 +66,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(431, 46);
             this.lblTitle.TabIndex = 168;
-            this.lblTitle.Text = "RoomService Information";
+            this.lblTitle.Text = "Информация о сервисе";
             // 
             // ctrlRoomServiceInfo1
             // 
@@ -88,7 +88,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmShowRoomServiceInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Show Room Service Info";
+            this.Text = "Информация о сервисе";
             this.Load += new System.EventHandler(this.frmShowRoomServiceInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

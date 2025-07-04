@@ -57,7 +57,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(384, 46);
             this.lblTitle.TabIndex = 161;
-            this.lblTitle.Text = "Add New RoomService";
+            this.lblTitle.Text = "Добавить сервис";
             // 
             // label3
             // 
@@ -67,7 +67,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 23);
             this.label3.TabIndex = 196;
-            this.label3.Text = "Title :";
+            this.label3.Text = "Название :";
             // 
             // txtTitle
             // 
@@ -123,7 +123,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 23);
             this.label1.TabIndex = 202;
-            this.label1.Text = "Fees :";
+            this.label1.Text = "Стоимость :";
             // 
             // txtFees
             // 
@@ -158,7 +158,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 23);
             this.label2.TabIndex = 205;
-            this.label2.Text = "Description :";
+            this.label2.Text = "Описание :";
             // 
             // txtDescription
             // 
@@ -258,7 +258,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(180, 45);
             this.btnSave.TabIndex = 194;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Сохранить";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
@@ -280,7 +280,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(180, 45);
             this.btnClose.TabIndex = 193;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Закрыть";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // errorProvider1
@@ -311,7 +311,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddUpdateRoomService";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add / Update Room Service Info";
+            this.Text = "Добавить / обновить сервис";
             this.Load += new System.EventHandler(this.frmUpdateRoomService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

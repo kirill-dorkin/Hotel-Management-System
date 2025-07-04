@@ -17,7 +17,7 @@ namespace HotelManagementSystem.Rooms
     {
         private DataView _DataView;
 
-        private string []_RoomStatusFilters =  {"All","Available", "Booked", "Under Maintenance" };
+        private string []_RoomStatusFilters =  {"Все","Свободен", "Занят", "На обслуживании" };
 
 
         public frmListRooms()
@@ -40,7 +40,7 @@ namespace HotelManagementSystem.Rooms
         {
             comboBox.Items.Clear();
 
-            comboBox.Items.Add("All");
+            comboBox.Items.Add("Все");
 
             foreach (DataRow row in clsRoomType.GetAllRoomTypes().Rows)
             {
@@ -125,7 +125,7 @@ namespace HotelManagementSystem.Rooms
  
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox.Text == "All")
+            if (comboBox.Text == "Все")
             {
                 _DataView.RowFilter = null;
                 return;
@@ -171,20 +171,20 @@ namespace HotelManagementSystem.Rooms
         {
             int RoomID = (int)dgvRoomsList.CurrentRow.Cells[0].Value;
 
-            if (MessageBox.Show($"Are you sure you want to delete Room with RoomID = {RoomID} ?", "Confirmation",
+            if (MessageBox.Show($"Вы уверены, что хотите удалить номер с ID = {RoomID}?", "Подтверждение",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
             if(clsRoom.DeleteRoom(RoomID))
             {
-                MessageBox.Show($"Room with RoomID = {RoomID} was deleted successfully !", "Information",
+                MessageBox.Show($"Номер с ID = {RoomID} успешно удален!", "Информация",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await _RefreshRoomsList();
             }
 
             else
             {
-                MessageBox.Show($"Delete operation failed. The selected Room cannot be deleted due to existing data dependencies.!", "Error",
+                MessageBox.Show($"Не удалось удалить номер. Невозможно удалить выбранный номер из-за существующих зависимостей данных.", "Ошибка",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -193,7 +193,7 @@ namespace HotelManagementSystem.Rooms
         {
             int RoomID = (int)dgvRoomsList.CurrentRow.Cells[0].Value;
 
-            if (MessageBox.Show($"Are you sure you want to put this Room with RoomID = {RoomID} under maintenance ?", "Confirmation",
+            if (MessageBox.Show($"Вы уверены, что хотите отправить номер с ID = {RoomID} на обслуживание?", "Подтверждение",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
@@ -203,14 +203,14 @@ namespace HotelManagementSystem.Rooms
             {
                 if (room.SetUnderMaintenance())
                 {
-                    MessageBox.Show($"Room with RoomID = {RoomID} was put under maintenance successfully !", "Information",
+                    MessageBox.Show($"Номер с ID = {RoomID} успешно отправлен на обслуживание!", "Информация",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await _RefreshRoomsList();
                 }
 
                 else
                 {
-                    MessageBox.Show($"Error : Failed to put the room under maintenance !", "Error",
+                    MessageBox.Show($"Ошибка: не удалось отправить номер на обслуживание!", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -221,7 +221,7 @@ namespace HotelManagementSystem.Rooms
         {
             int RoomID = (int)dgvRoomsList.CurrentRow.Cells[0].Value;
 
-            if (MessageBox.Show($"Are you sure you want to release this Room with RoomID = {RoomID} from maintenance ?", "Confirmation",
+            if (MessageBox.Show($"Вы уверены, что хотите вывести номер с ID = {RoomID} из обслуживания?", "Подтверждение",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
@@ -231,14 +231,14 @@ namespace HotelManagementSystem.Rooms
             {
                 if (room.SetAvailable())
                 {
-                    MessageBox.Show($"Room with RoomID = {RoomID} was released from maintenance successfully !", "Information",
+                    MessageBox.Show($"Номер с ID = {RoomID} успешно выведен из обслуживания!", "Информация",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await _RefreshRoomsList();
                 }
 
                 else
                 {
-                    MessageBox.Show($"Error : Failed to release the room from maintenance !", "Error",
+                    MessageBox.Show($"Ошибка: не удалось вывести номер из обслуживания!", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

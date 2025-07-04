@@ -98,7 +98,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(87, 23);
             this.label14.TabIndex = 163;
-            this.label14.Text = "Room ID :";
+            this.label14.Text = "ID номера :";
             // 
             // lblTitle
             // 
@@ -109,7 +109,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(270, 46);
             this.lblTitle.TabIndex = 162;
-            this.lblTitle.Text = "Add New Room";
+            this.lblTitle.Text = "Добавить номер";
             // 
             // guna2GroupBox1
             // 
@@ -258,7 +258,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 23);
             this.label8.TabIndex = 217;
-            this.label8.Text = "Notes : ";
+            this.label8.Text = "Заметки :";
             // 
             // txtNotes
             // 
@@ -309,7 +309,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(126, 23);
             this.label7.TabIndex = 214;
-            this.label7.Text = "Is Pet Friendly :";
+            this.label7.Text = "Можно с питомцами :";
             // 
             // tsIsPetFriendly
             // 
@@ -334,7 +334,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(169, 23);
             this.label6.TabIndex = 212;
-            this.label6.Text = "Is Smoking Allowed :";
+            this.label6.Text = "Можно курить :";
             // 
             // cbStatus
             // 
@@ -375,7 +375,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 23);
             this.label5.TabIndex = 208;
-            this.label5.Text = "Status :";
+            this.label5.Text = "Статус :";
             // 
             // nudFloorNumber
             // 
@@ -412,7 +412,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 23);
             this.label4.TabIndex = 205;
-            this.label4.Text = "Floor :";
+            this.label4.Text = "Этаж :";
             // 
             // label2
             // 
@@ -422,7 +422,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 203;
-            this.label2.Text = "Room Size :";
+            this.label2.Text = "Размер номера :";
             // 
             // txtRoomSize
             // 
@@ -458,7 +458,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 23);
             this.label1.TabIndex = 201;
-            this.label1.Text = "Room Number :";
+            this.label1.Text = "Номер комнаты :";
             // 
             // txtRoomNumber
             // 
@@ -494,7 +494,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 23);
             this.label3.TabIndex = 199;
-            this.label3.Text = "Room Type :";
+            this.label3.Text = "Тип номера :";
             // 
             // btnSave
             // 
@@ -516,7 +516,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(180, 45);
             this.btnSave.TabIndex = 159;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Сохранить";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
@@ -538,7 +538,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(180, 45);
             this.btnClose.TabIndex = 158;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Закрыть";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // errorProvider1
@@ -559,7 +559,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddUpdateRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Update Room";
+            this.Text = "Добавить/обновить номер";
             this.Load += new System.EventHandler(this.frmAddUpdateRoom_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();

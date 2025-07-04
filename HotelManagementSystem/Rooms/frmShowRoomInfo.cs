@@ -36,7 +36,7 @@ namespace HotelManagementSystem.Rooms
         {
             if (!clsRoom.IsRoomExist(RoomID))
             {
-                MessageBox.Show($"No Room with ID = {RoomID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Номер с ID = {RoomID} не найден!", "Не найдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }
@@ -48,7 +48,7 @@ namespace HotelManagementSystem.Rooms
         {
             if (!clsRoom.IsRoomExist(RoomNumber))
             {
-                MessageBox.Show($"No Room with Number = {RoomNumber} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Номер с номером {RoomNumber} не найден!", "Не найдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }

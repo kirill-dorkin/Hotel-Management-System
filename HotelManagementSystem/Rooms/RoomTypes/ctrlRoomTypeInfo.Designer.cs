@@ -78,7 +78,7 @@
             this.gb.Name = "gb";
             this.gb.Size = new System.Drawing.Size(911, 274);
             this.gb.TabIndex = 4;
-            this.gb.Text = "Room Type Info";
+            this.gb.Text = "Информация о типе номера";
             // 
             // lblRoomCountPerRoomType
             // 
@@ -111,7 +111,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 23);
             this.label3.TabIndex = 206;
-            this.label3.Text = "Rooms Count : ";
+            this.label3.Text = "Количество номеров :";
             // 
             // guna2ImageButton4
             // 
@@ -134,7 +134,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(105, 23);
             this.label8.TabIndex = 175;
-            this.label8.Text = "Description :";
+            this.label8.Text = "Описание :";
             // 
             // lblRoomTypeCapacity
             // 
@@ -167,7 +167,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 23);
             this.label6.TabIndex = 169;
-            this.label6.Text = "Capacity :";
+            this.label6.Text = "Вместимость :";
             // 
             // lblRoomTypeTitle
             // 
@@ -200,7 +200,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 23);
             this.label2.TabIndex = 166;
-            this.label2.Text = "Room Type Title :";
+            this.label2.Text = "Название типа номера :";
             // 
             // lblRoomTypeID
             // 
@@ -233,7 +233,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(128, 23);
             this.label14.TabIndex = 163;
-            this.label14.Text = "Room Type ID :";
+            this.label14.Text = "ID типа номера :";
             // 
             // label9
             // 
@@ -243,7 +243,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(134, 23);
             this.label9.TabIndex = 172;
-            this.label9.Text = "Per-Night Price :";
+            this.label9.Text = "Цена за ночь :";
             // 
             // guna2ImageButton2
             // 

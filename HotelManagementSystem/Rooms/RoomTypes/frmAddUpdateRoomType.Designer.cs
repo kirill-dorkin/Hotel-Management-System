@@ -63,7 +63,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(345, 46);
             this.lblTitle.TabIndex = 195;
-            this.lblTitle.Text = "Add New RoomType";
+            this.lblTitle.Text = "Добавить тип номера";
             // 
             // guna2GroupBox1
             // 
@@ -108,7 +108,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(180, 45);
             this.btnSave.TabIndex = 159;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Сохранить";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
@@ -130,7 +130,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(180, 45);
             this.btnClose.TabIndex = 158;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Закрыть";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // guna2ImageButton4
@@ -154,7 +154,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(105, 23);
             this.label8.TabIndex = 201;
-            this.label8.Text = "Description :";
+            this.label8.Text = "Описание :";
             // 
             // guna2ImageButton3
             // 
@@ -177,7 +177,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 23);
             this.label6.TabIndex = 199;
-            this.label6.Text = "Capacity :";
+            this.label6.Text = "Вместимость :";
             // 
             // txtDescription
             // 
@@ -224,7 +224,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(134, 23);
             this.label9.TabIndex = 206;
-            this.label9.Text = "Per-Night Price :";
+            this.label9.Text = "Цена за ночь :";
             // 
             // guna2ImageButton1
             // 
@@ -247,7 +247,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 23);
             this.label2.TabIndex = 204;
-            this.label2.Text = "Room Type Title :";
+            this.label2.Text = "Название типа номера :";
             // 
             // label1
             // 
@@ -257,7 +257,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 23);
             this.label1.TabIndex = 199;
-            this.label1.Text = "Room Type ID :";
+            this.label1.Text = "ID типа номера :";
             // 
             // guna2ImageButton6
             // 
@@ -378,7 +378,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddUpdateRoomType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add / Update RoomType";
+            this.Text = "Добавить / обновить тип номера";
             this.Load += new System.EventHandler(this.frmAddUpdateRoomType_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();

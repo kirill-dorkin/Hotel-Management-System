@@ -40,7 +40,7 @@ namespace HotelManagementSystem.Rooms.RoomTypes
 
             if (_RoomType == null)
             {
-                MessageBox.Show($"No RoomType with ID = {_RoomTypeID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Тип комнаты с ID = {_RoomTypeID} не найден!", "Не найдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }
@@ -80,7 +80,7 @@ namespace HotelManagementSystem.Rooms.RoomTypes
         {
             if (!ValidateChildren())
             {
-                MessageBox.Show("Some fields are not valid , please put the mouse over the red icon(s) to see the error", "Validation Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Некоторые поля заполнены неверно, наведите мышь на красные иконки, чтобы увидеть ошибку", "Ошибка проверки!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -92,7 +92,7 @@ namespace HotelManagementSystem.Rooms.RoomTypes
 
             if (_RoomType.Save())
             {
-                MessageBox.Show("RoomType Data saved successfully !", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Данные типа комнаты успешно сохранены!", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 _Mode = enMode.Update;
 
@@ -105,7 +105,7 @@ namespace HotelManagementSystem.Rooms.RoomTypes
 
             else
             {
-                MessageBox.Show("Error: Data is not saved successfully.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка: данные не сохранены.", "Неудача", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -120,14 +120,14 @@ namespace HotelManagementSystem.Rooms.RoomTypes
             if (string.IsNullOrEmpty(txtRoomTypeTitle.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtRoomTypeTitle, "This field is required ! cannot be left blank");
+                errorProvider1.SetError(txtRoomTypeTitle, "Это поле обязательно и не может быть пустым");
                 return;
             }
 
             else if (_RoomType.RoomTypeTitle != txtRoomTypeTitle.Text && clsRoomType.IsRoomTypeExist(txtRoomTypeTitle.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtRoomTypeTitle, "This RoomType already exists !");
+                errorProvider1.SetError(txtRoomTypeTitle, "Такой тип комнаты уже существует!");
                 return;
             }
 
@@ -142,7 +142,7 @@ namespace HotelManagementSystem.Rooms.RoomTypes
             if (!clsValidation.IsNumber(txtPerNightPrice.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtPerNightPrice, "Invalid Number !");
+                errorProvider1.SetError(txtPerNightPrice, "Неверное число!");
                 return;
             }
 

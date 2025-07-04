@@ -138,7 +138,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(64, 23);
             this.label12.TabIndex = 218;
-            this.label12.Text = "Notes :";
+            this.label12.Text = "Заметки :";
             // 
             // lblIsPetFriendly
             // 
@@ -171,7 +171,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(127, 23);
             this.label10.TabIndex = 215;
-            this.label10.Text = "Is Pet-Friendly :";
+            this.label10.Text = "Можно с питомцами :";
             // 
             // lblRoomStatus
             // 
@@ -204,7 +204,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 23);
             this.label7.TabIndex = 212;
-            this.label7.Text = "Status :";
+            this.label7.Text = "Статус :";
             // 
             // lblRoomSize
             // 
@@ -237,7 +237,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 209;
-            this.label4.Text = "Room Size :";
+            this.label4.Text = "Размер номера :";
             // 
             // lblIsSmokingAllowed
             // 
@@ -270,7 +270,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(169, 23);
             this.label3.TabIndex = 206;
-            this.label3.Text = "Is Smoking Allowed :";
+            this.label3.Text = "Можно курить :";
             // 
             // lblRoomFloor
             // 
@@ -303,7 +303,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(109, 23);
             this.label9.TabIndex = 172;
-            this.label9.Text = "Room Floor :";
+            this.label9.Text = "Этаж номера :";
             // 
             // lblRoomTypeID
             // 
@@ -336,7 +336,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(128, 23);
             this.label6.TabIndex = 169;
-            this.label6.Text = "Room Type ID :";
+            this.label6.Text = "ID типа номера :";
             // 
             // lblRoomNumber
             // 
@@ -369,7 +369,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 23);
             this.label2.TabIndex = 166;
-            this.label2.Text = "Room Number :";
+            this.label2.Text = "Номер комнаты :";
             // 
             // lblRoomID
             // 
@@ -402,7 +402,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(87, 23);
             this.label14.TabIndex = 163;
-            this.label14.Text = "Room ID :";
+            this.label14.Text = "ID номера :";
             // 
             // ctrlRoomInfo
             // 

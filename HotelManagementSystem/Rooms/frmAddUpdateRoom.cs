@@ -44,7 +44,7 @@ namespace HotelManagementSystem.Rooms
             //Check if the room was found
             if (_Room == null)
             {
-                MessageBox.Show($"No Room with ID = {_RoomID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Номер с ID = {_RoomID} не найден!", "Не найдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //If no room is found with this roomID , close the form
                 this.Close();
                 return;
@@ -72,7 +72,7 @@ namespace HotelManagementSystem.Rooms
             cbRoomTypes.Enabled = false;
 
             if (_Room.AvailabilityStatus != clsRoom.enAvailabilityStatus.Booked)
-                cbStatus.Items.Remove("Booked");
+                cbStatus.Items.Remove("Занят");
 
             else
                 cbStatus.Enabled = false;
@@ -82,13 +82,13 @@ namespace HotelManagementSystem.Rooms
         {
             switch(cbStatus.Text)
             {
-                case "Available":
+                case "Свободен":
                     return clsRoom.enAvailabilityStatus.Available;
 
-                case "Booked":
+                case "Занят":
                     return clsRoom.enAvailabilityStatus.Booked;
 
-                case "Under-Maintenance":
+                case "На обслуживании":
                     return clsRoom.enAvailabilityStatus.UnderMaintenance;
             }
 
@@ -108,9 +108,9 @@ namespace HotelManagementSystem.Rooms
 
             if (_Room.Save())
             {
-                MessageBox.Show($"Room Data Saved Successfully !", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Данные номера успешно сохранены!", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                lblTitle.Text = "Update Room";
+                lblTitle.Text = "Обновить номер";
 
                 _RoomID = _Room.RoomID;
                 lblRoomID.Text = _RoomID.ToString();
@@ -120,7 +120,7 @@ namespace HotelManagementSystem.Rooms
             }
             else
             {
-                MessageBox.Show("Error: Data Is not Saved Successfully!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка: данные не сохранены.", "Неудача", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -135,9 +135,9 @@ namespace HotelManagementSystem.Rooms
 
         private void _FillRoomStatusInComboBox()
         {
-            cbStatus.Items.Add("Available");
-            cbStatus.Items.Add("Booked"); 
-            cbStatus.Items.Add("Under-Maintenance");
+            cbStatus.Items.Add("Свободен");
+            cbStatus.Items.Add("Занят");
+            cbStatus.Items.Add("На обслуживании");
         }
 
         private void _ResetDefaultValues()
@@ -147,14 +147,14 @@ namespace HotelManagementSystem.Rooms
 
             if (_Mode == enMode.AddNew)
             {
-                lblTitle.Text = "Add New Room";
-                cbStatus.Items.Remove("Booked");
+                lblTitle.Text = "Добавить номер";
+                cbStatus.Items.Remove("Занят");
                 _Room = new clsRoom();
             }
 
             else
             {
-                lblTitle.Text = "Update Room";
+                lblTitle.Text = "Обновить номер";
             }
 
             //reset the text value to empty for all the textboxes
@@ -171,7 +171,7 @@ namespace HotelManagementSystem.Rooms
             nudFloorNumber.Value = 1;
 
             //set the default room status to available
-            cbStatus.SelectedIndex = cbStatus.FindString("Available");
+            cbStatus.SelectedIndex = cbStatus.FindString("Свободен");
 
             //set the default smoking availability to forbidden
             tsIsSmokingAllowed.Checked = false;
@@ -202,7 +202,7 @@ namespace HotelManagementSystem.Rooms
         {
             if (!ValidateChildren())
             {
-                MessageBox.Show("Some fields are not valid , please put the mouse over the red icon(s) to see the error", "Validation Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Некоторые поля заполнены неверно, наведите мышь на красные иконки, чтобы увидеть ошибку", "Ошибка проверки!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -214,14 +214,14 @@ namespace HotelManagementSystem.Rooms
             if (string.IsNullOrEmpty(txtRoomNumber.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtRoomNumber, "This field is required ! cannot be left blank");
+                errorProvider1.SetError(txtRoomNumber, "Это поле обязательно и не может быть пустым");
                 return;
             }
 
             else if (_Room.RoomNumber != txtRoomNumber.Text.Trim() && clsRoom.IsRoomExist(txtRoomNumber.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtRoomNumber, "This number is already taked by another existing room");
+                errorProvider1.SetError(txtRoomNumber, "Такой номер уже занят другим существующим номером");
                 return;
             }
 
@@ -236,14 +236,14 @@ namespace HotelManagementSystem.Rooms
             if (string.IsNullOrEmpty(txtRoomSize.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtRoomSize, "This field is required ! cannot be left blank");
+                errorProvider1.SetError(txtRoomSize, "Это поле обязательно и не может быть пустым");
                 return;
             }
 
             else if (int.Parse(txtRoomSize.Text.Trim()) < 10)
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtRoomSize, "Enter a room size greater than or equal to 10.");
+                errorProvider1.SetError(txtRoomSize, "Введите размер комнаты не меньше 10");
                 return;
             }
 
