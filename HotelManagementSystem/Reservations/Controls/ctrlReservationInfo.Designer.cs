@@ -417,7 +417,7 @@
             this.llbShowPersonInfo.Size = new System.Drawing.Size(144, 23);
             this.llbShowPersonInfo.TabIndex = 261;
             this.llbShowPersonInfo.TabStop = true;
-            this.llbShowPersonInfo.Text = "Show Person Info";
+            this.llbShowPersonInfo.Text = "Показать данные человека";
             this.llbShowPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbShowPersonInfo_LinkClicked);
             // 
             // llbShowRoomInfo
@@ -429,7 +429,7 @@
             this.llbShowRoomInfo.Size = new System.Drawing.Size(139, 23);
             this.llbShowRoomInfo.TabIndex = 262;
             this.llbShowRoomInfo.TabStop = true;
-            this.llbShowRoomInfo.Text = "Show Room Info";
+            this.llbShowRoomInfo.Text = "Показать информацию о номере";
             this.llbShowRoomInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbShowRoomInfo_LinkClicked);
             // 
             // ctrlReservationInfo

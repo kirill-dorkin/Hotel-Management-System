@@ -43,13 +43,13 @@ namespace HotelManagementSystem.Users
             if (_Mode == enMode.AddNew)
             {
                 _User = new clsUser();
-                lblTitle.Text = "Add New User";
+                lblTitle.Text = "Добавить пользователя";
                 ctrlPersonCardWithFilter1.FilterFocus();
             }
 
             else
             {
-                lblTitle.Text = "Update User";
+                lblTitle.Text = "Обновление пользователя";
             }
 
             this.Text = lblTitle.Text;
@@ -75,7 +75,7 @@ namespace HotelManagementSystem.Users
             //check the if the user exists , if not close the form 
             if (_User == null)
             {
-                MessageBox.Show($"No User with ID = {_UserID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);             
+                MessageBox.Show($"Пользователь с идентификатором {_UserID} не найден!", "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }
@@ -181,7 +181,7 @@ namespace HotelManagementSystem.Users
 
             if (!ValidateChildren())
             {
-                MessageBox.Show("Some fields are not valid , please put the mouse over the red icon(s) to see the error", "Validation Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Некоторые поля заполнены некорректно. Наведите курсор на красные значки, чтобы увидеть описание ошибки", "Ошибка проверки", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -192,9 +192,9 @@ namespace HotelManagementSystem.Users
 
             if(_User.Save())
             {
-                MessageBox.Show("User Data saved successfully !", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Данные пользователя успешно сохранены!", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
                
-                lblTitle.Text = "Update User";
+                lblTitle.Text = "Обновление пользователя";
 
                 lblUserID.Text = _User.UserID.ToString();
 
@@ -205,7 +205,7 @@ namespace HotelManagementSystem.Users
 
             else
             {
-                MessageBox.Show("Error: Data is not saved successfully.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка: данные не были сохранены.", "Сбой", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

@@ -66,7 +66,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(317, 46);
             this.lblTitle.TabIndex = 163;
-            this.lblTitle.Text = "Room Information";
+            this.lblTitle.Text = "Информация о номере";
             // 
             // ctrlRoomInfo1
             // 
@@ -88,7 +88,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmShowRoomInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Show Room Info";
+            this.Text = "Информация о номере";
             this.ResumeLayout(false);
             this.PerformLayout();
 

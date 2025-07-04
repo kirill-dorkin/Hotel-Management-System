@@ -106,7 +106,7 @@
             this.gb.Name = "gb";
             this.gb.Size = new System.Drawing.Size(921, 274);
             this.gb.TabIndex = 5;
-            this.gb.Text = "Room Info";
+            this.gb.Text = "Информация о номере";
             // 
             // lblNotes
             // 
