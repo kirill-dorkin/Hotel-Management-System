@@ -62,7 +62,7 @@ namespace HotelManagementSystem.Users.Controls
             ctrlPersonCard1.LoadPersonData(_User.PersonID);
             lblUserID.Text = _UserID.ToString();
             lblUsername.Text = _User.UserName;
-            lblIsActive.Text = _User.IsActive ? "Yes" : "No";
+            lblIsActive.Text = _User.IsActive ? "Да" : "Нет";
         }
 
     }

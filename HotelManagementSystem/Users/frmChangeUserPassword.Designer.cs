@@ -76,7 +76,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(158, 23);
             this.label4.TabIndex = 186;
-            this.label4.Text = "Confirm Password :";
+            this.label4.Text = "Подтвердите пароль:";
             // 
             // txtConfirmPassword
             // 
@@ -124,7 +124,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 23);
             this.label3.TabIndex = 183;
-            this.label3.Text = "Current Password :";
+            this.label3.Text = "Текущий пароль:";
             // 
             // txtCurrentPassword
             // 
@@ -172,7 +172,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 23);
             this.label1.TabIndex = 189;
-            this.label1.Text = "New Password :";
+            this.label1.Text = "Новый пароль:";
             // 
             // txtNewPassword
             // 
@@ -219,7 +219,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(180, 45);
             this.btnSave.TabIndex = 192;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Сохранить";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
@@ -241,7 +241,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(180, 45);
             this.btnClose.TabIndex = 191;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Закрыть";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // gbUserPassword
@@ -261,7 +261,7 @@
             this.gbUserPassword.Name = "gbUserPassword";
             this.gbUserPassword.Size = new System.Drawing.Size(921, 174);
             this.gbUserPassword.TabIndex = 193;
-            this.gbUserPassword.Text = "User Password";
+            this.gbUserPassword.Text = "Пароль пользователя";
             // 
             // errorProvider1
             // 
@@ -280,7 +280,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmChangeUserPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Change User Password";
+            this.Text = "Изменить пароль пользователя";
             this.Load += new System.EventHandler(this.frmChangePassword_Load);
             this.gbUserPassword.ResumeLayout(false);
             this.gbUserPassword.PerformLayout();

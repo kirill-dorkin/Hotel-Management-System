@@ -63,7 +63,7 @@
             this.gbLoginInformation.Name = "gbLoginInformation";
             this.gbLoginInformation.Size = new System.Drawing.Size(921, 112);
             this.gbLoginInformation.TabIndex = 3;
-            this.gbLoginInformation.Text = "Login Information";
+            this.gbLoginInformation.Text = "Информация для входа";
             // 
             // label12
             // 
@@ -73,7 +73,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(75, 23);
             this.label12.TabIndex = 160;
-            this.label12.Text = "User ID :";
+            this.label12.Text = "ID пользователя:";
             // 
             // lblUserID
             // 
@@ -103,7 +103,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 23);
             this.label2.TabIndex = 164;
-            this.label2.Text = "User Name :";
+            this.label2.Text = "Имя пользователя:";
             // 
             // lblIsActive
             // 
@@ -123,7 +123,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 23);
             this.label4.TabIndex = 166;
-            this.label4.Text = "Is Active :";
+            this.label4.Text = "Активен:";
             // 
             // ctrlUserCard
             // 
