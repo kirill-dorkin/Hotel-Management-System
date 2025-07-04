@@ -176,7 +176,7 @@ namespace HotelManagementSystem.Rooms
             {
                 MessageBox.Show($"Room with RoomID = {RoomID} was deleted successfully !", "Information",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frmListRooms_Load(null, null);
+                await _RefreshRoomsList();
             }
 
             else
@@ -214,7 +214,7 @@ namespace HotelManagementSystem.Rooms
             
         }
 
-        private void releaseToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void releaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int RoomID = (int)dgvRoomsList.CurrentRow.Cells[0].Value;
 
@@ -230,7 +230,7 @@ namespace HotelManagementSystem.Rooms
                 {
                     MessageBox.Show($"Room with RoomID = {RoomID} was released from maintenance successfully !", "Information",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmListRooms_Load(null, null);
+                    await _RefreshRoomsList();
                 }
 
                 else
