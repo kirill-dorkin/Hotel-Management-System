@@ -130,12 +130,18 @@ namespace Hotel_BusinessLayer
                     if (_AddNewBooking())
                     {
                         _Mode = enMode.Update;
+                        _bookingsCache = null;
                         return true;
                     }
                     return false;
 
                 case enMode.Update:
-                    return _UpdateBooking();
+                    if (_UpdateBooking())
+                    {
+                        _bookingsCache = null;
+                        return true;
+                    }
+                    return false;
 
             }
             return false;
@@ -143,12 +149,23 @@ namespace Hotel_BusinessLayer
 
         public static bool DeleteBooking(int BookingID)
         {
-            return clsBookingData.DeleteBooking(BookingID);
+            var result = clsBookingData.DeleteBooking(BookingID);
+            if (result)
+                _bookingsCache = null;
+            return result;
         }
 
-        public static DataTable GetAllBookings()
+        private static DataTable _bookingsCache;
+        private static readonly object _bookingsLock = new object();
+
+        public static DataTable GetAllBookings(bool forceRefresh = false)
         {
-            return clsBookingData.GetAllBookings();
+            lock (_bookingsLock)
+            {
+                if (_bookingsCache == null || forceRefresh)
+                    _bookingsCache = clsBookingData.GetAllBookings();
+                return _bookingsCache.Copy();
+            }
         }
 
         public static DataTable GetAllGuestBookings(int GuestID)
@@ -156,9 +173,9 @@ namespace Hotel_BusinessLayer
             return clsBookingData.GetAllGuestBookings(GuestID);
         }
 
-        public static Task<DataTable> GetAllBookingsAsync()
+        public static Task<DataTable> GetAllBookingsAsync(bool forceRefresh = false)
         {
-            return Task.Run(() => clsBookingData.GetAllBookings());
+            return Task.Run(() => GetAllBookings(forceRefresh));
         }
 
         public static Task<DataTable> GetAllGuestBookingsAsync(int GuestID)
