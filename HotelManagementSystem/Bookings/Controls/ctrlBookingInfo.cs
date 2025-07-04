@@ -68,7 +68,7 @@ namespace HotelManagementSystem.Bookings.Controls
 
             if(_Booking == null)
             {
-                MessageBox.Show($"No Booking with ID = {BookingID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Бронирование с ID = {BookingID} не найдено!", "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ResetBookingInfo();
                 return;
             }
@@ -83,7 +83,7 @@ namespace HotelManagementSystem.Bookings.Controls
 
             if (_Booking == null)
             {
-                MessageBox.Show($"No Booking with ReservationID = {ReservationID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Бронирование с ID брони = {ReservationID} не найдено!", "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ResetBookingInfo();
                 return;
             }

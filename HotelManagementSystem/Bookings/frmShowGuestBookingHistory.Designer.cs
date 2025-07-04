@@ -80,7 +80,7 @@
             this.tpBookings.Padding = new System.Windows.Forms.Padding(3);
             this.tpBookings.Size = new System.Drawing.Size(887, 243);
             this.tpBookings.TabIndex = 0;
-            this.tpBookings.Text = "Bookings History";
+            this.tpBookings.Text = "История бронирований";
             // 
             // dgvBookingsList
             // 
@@ -163,7 +163,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(297, 46);
             this.lblTitle.TabIndex = 285;
-            this.lblTitle.Text = "Bookings History";
+            this.lblTitle.Text = "История бронирований";
             // 
             // ctrlPersonCard1
             // 
@@ -192,7 +192,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(180, 45);
             this.btnClose.TabIndex = 287;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Закрыть";
             // 
             // frmShowGuestBookingHistory
             // 
@@ -207,7 +207,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmShowGuestBookingHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bookings History";
+            this.Text = "История бронирований";
             this.Load += new System.EventHandler(this.frmShowGuestBookingsHistory_Load);
             this.tcBookings.ResumeLayout(false);
             this.tpBookings.ResumeLayout(false);

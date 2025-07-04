@@ -27,7 +27,7 @@ namespace HotelManagementSystem.Bookings
 
             if (Guest == null)
             {
-                MessageBox.Show($"No Guest with ID = {_GuestID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Гость с ID = {_GuestID} не найден!", "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }

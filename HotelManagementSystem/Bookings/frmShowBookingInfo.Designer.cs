@@ -54,7 +54,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(180, 45);
             this.btnClose.TabIndex = 164;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Закрыть";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblTitle
@@ -66,7 +66,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(358, 46);
             this.lblTitle.TabIndex = 163;
-            this.lblTitle.Text = "Booking Information";
+            this.lblTitle.Text = "Информация о бронировании";
             // 
             // ctrlBookingInfo1
             // 
@@ -88,7 +88,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmShowBookingInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Show Booking Info";
+            this.Text = "Информация о бронировании";
             this.Load += new System.EventHandler(this.frmShowBookingInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
