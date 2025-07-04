@@ -135,7 +135,7 @@ namespace HotelManagementSystem
 
         private async void frmMain_Load(object sender, EventArgs e)
         {
-            _ = clsDataCache.PreloadAsync();
+            await clsDataCache.PreloadAsync();
             _EnsureForm(ref _frmDashboard);
             _EnsureForm(ref _frmReservations);
             _EnsureForm(ref _frmBookings);
