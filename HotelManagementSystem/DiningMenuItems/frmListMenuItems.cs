@@ -85,8 +85,13 @@ namespace HotelManagementSystem.MenuItems
                 column.Width = 180;
             }
 
-            dgvMenuItemsList.Columns[dgvMenuItemsList.ColumnCount - 1].Width = 600;
+            // Only change the last column’s width if there is at least one column
+            if (dgvMenuItemsList.Columns.Count > 0)
+            {
+                dgvMenuItemsList.Columns[dgvMenuItemsList.Columns.Count - 1].Width = 600;
+            }
         }
+
 
         private void cbFilterByOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
