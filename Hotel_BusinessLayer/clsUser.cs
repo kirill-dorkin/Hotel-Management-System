@@ -14,7 +14,7 @@ namespace Hotel_BusinessLayer
         private enMode _Mode;
         public int UserID { get; private set; }
         public int PersonID { get; set; }
-        public clsPerson PersonInfo { get; }
+        public clsPerson PersonInfo { get; private set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
@@ -28,7 +28,7 @@ namespace Hotel_BusinessLayer
             Password = "";
             IsActive = true;
         }
-        private clsUser(int UserID, int PersonID, string UserName, string Password, bool IsActive)
+        private clsUser(int UserID, int PersonID, string UserName, string Password, bool IsActive, clsPerson personInfo = null)
         {
             _Mode = enMode.Update;
             this.UserID = UserID;
@@ -37,7 +37,7 @@ namespace Hotel_BusinessLayer
             this.Password = Password;
             this.IsActive = IsActive;
 
-            PersonInfo = clsPerson.Find(PersonID);
+            PersonInfo = personInfo ?? clsPerson.Find(PersonID);
         }
 
         public static clsUser Find(int UserID)
@@ -69,6 +69,11 @@ namespace Hotel_BusinessLayer
                 return new clsUser(UserID, PersonID, UserName, Password, IsActive);
             else
                 return null;
+        }
+
+        public static clsUser CreateManualUser(int UserID, int PersonID, string UserName, string Password, bool IsActive, clsPerson personInfo)
+        {
+            return new clsUser(UserID, PersonID, UserName, Password, IsActive, personInfo);
         }
 
         public static bool IsUserExist(int UserID)
