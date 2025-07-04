@@ -42,7 +42,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(332, 46);
             this.lblTitle.TabIndex = 158;
-            this.lblTitle.Text = "Person Information";
+            this.lblTitle.Text = "Информация о человеке";
             // 
             // btnClose
             // 
@@ -89,7 +89,7 @@
             this.Name = "frmShowPersonInfo";
             this.Padding = new System.Windows.Forms.Padding(3, 24, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Show Person Info";
+            this.Text = "Информация о человеке";
             this.ResumeLayout(false);
             this.PerformLayout();
 

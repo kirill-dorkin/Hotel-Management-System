@@ -345,13 +345,13 @@ namespace Hotel_DataAccessLayer
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = @"SELECT BookingID as 'Booking ID' , Bookings.ReservationID as 'Reservation ID', FirstName + ' ' + LastName as 'Guest' ,
-                            RoomNumber as 'Room Number', CheckInDate as 'Check In Date', CheckOutDate as 'Check Out Date' , 
-                            NumberOfPeople as 'Total People',
-                            CASE 
-	                            WHEN Bookings.Status = 1 THEN 'Ongoing'
-	                            WHEN Bookings.Status = 2 THEN 'Completed'
-                            END AS 'Status'
+            string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName + ' ' + LastName as 'Гость' ,
+                            RoomNumber as 'Номер комнаты', CheckInDate as 'Дата заезда', CheckOutDate as 'Дата выезда' ,
+                            NumberOfPeople as 'Всего человек',
+                            CASE
+                                    WHEN Bookings.Status = 1 THEN 'В процессе'
+                                    WHEN Bookings.Status = 2 THEN 'Завершено'
+                            END AS 'Статус'
                             FROM Bookings
                             INNER JOIN Reservations ON Reservations.ReservationID = Bookings.ReservationID
                             INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID
@@ -392,13 +392,13 @@ namespace Hotel_DataAccessLayer
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = @"SELECT BookingID as 'Booking ID' , Bookings.ReservationID as 'Reservation ID', FirstName + ' ' + LastName as 'Guest' ,
-                            RoomNumber as 'Room Number', CheckInDate as 'Check In Date', CheckOutDate as 'Check Out Date' , 
-                            NumberOfPeople as 'Total People',
-                            CASE 
-	                            WHEN Bookings.Status = 1 THEN 'Ongoing'
-	                            WHEN Bookings.Status = 2 THEN 'Completed'
-                            END AS 'Status'
+            string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName + ' ' + LastName as 'Гость' ,
+                            RoomNumber as 'Номер комнаты', CheckInDate as 'Дата заезда', CheckOutDate as 'Дата выезда' ,
+                            NumberOfPeople as 'Всего человек',
+                            CASE
+                                    WHEN Bookings.Status = 1 THEN 'В процессе'
+                                    WHEN Bookings.Status = 2 THEN 'Завершено'
+                            END AS 'Статус'
                             FROM Bookings
                             INNER JOIN Reservations ON Reservations.ReservationID = Bookings.ReservationID
                             INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID
@@ -446,17 +446,17 @@ namespace Hotel_DataAccessLayer
 
             string query = @"SELECT IsAllGuestCompanionsAdded = 1 FROM 
                             (
-                            SELECT NumberOfPeople as 'Reserved For' , 
+                            SELECT NumberOfPeople as 'Зарезервировано для' ,
 
                             (SELECT Count(GuestCompanions.GuestID) FROM GuestCompanions
-                            WHERE GuestCompanions.GuestID = Bookings.GuestID) as 'Companions Count'
+                            WHERE GuestCompanions.GuestID = Bookings.GuestID) as 'Количество спутников'
 
                             FROM Bookings
                             INNER JOIN Reservations ON Reservations.ReservationID = Bookings.ReservationID
                             WHERE Bookings.ReservationID = @ReservationID
 
                             )R1
-                            WHERE R1.[Companions Count] = (R1.[Reserved For]-1);";
+                            WHERE R1.[Количество спутников] = (R1.[Зарезервировано для]-1);";
 
             SqlCommand command = new SqlCommand(query, connection);
 

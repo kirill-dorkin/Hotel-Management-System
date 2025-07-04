@@ -40,12 +40,12 @@ namespace HotelManagementSystem.Users
         {
             if(_User.UpdatePassword(txtNewPassword.Text))
             {
-                MessageBox.Show("User Password changed successfully !", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);           
+                MessageBox.Show("Пароль пользователя успешно изменён!", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
             {
-                MessageBox.Show("Error: User Password was not changed successfully !", "Failed",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка: не удалось изменить пароль пользователя!", "Сбой", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -55,7 +55,7 @@ namespace HotelManagementSystem.Users
 
             if(_User == null)
             {
-                MessageBox.Show($"No User with ID = {_UserID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Пользователь с идентификатором {_UserID} не найден!", "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _ResetDefaultValues();
                 this.Close();
                 return;
@@ -68,7 +68,7 @@ namespace HotelManagementSystem.Users
         {
             if(!ValidateChildren())
             {
-                MessageBox.Show("Some fields are not valid , please put the mouse over the red icon(s) to see the error", "Validation Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Некоторые поля заполнены некорректно. Наведите курсор на красные значки, чтобы увидеть описание ошибки", "Ошибка проверки", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

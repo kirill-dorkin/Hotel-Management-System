@@ -108,7 +108,7 @@ namespace HotelManagementSystem.People.Controls
 
             if (_Person == null)
             {
-                MessageBox.Show($"No Person with ID = {PersonID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Человек с идентификатором {PersonID} не найден!", "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //If no person is found with this PersonID , then reset to the controls default values
                 ResetPersonInfo();
                 return;
@@ -123,7 +123,7 @@ namespace HotelManagementSystem.People.Controls
 
             if (_Person == null)
             {
-                MessageBox.Show($"No Person with NationalNo = {NationalNo} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Человек с номером паспорта {NationalNo} не найден!", "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //If no person is found with this NationalNo , then reset to the controls default values
                 ResetPersonInfo();
                 return;

@@ -425,7 +425,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddUpdateUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Update User";
+            this.Text = "Добавить/обновить пользователя";
             this.Load += new System.EventHandler(this.frmAddUpdateUser_Load);
             this.tcUserInfo.ResumeLayout(false);
             this.tpPersonalInfo.ResumeLayout(false);

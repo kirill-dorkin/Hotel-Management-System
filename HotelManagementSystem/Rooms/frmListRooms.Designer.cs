@@ -212,7 +212,7 @@
             this.editToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.classroom__3_;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(307, 42);
-            this.editToolStripMenuItem.Text = "&Edit Room Info";
+            this.editToolStripMenuItem.Text = "&Редактировать данные номера";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
