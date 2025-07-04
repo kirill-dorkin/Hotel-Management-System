@@ -145,9 +145,22 @@ namespace Hotel_BusinessLayer
             return clsRoomData.DeleteRoom(RoomID);
         }
 
-        public static DataTable GetAllRooms()
+        private static DataTable _roomsCache;
+        private static readonly object _roomsLock = new object();
+
+        public static DataTable GetAllRooms(bool forceRefresh = false)
         {
-            return clsRoomData.GetAllRooms();
+            lock (_roomsLock)
+            {
+                if (_roomsCache == null || forceRefresh)
+                    _roomsCache = clsRoomData.GetAllRooms();
+                return _roomsCache.Copy();
+            }
+        }
+
+        public static Task<DataTable> GetAllRoomsAsync(bool forceRefresh = false)
+        {
+            return Task.Run(() => GetAllRooms(forceRefresh));
         }
 
         public static int GetRoomsCountPerRoomType(int RoomTypeID)

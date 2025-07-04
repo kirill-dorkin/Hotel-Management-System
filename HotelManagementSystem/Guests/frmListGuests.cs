@@ -26,9 +26,9 @@ namespace HotelManagementSystem.Guests
             InitializeComponent();
         }
 
-        private void _RefreshGuestsList()
+        private async Task _RefreshGuestsList()
         {
-            _DataView = clsGuest.GetAllGuests().DefaultView;
+            _DataView = (await clsGuest.GetAllGuestsAsync()).DefaultView;
             dgvGuestsList.DataSource = _DataView;
 
             cbGender.Visible = false;
@@ -49,9 +49,9 @@ namespace HotelManagementSystem.Guests
                 _DataView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", cbFilterByOptions.Text, txtFilterValue.Text.Trim());
         }
 
-        private void frmListGuests_Load(object sender, EventArgs e)
+        private async void frmListGuests_Load(object sender, EventArgs e)
         {
-            _RefreshGuestsList();
+            await _RefreshGuestsList();
         }
 
         private void dgvGuestsList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -113,12 +113,12 @@ namespace HotelManagementSystem.Guests
             frm.ShowDialog();
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int PersonID = (int)dgvGuestsList.CurrentRow.Cells[1].Value;
             Form frm = new frmAddUpdatePerson(PersonID);
             frm.ShowDialog();
-            frmListGuests_Load(null, null);
+            await _RefreshGuestsList();
 
         }
 

@@ -112,9 +112,22 @@ namespace Hotel_BusinessLayer
             return clsRoomTypeData.DeleteRoomType(RoomTypeID);
         }
 
-        public static DataTable GetAllRoomTypes()
+        private static DataTable _roomTypesCache;
+        private static readonly object _roomTypesLock = new object();
+
+        public static DataTable GetAllRoomTypes(bool forceRefresh = false)
         {
-            return clsRoomTypeData.GetAllRoomTypes();
+            lock (_roomTypesLock)
+            {
+                if (_roomTypesCache == null || forceRefresh)
+                    _roomTypesCache = clsRoomTypeData.GetAllRoomTypes();
+                return _roomTypesCache.Copy();
+            }
+        }
+
+        public static Task<DataTable> GetAllRoomTypesAsync(bool forceRefresh = false)
+        {
+            return Task.Run(() => GetAllRoomTypes(forceRefresh));
         }
 
         public static int GetRoomsCount(int RoomTypeID)

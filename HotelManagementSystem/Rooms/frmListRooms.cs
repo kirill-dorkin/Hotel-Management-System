@@ -56,9 +56,9 @@ namespace HotelManagementSystem.Rooms
                 _FillComboBoxWithRoomStatus();
         }
 
-        private void _RefreshRoomsList()
+        private async Task _RefreshRoomsList()
         {
-            _DataView = clsRoom.GetAllRooms().DefaultView;
+            _DataView = (await clsRoom.GetAllRoomsAsync()).DefaultView;
             dgvRoomsList.DataSource = _DataView;
 
             comboBox.Visible = false;
@@ -77,9 +77,9 @@ namespace HotelManagementSystem.Rooms
 
         }
 
-        private void frmListRooms_Load(object sender, EventArgs e)
+        private async void frmListRooms_Load(object sender, EventArgs e)
         {
-            _RefreshRoomsList();
+            await _RefreshRoomsList();
         }
 
         private void dgvRoomsList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -90,11 +90,11 @@ namespace HotelManagementSystem.Rooms
             }
         }
 
-        private void btnAddRoom_Click(object sender, EventArgs e)
+        private async void btnAddRoom_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateRoom();
             frm.ShowDialog();
-            _RefreshRoomsList();
+            await _RefreshRoomsList();
         }
 
         private void cbFilterByOptions_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,23 +148,23 @@ namespace HotelManagementSystem.Rooms
             frm.ShowDialog();
         }
 
-        private void AddRoomtoolStripMenuItem_Click(object sender, EventArgs e)
+        private async void AddRoomtoolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateRoom();
             frm.ShowDialog();
-            frmListRooms_Load(null, null);
+            await _RefreshRoomsList();
 
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int RoomID = (int)dgvRoomsList.CurrentRow.Cells[0].Value;
             Form frm = new frmAddUpdateRoom(RoomID);
             frm.ShowDialog();
-            frmListRooms_Load(null, null);
+            await _RefreshRoomsList();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int RoomID = (int)dgvRoomsList.CurrentRow.Cells[0].Value;
 
@@ -202,7 +202,7 @@ namespace HotelManagementSystem.Rooms
                 {
                     MessageBox.Show($"Room with RoomID = {RoomID} was put under maintenance successfully !", "Information",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmListRooms_Load(null, null);
+                    await _RefreshRoomsList();
                 }
 
                 else

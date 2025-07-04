@@ -95,9 +95,22 @@ namespace Hotel_BusinessLayer
             return clsPaymentData.DeletePayment(PaymentID);
         }
 
-        public static DataTable GetAllPayments()
+        private static DataTable _paymentsCache;
+        private static readonly object _paymentsLock = new object();
+
+        public static DataTable GetAllPayments(bool forceRefresh = false)
         {
-            return clsPaymentData.GetAllPayments();
+            lock (_paymentsLock)
+            {
+                if (_paymentsCache == null || forceRefresh)
+                    _paymentsCache = clsPaymentData.GetAllPayments();
+                return _paymentsCache.Copy();
+            }
+        }
+
+        public static Task<DataTable> GetAllPaymentsAsync(bool forceRefresh = false)
+        {
+            return Task.Run(() => GetAllPayments(forceRefresh));
         }
 
         public static DataTable GetAllPayments(int GuestID)

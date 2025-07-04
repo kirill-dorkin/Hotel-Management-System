@@ -20,9 +20,9 @@ namespace HotelManagementSystem.Users
             InitializeComponent();
         }
 
-        private void _RefreshUsersList()
+        private async Task _RefreshUsersList()
         {
-            _DataView = clsUser.GetAllUsers().DefaultView;
+            _DataView = (await clsUser.GetAllUsersAsync()).DefaultView;
             dgvUsersList.DataSource = _DataView;
 
             cbIsActive.Visible = false;
@@ -43,9 +43,9 @@ namespace HotelManagementSystem.Users
                 _DataView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", cbFilterByOptions.Text, txtFilterValue.Text.Trim());
         }
 
-        private void frmListUsers_Load(object sender, EventArgs e)
+        private async void frmListUsers_Load(object sender, EventArgs e)
         {
-            _RefreshUsersList();
+            await _RefreshUsersList();
         }
 
         private void dgvUsersList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -56,11 +56,11 @@ namespace HotelManagementSystem.Users
             }
         }
 
-        private void btnAddUser_Click(object sender, EventArgs e)
+        private async void btnAddUser_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateUser();
             frm.ShowDialog();
-            _RefreshUsersList();
+            await _RefreshUsersList();
         }
 
         private void cbFilterByOptions_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,18 +124,18 @@ namespace HotelManagementSystem.Users
             Form frm = new frmShowUserInfo(UserID);
         }
 
-        private void AddUsertoolStripMenuItem_Click(object sender, EventArgs e)
+        private async void AddUsertoolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateUser();
             frm.ShowDialog();
-            _RefreshUsersList();
+            await _RefreshUsersList();
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int UserID = (int)dgvUsersList.CurrentRow.Cells[0].Value;
             Form frm = new frmAddUpdateUser(UserID);
-            _RefreshUsersList();
+            await _RefreshUsersList();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

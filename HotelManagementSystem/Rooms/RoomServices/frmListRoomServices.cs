@@ -31,33 +31,33 @@ namespace HotelManagementSystem.Rooms.RoomServices
 
         }
 
-        private void _RefreshRoomTypesList()
+        private async Task _RefreshRoomTypesList()
         {
-            _DataView = clsRoomService.GetAllRoomServices().DefaultView;
+            _DataView = (await clsRoomService.GetAllRoomServicesAsync()).DefaultView;
             dgvRoomServicesList.DataSource = _DataView;
 
             cbFilterByOptions.SelectedIndex = 0;
         }
 
-        private void frmListRoomServices_Load(object sender, EventArgs e)
+        private async void frmListRoomServices_Load(object sender, EventArgs e)
         {
-            _RefreshRoomTypesList();       
+            await _RefreshRoomTypesList();
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int RoomServiceID = (int) dgvRoomServicesList.CurrentRow.Cells[0].Value;
 
             Form frm = new frmAddUpdateRoomService(RoomServiceID);
             frm.Show();
-            frmListRoomServices_Load(null, null);
+            await _RefreshRoomTypesList();
         }
 
-        private void btnAddRoomService_Click(object sender, EventArgs e)
+        private async void btnAddRoomService_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateRoomService();
             frm.Show();
-            frmListRoomServices_Load(null, null);
+            await _RefreshRoomTypesList();
         }
 
         private void _FilterList()

@@ -89,9 +89,22 @@ namespace Hotel_BusinessLayer
             return false;
         }
 
-        public static DataTable GetAllRoomServices()
+        private static DataTable _roomServicesCache;
+        private static readonly object _roomServicesLock = new object();
+
+        public static DataTable GetAllRoomServices(bool forceRefresh = false)
         {
-            return clsRoomServiceData.GetAllRoomServices();
+            lock (_roomServicesLock)
+            {
+                if (_roomServicesCache == null || forceRefresh)
+                    _roomServicesCache = clsRoomServiceData.GetAllRoomServices();
+                return _roomServicesCache.Copy();
+            }
+        }
+
+        public static Task<DataTable> GetAllRoomServicesAsync(bool forceRefresh = false)
+        {
+            return Task.Run(() => GetAllRoomServices(forceRefresh));
         }
 
     }

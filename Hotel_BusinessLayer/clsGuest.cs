@@ -110,9 +110,22 @@ namespace Hotel_BusinessLayer
             return clsGuestData.DeleteGuest(GuestID);
         }
 
-        public static DataTable GetAllGuests()
+        private static DataTable _guestsCache;
+        private static readonly object _guestsLock = new object();
+
+        public static DataTable GetAllGuests(bool forceRefresh = false)
         {
-            return clsGuestData.GetAllGuests();
+            lock (_guestsLock)
+            {
+                if (_guestsCache == null || forceRefresh)
+                    _guestsCache = clsGuestData.GetAllGuests();
+                return _guestsCache.Copy();
+            }
+        }
+
+        public static Task<DataTable> GetAllGuestsAsync(bool forceRefresh = false)
+        {
+            return Task.Run(() => GetAllGuests(forceRefresh));
         }
 
         public static DataTable GetAllGuestCompanions(int GuestID , int BookingID)
