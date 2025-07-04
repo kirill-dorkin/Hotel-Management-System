@@ -41,6 +41,8 @@ namespace HotelManagementSystem
         private MenuItems.frmListMenuItems _frmMenuItems;
         private frmListGuestOrders _frmGuestOrders;
 
+        private int _dotCount = 0;
+
         private static T _EnsureForm<T>(ref T form) where T : Form, new()
         {
             if (form == null || form.IsDisposed)
@@ -135,7 +137,11 @@ namespace HotelManagementSystem
 
         private async void frmMain_Load(object sender, EventArgs e)
         {
-            clsGlobal.ShowLoading(this);
+            lblLoadingMain.Visible = true;
+            lblLoadingMain.Location = new Point(
+                (panelContainer.Width - lblLoadingMain.Width) / 2,
+                (panelContainer.Height - lblLoadingMain.Height) / 2);
+            timerLoadingMain.Start();
             await clsDataCache.PreloadAsync();
             _EnsureForm(ref _frmDashboard);
             _EnsureForm(ref _frmReservations);
@@ -149,7 +155,14 @@ namespace HotelManagementSystem
             _EnsureForm(ref _frmMenuItems);
             _EnsureForm(ref _frmGuestOrders);
             btnDashboard.PerformClick();
-            clsGlobal.HideLoading();
+            timerLoadingMain.Stop();
+            lblLoadingMain.Visible = false;
+        }
+
+        private void timerLoadingMain_Tick(object sender, EventArgs e)
+        {
+            _dotCount = (_dotCount + 1) % 4;
+            lblLoadingMain.Text = "Loading" + new string('.', _dotCount);
         }
     }
 }
