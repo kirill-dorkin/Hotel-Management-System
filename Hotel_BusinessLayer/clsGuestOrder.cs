@@ -66,7 +66,6 @@ namespace Hotel_BusinessLayer
             int GuestID = -1;
             int RoomID = -1;
             DateTime OrderDate = DateTime.Now;
-            float Fees = -1;
             int CreatedByUserID = -1;
             int BookingID = -1;
             byte OrderType = 0;
