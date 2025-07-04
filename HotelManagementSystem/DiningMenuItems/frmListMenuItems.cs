@@ -158,7 +158,13 @@ namespace HotelManagementSystem.MenuItems
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int ItemID = (int)dgvMenuItemsList.CurrentRow.Cells[0].Value;
+            if (dgvMenuItemsList.CurrentRow == null || dgvMenuItemsList.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Please select a menu item to edit.", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int ItemID = Convert.ToInt32(dgvMenuItemsList.CurrentRow.Cells[0].Value);
 
             Form frm = new frmAddUpdateMenuItem(ItemID);
             frm.Show();
