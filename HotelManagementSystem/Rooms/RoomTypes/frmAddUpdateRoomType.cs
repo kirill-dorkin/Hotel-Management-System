@@ -87,7 +87,8 @@ namespace HotelManagementSystem.Rooms.RoomTypes
             _RoomType.RoomTypeTitle = txtRoomTypeTitle.Text;
             if(txtDescription.Text != "")
             _RoomType.RoomTypeDescription = txtDescription.Text;
-            _RoomType.RoomTypePricePerNight = Convert.ToSingle(txtPerNightPrice.Text);
+            string priceText = txtPerNightPrice.Text.Replace(',', '.');
+            _RoomType.RoomTypePricePerNight = float.Parse(priceText, System.Globalization.CultureInfo.InvariantCulture);
             _RoomType.RoomTypeCapacity = (byte)nudRoomTypeCapacity.Value;
 
             if (_RoomType.Save())

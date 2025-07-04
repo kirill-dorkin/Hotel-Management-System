@@ -179,7 +179,8 @@ namespace HotelManagementSystem.DiningMenuItems
                 return;
 
             _MenuItem.ItemName = txtItemName.Text;
-            _MenuItem.Price = Convert.ToSingle(txtPrice.Text);
+            string priceText = txtPrice.Text.Replace(',', '.');
+            _MenuItem.Price = float.Parse(priceText, System.Globalization.CultureInfo.InvariantCulture);
             _MenuItem.Description = txtDescription.Text != "" ? txtDescription.Text : "";
             _MenuItem.ItemType = (clsMenuItem.enItemTypes)(cbItemType.SelectedIndex + 1);
             _MenuItem.ImagePath = ItemImage.ImageLocation != null ? ItemImage.ImageLocation : "";
