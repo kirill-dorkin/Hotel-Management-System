@@ -17,15 +17,29 @@ namespace Hotel_BusinessLayer
 
         public static async Task PreloadAsync()
         {
-            Reservations = await clsReservation.GetAllReservationsAsync(true);
-            Bookings = await clsBooking.GetAllBookingsAsync(true);
-            Rooms = await clsRoom.GetAllRoomsAsync(true);
-            RoomTypes = await clsRoomType.GetAllRoomTypesAsync(true);
-            RoomServices = await clsRoomService.GetAllRoomServicesAsync(true);
-            Guests = await clsGuest.GetAllGuestsAsync(true);
-            Users = await clsUser.GetAllUsersAsync(true);
-            Payments = await clsPayment.GetAllPaymentsAsync(true);
-            MenuItems = await clsMenuItem.GetAllMenuItemsAsync(true);
+            var reservationsTask = clsReservation.GetAllReservationsAsync(true);
+            var bookingsTask = clsBooking.GetAllBookingsAsync(true);
+            var roomsTask = clsRoom.GetAllRoomsAsync(true);
+            var roomTypesTask = clsRoomType.GetAllRoomTypesAsync(true);
+            var roomServicesTask = clsRoomService.GetAllRoomServicesAsync(true);
+            var guestsTask = clsGuest.GetAllGuestsAsync(true);
+            var usersTask = clsUser.GetAllUsersAsync(true);
+            var paymentsTask = clsPayment.GetAllPaymentsAsync(true);
+            var menuItemsTask = clsMenuItem.GetAllMenuItemsAsync(true);
+
+            await Task.WhenAll(reservationsTask, bookingsTask, roomsTask, roomTypesTask,
+                               roomServicesTask, guestsTask, usersTask, paymentsTask,
+                               menuItemsTask);
+
+            Reservations = reservationsTask.Result;
+            Bookings = bookingsTask.Result;
+            Rooms = roomsTask.Result;
+            RoomTypes = roomTypesTask.Result;
+            RoomServices = roomServicesTask.Result;
+            Guests = guestsTask.Result;
+            Users = usersTask.Result;
+            Payments = paymentsTask.Result;
+            MenuItems = menuItemsTask.Result;
         }
     }
 }
