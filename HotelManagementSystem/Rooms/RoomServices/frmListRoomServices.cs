@@ -21,10 +21,13 @@ namespace HotelManagementSystem.Rooms.RoomServices
 
         private void dgvRoomServicesList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            dgvRoomServicesList.Columns[0].Width = 200;
-            dgvRoomServicesList.Columns[1].Width = 200;
-            dgvRoomServicesList.Columns[2].Width = 200;
-            dgvRoomServicesList.Columns[3].Width = 650;
+            if (dgvRoomServicesList.ColumnCount >= 4)
+            {
+                dgvRoomServicesList.Columns[0].Width = 200;
+                dgvRoomServicesList.Columns[1].Width = 200;
+                dgvRoomServicesList.Columns[2].Width = 200;
+                dgvRoomServicesList.Columns[3].Width = 650;
+            }
 
         }
 
