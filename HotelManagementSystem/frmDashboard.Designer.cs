@@ -206,7 +206,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(308, 54);
             this.label4.TabIndex = 6;
-            this.label4.Text = "С возвращением";
+            this.label4.Text = "";
             // 
             // guna2GradientPanel2
             // 
@@ -239,7 +239,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label5.Location = new System.Drawing.Point(80, 85);
+            this.label5.Location = new System.Drawing.Point(80, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 30);
             this.label5.TabIndex = 17;
@@ -248,16 +248,16 @@
             // guna2ImageButton1
             // 
             this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(45, 45);
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton1.Image = global::HotelManagementSystem.Properties.Resources.key;
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton1.Location = new System.Drawing.Point(13, 16);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(30, 30);
             this.guna2ImageButton1.TabIndex = 0;
             // 
             // guna2GradientPanel3
@@ -291,7 +291,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label7.Location = new System.Drawing.Point(48, 85);
+            this.label7.Location = new System.Drawing.Point(48, 32);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(145, 30);
             this.label7.TabIndex = 17;
@@ -300,16 +300,16 @@
             // guna2ImageButton2
             // 
             this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(45, 45);
+            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton2.Image = global::HotelManagementSystem.Properties.Resources.schedule;
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton2.Location = new System.Drawing.Point(13, 16);
             this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Size = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(30, 30);
             this.guna2ImageButton2.TabIndex = 0;
             // 
             // guna2GradientPanel4
@@ -343,7 +343,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label9.Location = new System.Drawing.Point(80, 85);
+            this.label9.Location = new System.Drawing.Point(80, 32);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 30);
             this.label9.TabIndex = 17;
@@ -352,16 +352,16 @@
             // guna2ImageButton3
             // 
             this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(45, 45);
+            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton3.Image = global::HotelManagementSystem.Properties.Resources.trip;
             this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton3.ImageRotate = 0F;
-            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton3.Location = new System.Drawing.Point(13, 16);
             this.guna2ImageButton3.Name = "guna2ImageButton3";
-            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Size = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2ImageButton3.Size = new System.Drawing.Size(30, 30);
             this.guna2ImageButton3.TabIndex = 0;
             // 
             // guna2GradientPanel5
@@ -395,7 +395,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label11.Location = new System.Drawing.Point(72, 85);
+            this.label11.Location = new System.Drawing.Point(72, 32);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(114, 30);
             this.label11.TabIndex = 17;
@@ -404,16 +404,16 @@
             // guna2ImageButton4
             // 
             this.guna2ImageButton4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(45, 45);
+            this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton4.Image = global::HotelManagementSystem.Properties.Resources.invoice;
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
-            this.guna2ImageButton4.ImageSize = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton4.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton4.Location = new System.Drawing.Point(13, 16);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
-            this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton4.Size = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2ImageButton4.Size = new System.Drawing.Size(30, 30);
             this.guna2ImageButton4.TabIndex = 0;
             // 
             // guna2GradientPanel6
@@ -447,7 +447,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label13.Location = new System.Drawing.Point(80, 85);
+            this.label13.Location = new System.Drawing.Point(80, 32);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 30);
             this.label13.TabIndex = 17;
@@ -456,16 +456,16 @@
             // guna2ImageButton5
             // 
             this.guna2ImageButton5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(45, 45);
+            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton5.Image = global::HotelManagementSystem.Properties.Resources.luggage;
             this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton5.ImageRotate = 0F;
-            this.guna2ImageButton5.ImageSize = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton5.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton5.Location = new System.Drawing.Point(13, 16);
             this.guna2ImageButton5.Name = "guna2ImageButton5";
-            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.Size = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2ImageButton5.Size = new System.Drawing.Size(30, 30);
             this.guna2ImageButton5.TabIndex = 0;
             // 
             // guna2GradientPanel7
@@ -499,7 +499,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label15.Location = new System.Drawing.Point(80, 85);
+            this.label15.Location = new System.Drawing.Point(80, 32);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(70, 30);
             this.label15.TabIndex = 17;
@@ -508,16 +508,16 @@
             // guna2ImageButton6
             // 
             this.guna2ImageButton6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton6.CheckedState.ImageSize = new System.Drawing.Size(45, 45);
+            this.guna2ImageButton6.CheckedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton6.HoverState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton6.Image = global::HotelManagementSystem.Properties.Resources.bartender;
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
-            this.guna2ImageButton6.ImageSize = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton6.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton6.Location = new System.Drawing.Point(13, 16);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
-            this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton6.Size = new System.Drawing.Size(55, 55);
+            this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2ImageButton6.Size = new System.Drawing.Size(30, 30);
             this.guna2ImageButton6.TabIndex = 0;
             // 
             // guna2GradientPanel8
