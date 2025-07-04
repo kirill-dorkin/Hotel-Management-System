@@ -13,6 +13,28 @@ namespace HotelManagementSystem.GlobalClasses
     {
         public static clsUser CurrentUser;
 
+        private static frmLoading _loadingForm;
+
+        public static void ShowLoading(Form parent = null)
+        {
+            if (_loadingForm == null || _loadingForm.IsDisposed)
+                _loadingForm = new frmLoading();
+
+            if (parent != null)
+                _loadingForm.StartPosition = FormStartPosition.CenterParent;
+            else
+                _loadingForm.StartPosition = FormStartPosition.CenterScreen;
+
+            _loadingForm.Show();
+            _loadingForm.Refresh();
+        }
+
+        public static void HideLoading()
+        {
+            if (_loadingForm != null && !_loadingForm.IsDisposed)
+                _loadingForm.Hide();
+        }
+
         public static bool StoreUserCredentials(string Username , string Password)
         {
             try

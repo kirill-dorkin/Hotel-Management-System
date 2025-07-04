@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelManagementSystem.GlobalClasses;
 
 namespace HotelManagementSystem.Payments
 {
@@ -26,10 +27,12 @@ namespace HotelManagementSystem.Payments
 
         private async Task _RefreshPaymentsList()
         {
+            clsGlobal.ShowLoading(this);
             _DataView = (await clsPayment.GetAllPaymentsAsync()).DefaultView;
             dgvPaymentsList.DataSource = _DataView;
 
             cbFilterByOptions.SelectedIndex = 0;
+            clsGlobal.HideLoading();
         }
 
         private void _FilterPaymentsList()

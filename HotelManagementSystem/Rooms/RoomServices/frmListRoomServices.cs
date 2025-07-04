@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelManagementSystem.GlobalClasses;
 
 namespace HotelManagementSystem.Rooms.RoomServices
 {
@@ -33,10 +34,12 @@ namespace HotelManagementSystem.Rooms.RoomServices
 
         private async Task _RefreshRoomTypesList()
         {
+            clsGlobal.ShowLoading(this);
             _DataView = (await clsRoomService.GetAllRoomServicesAsync()).DefaultView;
             dgvRoomServicesList.DataSource = _DataView;
 
             cbFilterByOptions.SelectedIndex = 0;
+            clsGlobal.HideLoading();
         }
 
         private async void frmListRoomServices_Load(object sender, EventArgs e)

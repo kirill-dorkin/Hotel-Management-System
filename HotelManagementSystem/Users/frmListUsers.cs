@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelManagementSystem.GlobalClasses;
 
 namespace HotelManagementSystem.Users
 {
@@ -22,11 +23,13 @@ namespace HotelManagementSystem.Users
 
         private async Task _RefreshUsersList()
         {
+            clsGlobal.ShowLoading(this);
             _DataView = (await clsUser.GetAllUsersAsync()).DefaultView;
             dgvUsersList.DataSource = _DataView;
 
             cbIsActive.Visible = false;
             cbFilterByOptions.SelectedIndex = 0;
+            clsGlobal.HideLoading();
         }
 
         private void _FilterUsersList()

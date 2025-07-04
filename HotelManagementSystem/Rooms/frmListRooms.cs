@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelManagementSystem.GlobalClasses;
 
 namespace HotelManagementSystem.Rooms
 {
@@ -58,11 +59,13 @@ namespace HotelManagementSystem.Rooms
 
         private async Task _RefreshRoomsList()
         {
+            clsGlobal.ShowLoading(this);
             _DataView = (await clsRoom.GetAllRoomsAsync()).DefaultView;
             dgvRoomsList.DataSource = _DataView;
 
             comboBox.Visible = false;
             cbFilterByOptions.SelectedIndex = 0;
+            clsGlobal.HideLoading();
         }
 
         private void _FilterRoomsList()

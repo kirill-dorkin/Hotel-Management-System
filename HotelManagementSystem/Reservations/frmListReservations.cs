@@ -26,11 +26,13 @@ namespace HotelManagementSystem.Reservations
 
         private async Task _RefreshReservationsList()
         {
+            clsGlobal.ShowLoading(this);
             _DataView = (await clsReservation.GetAllReservationsAsync()).DefaultView;
             dgvReservationsList.DataSource = _DataView;
 
             cbStatus.Visible = false;
             cbFilterByOptions.SelectedIndex = 0;
+            clsGlobal.HideLoading();
         }
 
         private void _FilterReservationsList()
