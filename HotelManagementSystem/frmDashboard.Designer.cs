@@ -143,7 +143,7 @@
             this.btnBookNow.Name = "btnBookNow";
             this.btnBookNow.Size = new System.Drawing.Size(209, 60);
             this.btnBookNow.TabIndex = 160;
-            this.btnBookNow.Text = "Book Now !";
+            this.btnBookNow.Text = "Забронировать!";
             this.btnBookNow.Click += new System.EventHandler(this.btnBookNow_Click);
             // 
             // label1
@@ -156,9 +156,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(758, 56);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Don\'t miss your chance to experience the beauty and charm of Marrakech at Atals H" +
-    "otel. \r\nBook your stay with us now and let us create unforgettable memories for " +
-    "you.";
+            this.label1.Text = "Не упустите шанс испытать красоту и очарование Марракеша в отеле Atlas." +
+    "\r\nЗабронируйте проживание прямо сейчас, и мы создадим незабываемые впечатления для вас.";
             // 
             // label2
             // 
@@ -170,7 +169,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(479, 60);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Looking for a hotel experience like no other? \r\nLook no further than Atals Hotel!" +
+            this.label2.Text = "Ищете уникальный гостиничный опыт? \r\nТогда Atlas Hotel именно то, что вам нужно!" +
     "";
             // 
             // pictureBox1
@@ -195,7 +194,7 @@
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(139, 37);
             this.label.TabIndex = 5;
-            this.label.Text = "Hi user1 !";
+            this.label.Text = "Привет, user1!";
             // 
             // label4
             // 
@@ -207,7 +206,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(308, 54);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Welcome Back ";
+            this.label4.Text = "С возвращением";
             // 
             // guna2GradientPanel2
             // 
@@ -244,7 +243,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 30);
             this.label5.TabIndex = 17;
-            this.label5.Text = "Rooms";
+            this.label5.Text = "Номера";
             // 
             // guna2ImageButton1
             // 
@@ -296,7 +295,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(145, 30);
             this.label7.TabIndex = 17;
-            this.label7.Text = "Reservations";
+            this.label7.Text = "Бронирования";
             // 
             // guna2ImageButton2
             // 
@@ -348,7 +347,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 30);
             this.label9.TabIndex = 17;
-            this.label9.Text = "Bookings";
+            this.label9.Text = "Бронь";
             // 
             // guna2ImageButton3
             // 
@@ -400,7 +399,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(114, 30);
             this.label11.TabIndex = 17;
-            this.label11.Text = "Payments";
+            this.label11.Text = "Платежи";
             // 
             // guna2ImageButton4
             // 
@@ -452,7 +451,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 30);
             this.label13.TabIndex = 17;
-            this.label13.Text = "Guests";
+            this.label13.Text = "Гости";
             // 
             // guna2ImageButton5
             // 
@@ -504,7 +503,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(70, 30);
             this.label15.TabIndex = 17;
-            this.label15.Text = "Users";
+            this.label15.Text = "Пользователи";
             // 
             // guna2ImageButton6
             // 
@@ -567,9 +566,9 @@
             dataPoint1.IsValueShownAsLabel = true;
             dataPoint1.Label = "";
             dataPoint1.LabelForeColor = System.Drawing.Color.Black;
-            dataPoint1.LegendText = "Booked";
-            dataPoint2.LegendText = "Available";
-            dataPoint3.LegendText = "Under-Maintenance";
+            dataPoint1.LegendText = "Занято";
+            dataPoint2.LegendText = "Свободно";
+            dataPoint3.LegendText = "На ремонте";
             series1.Points.Add(dataPoint1);
             series1.Points.Add(dataPoint2);
             series1.Points.Add(dataPoint3);
@@ -580,7 +579,7 @@
             title1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             title1.ForeColor = System.Drawing.Color.White;
             title1.Name = "Title1";
-            title1.Text = "Rooms Status";
+            title1.Text = "Статус номеров";
             this.chart1.Titles.Add(title1);
             // 
             // lblUserFullName
@@ -638,7 +637,7 @@
             this.viewProfileDetailsToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.patient;
             this.viewProfileDetailsToolStripMenuItem.Name = "viewProfileDetailsToolStripMenuItem";
             this.viewProfileDetailsToolStripMenuItem.Size = new System.Drawing.Size(235, 42);
-            this.viewProfileDetailsToolStripMenuItem.Text = "&View Profile";
+            this.viewProfileDetailsToolStripMenuItem.Text = "&Просмотреть профиль";
             this.viewProfileDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewProfileDetailsToolStripMenuItem_Click);
             // 
             // changePasswordtoolStripMenuItem
@@ -648,7 +647,7 @@
             this.changePasswordtoolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.forgot_password;
             this.changePasswordtoolStripMenuItem.Name = "changePasswordtoolStripMenuItem";
             this.changePasswordtoolStripMenuItem.Size = new System.Drawing.Size(235, 42);
-            this.changePasswordtoolStripMenuItem.Text = "Change &Password";
+            this.changePasswordtoolStripMenuItem.Text = "Сменить &пароль";
             this.changePasswordtoolStripMenuItem.Click += new System.EventHandler(this.changePasswordtoolStripMenuItem_Click);
             // 
             // guna2GradientButton1
@@ -710,7 +709,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDashboard";
+            this.Text = "Панель управления";
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
