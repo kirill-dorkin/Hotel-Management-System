@@ -31,7 +31,7 @@ namespace HotelManagementSystem.Bookings
         {
             if (!clsBooking.IsBookingExist(_BookingID))
             {
-                MessageBox.Show($"No Booking with ID = {_BookingID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Бронирование с ID = {_BookingID} не найдено!", "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }

@@ -77,9 +77,9 @@
             this.cbStatus.ForeColor = System.Drawing.Color.Black;
             this.cbStatus.ItemHeight = 40;
             this.cbStatus.Items.AddRange(new object[] {
-            "All",
-            "Ongoing",
-            "Completed"});
+            "Все",
+            "В процессе",
+            "Завершено"});
             this.cbStatus.Location = new System.Drawing.Point(404, 345);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(231, 46);
@@ -97,7 +97,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(388, 59);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Manage Bookings";
+            this.label1.Text = "Управление бронированиями";
             // 
             // cmsBookings
             // 
@@ -122,7 +122,7 @@
             this.showDetailsToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.search1;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
             this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(291, 42);
-            this.showDetailsToolStripMenuItem.Text = "&Show Booking Details";
+            this.showDetailsToolStripMenuItem.Text = "Показать &детали бронирования";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click_1);
             // 
             // ShowGuestCompanionsToolStripMenuItem
@@ -132,7 +132,7 @@
             this.ShowGuestCompanionsToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.traveler;
             this.ShowGuestCompanionsToolStripMenuItem.Name = "ShowGuestCompanionsToolStripMenuItem";
             this.ShowGuestCompanionsToolStripMenuItem.Size = new System.Drawing.Size(291, 42);
-            this.ShowGuestCompanionsToolStripMenuItem.Text = "Show Guest &Companions";
+            this.ShowGuestCompanionsToolStripMenuItem.Text = "Показать &спутников гостя";
             this.ShowGuestCompanionsToolStripMenuItem.Click += new System.EventHandler(this.ShowGuestCompanionsToolStripMenuItem_Click);
             // 
             // checkOutToolStripMenuItem
@@ -142,7 +142,7 @@
             this.checkOutToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.check_out;
             this.checkOutToolStripMenuItem.Name = "checkOutToolStripMenuItem";
             this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(291, 42);
-            this.checkOutToolStripMenuItem.Text = "Check-&Out";
+            this.checkOutToolStripMenuItem.Text = "&Выселить";
             this.checkOutToolStripMenuItem.Click += new System.EventHandler(this.checkOutToolStripMenuItem_Click);
             //
             // addToolStripMenuItem
@@ -152,7 +152,7 @@
             this.addToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.add;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.Size = new System.Drawing.Size(291, 42);
-            this.addToolStripMenuItem.Text = "&Add Booking";
+            this.addToolStripMenuItem.Text = "&Добавить бронирование";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             //
             // editToolStripMenuItem
@@ -162,7 +162,7 @@
             this.editToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.edit_info;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(291, 42);
-            this.editToolStripMenuItem.Text = "&Edit Booking";
+            this.editToolStripMenuItem.Text = "&Редактировать бронирование";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             //
             // deleteToolStripMenuItem
@@ -172,7 +172,7 @@
             this.deleteToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.delete;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(291, 42);
-            this.deleteToolStripMenuItem.Text = "&Delete Booking";
+            this.deleteToolStripMenuItem.Text = "&Удалить бронирование";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // cbFilterByOptions
@@ -187,12 +187,12 @@
             this.cbFilterByOptions.ForeColor = System.Drawing.Color.Black;
             this.cbFilterByOptions.ItemHeight = 35;
             this.cbFilterByOptions.Items.AddRange(new object[] {
-            "None",
-            "Booking ID",
-            "Reservation ID",
-            "Guest",
-            "Room Number",
-            "Status"});
+            "Нет",
+            "ID бронирования",
+            "ID брони",
+            "Гость",
+            "Номер комнаты",
+            "Статус"});
             this.cbFilterByOptions.Location = new System.Drawing.Point(136, 351);
             this.cbFilterByOptions.Name = "cbFilterByOptions";
             this.cbFilterByOptions.Size = new System.Drawing.Size(231, 41);
@@ -207,7 +207,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 31;
-            this.label2.Text = "Filter By :";
+            this.label2.Text = "Фильтр по:";
             // 
             // dgvBookingsList
             // 
@@ -299,7 +299,7 @@
             this.txtFilterValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFilterValue.Name = "txtFilterValue";
             this.txtFilterValue.PasswordChar = '\0';
-            this.txtFilterValue.PlaceholderText = "Search ...";
+            this.txtFilterValue.PlaceholderText = "Поиск...";
             this.txtFilterValue.SelectedText = "";
             this.txtFilterValue.Size = new System.Drawing.Size(315, 50);
             this.txtFilterValue.TabIndex = 34;

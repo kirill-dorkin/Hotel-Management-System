@@ -79,7 +79,7 @@ namespace HotelManagementSystem.Orders
             if (string.IsNullOrEmpty(txtFilterValue.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtFilterValue, "This field is required !");
+                errorProvider1.SetError(txtFilterValue, "Это поле обязательно");
             }
 
             else
@@ -123,7 +123,7 @@ namespace HotelManagementSystem.Orders
         {
             if (!ValidateChildren())
             {
-                MessageBox.Show("Some fields are not valid , please put the mouse over the red icon(s) to see the error", "Validation Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Некоторые поля заполнены неверно. Наведите указатель мыши на красный значок, чтобы увидеть ошибку", "Ошибка валидации", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

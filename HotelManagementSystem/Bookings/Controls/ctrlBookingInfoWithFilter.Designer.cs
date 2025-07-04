@@ -53,7 +53,7 @@
             this.gbFilter.Name = "gbFilter";
             this.gbFilter.Size = new System.Drawing.Size(927, 104);
             this.gbFilter.TabIndex = 3;
-            this.gbFilter.Text = "Filter";
+            this.gbFilter.Text = "Фильтр";
             // 
             // txtFilterValue
             // 
@@ -105,7 +105,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 23);
             this.label12.TabIndex = 160;
-            this.label12.Text = "Find By :";
+            this.label12.Text = "Найти по:";
             // 
             // cbFilterBy
             // 
@@ -119,8 +119,8 @@
             this.cbFilterBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbFilterBy.ItemHeight = 35;
             this.cbFilterBy.Items.AddRange(new object[] {
-            "Booking ID",
-            "Reservation ID"});
+            "ID бронирования",
+            "ID брони"});
             this.cbFilterBy.Location = new System.Drawing.Point(124, 49);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(202, 41);
