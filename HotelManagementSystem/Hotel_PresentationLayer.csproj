@@ -230,6 +230,9 @@
     <Compile Include="Bookings\frmListBookings.Designer.cs">
       <DependentUpon>frmListBookings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bookings\frmAddUpdateBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Bookings\frmShowBookingInfo.cs">
       <SubType>Form</SubType>
     </Compile>
