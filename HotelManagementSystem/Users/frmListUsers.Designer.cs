@@ -87,7 +87,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Filter By :";
+            this.label2.Text = "Фильтр по:";
             // 
             // dgvUsersList
             // 
@@ -183,7 +183,7 @@
             this.showDetailsToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.patient;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
             this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(235, 42);
-            this.showDetailsToolStripMenuItem.Text = "&Show Details";
+            this.showDetailsToolStripMenuItem.Text = "&Показать детали";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
@@ -198,7 +198,7 @@
             this.AddUsertoolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddUsertoolStripMenuItem.Image")));
             this.AddUsertoolStripMenuItem.Name = "AddUsertoolStripMenuItem";
             this.AddUsertoolStripMenuItem.Size = new System.Drawing.Size(235, 42);
-            this.AddUsertoolStripMenuItem.Text = "Add &New User";
+            this.AddUsertoolStripMenuItem.Text = "Добавить &нового пользователя";
             this.AddUsertoolStripMenuItem.Click += new System.EventHandler(this.AddUsertoolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
@@ -208,7 +208,7 @@
             this.editToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.user__2_;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(235, 42);
-            this.editToolStripMenuItem.Text = "&Edit";
+            this.editToolStripMenuItem.Text = "&Редактировать";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
@@ -218,7 +218,7 @@
             this.deleteToolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.user__1_;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(235, 42);
-            this.deleteToolStripMenuItem.Text = "&Delete";
+            this.deleteToolStripMenuItem.Text = "&Удалить";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // changePasswordtoolStripMenuItem
@@ -228,7 +228,7 @@
             this.changePasswordtoolStripMenuItem.Image = global::HotelManagementSystem.Properties.Resources.forgot_password;
             this.changePasswordtoolStripMenuItem.Name = "changePasswordtoolStripMenuItem";
             this.changePasswordtoolStripMenuItem.Size = new System.Drawing.Size(235, 42);
-            this.changePasswordtoolStripMenuItem.Text = "Change &Password";
+            this.changePasswordtoolStripMenuItem.Text = "Сменить &пароль";
             this.changePasswordtoolStripMenuItem.Click += new System.EventHandler(this.changePasswordtoolStripMenuItem_Click);
             // 
             // label1
@@ -240,7 +240,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(309, 59);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Manage Users";
+            this.label1.Text = "Управление пользователями";
             // 
             // cbIsActive
             // 
@@ -295,7 +295,7 @@
             this.txtFilterValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFilterValue.Name = "txtFilterValue";
             this.txtFilterValue.PasswordChar = '\0';
-            this.txtFilterValue.PlaceholderText = "Search ...";
+            this.txtFilterValue.PlaceholderText = "Поиск ...";
             this.txtFilterValue.SelectedText = "";
             this.txtFilterValue.Size = new System.Drawing.Size(315, 50);
             this.txtFilterValue.TabIndex = 18;
@@ -347,7 +347,7 @@
             this.Controls.Add(this.guna2PictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListUsers";
-            this.Text = "List Users";
+            this.Text = "Список пользователей";
             this.Load += new System.EventHandler(this.frmListUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).EndInit();
             this.cmsUsers.ResumeLayout(false);

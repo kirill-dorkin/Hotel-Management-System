@@ -1,50 +1,50 @@
-# Hotel Management System
+# Система управления гостиницей
 
-**The Hotel Management System is a desktop application designed with a user-friendly interface for hotel staff to manage room reservations, check-in and check-out processes, room service, billing and payment, housekeeping and maintenance, and guest management , staff management ...
-It streamlines hotel operations, enhances guest satisfaction, and improves efficiency for hotel staff.**
+**Система управления гостиницей представляет собой настольное приложение с удобным интерфейсом для персонала отеля. С его помощью можно управлять бронированием номеров, процессами заезда и выезда, обслуживанием номеров, выставлением счетов и оплатой, задачами по уборке и обслуживанию, а также данными гостей и сотрудников.
+Приложение оптимизирует работу гостиницы, повышает удовлетворённость гостей и улучшает эффективность работы персонала.**
 
-## Features
+## Возможности
 
-* **Room Management:**
-    - Efficiently track room availability, occupancy, and status.
-    - Manage room inventory and types (single, double, suite).
-    - Enforce overbooking and maximum occupancy constraints.
-* **Reservation Management:**
-    - Create and manage room reservations for guests.
-    - Search for available rooms based on preferences (dates, types, etc.).
-    - Handle reservation details, including guest information and room assignments.
-* **Check-In and Check-Out:**
-    - Facilitate smooth check-in and check-out processes.
-    - Register guests, assign rooms, and generate invoices.
-    - Update room availability statuses automatically.
-* **Room Service:**
-    - Manage guest requests for food, beverages, and other services.
-    - Receive, process, and fulfill room service orders promptly.
-* **Billing and Payment:**
-    - Generate accurate invoices based on room rates, services , and fees.
-    - Record payments and provide guests with receipts.
-* **Housekeeping and Maintenance:**
-    - Schedule and track room cleaning, maintenance, and repairs.
-* **Guest Management:**
-    - Securely store and manage guest information, including contact details, stay history, and preferences.
-* **Staff Management:**
-    - Manage staff information for effective staff administration.
+* **Управление номерами:**
+    - Эффективный учёт доступности, занятости и состояния номеров.
+    - Управление фондом номеров и их типами (одноместные, двухместные, люксы).
+    - Контроль перепродажи и максимальной заполняемости.
+* **Управление бронированиями:**
+    - Создание и ведение бронирований для гостей.
+    - Поиск доступных номеров по заданным параметрам (даты, типы и т.д.).
+    - Работа с деталями брони, включая данные гостей и назначение номеров.
+* **Заезд и выезд:**
+    - Обеспечение удобного процесса регистрации и выселения.
+    - Регистрация гостей, назначение номеров и формирование счетов.
+    - Автоматическое обновление статуса доступности номеров.
+* **Обслуживание номеров:**
+    - Учёт запросов гостей на еду, напитки и другие услуги.
+    - Быстрое принятие и выполнение заказов в номера.
+* **Выставление счетов и оплата:**
+    - Формирование точных счетов с учётом стоимости номеров, услуг и сборов.
+    - Учёт платежей и выдача квитанций гостям.
+* **Уборка и обслуживание:**
+    - Планирование и контроль уборки номеров, технических работ и ремонтов.
+* **Управление гостями:**
+    - Надёжное хранение информации о гостях: контакты, история проживания, предпочтения.
+* **Управление персоналом:**
+    - Ведение данных сотрудников для эффективного администрирования.
 
-## Technologies
+## Технологии
 
 * C#
 * .NET Framework
 * SQL Server
 * ADO.NET
-* WinForms (Desktop Interface)
+* WinForms (настольный интерфейс)
 
-## Development Setup
+## Настройка разработки
 
-This project targets **.NET Framework 4.7.2** and requires Windows with Visual Studio to build. To get the solution running:
+Проект рассчитан на **.NET Framework 4.7.2** и требует Windows с Visual Studio для сборки. Чтобы запустить решение:
 
-1. Open `HotelManagementSystem/HotelManagementSystem.sln` in Visual Studio 2017 or newer.
-2. Restore NuGet packages (`nuget restore` or "Restore NuGet Packages" inside Visual Studio).
-3. After restoring, build the solution. The Fody and Costura packages will handle assembly weaving automatically.
-4. Run the application from the `Hotel_PresentationLayer` project.
+1. Откройте `HotelManagementSystem/HotelManagementSystem.sln` в Visual Studio 2017 или новее.
+2. Восстановите пакеты NuGet (команда `nuget restore` или пункт "Restore NuGet Packages" в Visual Studio).
+3. После восстановления соберите решение. Пакеты Fody и Costura автоматически выполнят плетение сборки.
+4. Запустите приложение из проекта `Hotel_PresentationLayer`.
 
-Building with the cross-platform .NET SDK is not supported.
+Сборка с использованием кроссплатформенного .NET SDK не поддерживается.
