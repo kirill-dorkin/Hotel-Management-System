@@ -53,6 +53,7 @@
     <Compile Include="clsPasswordUtility.cs" />
     <Compile Include="clsPayment.cs" />
     <Compile Include="clsPerson.cs" />
+    <Compile Include="clsDataCache.cs" />
     <Compile Include="clsReservation.cs" />
     <Compile Include="clsRoom.cs" />
     <Compile Include="clsRoomService.cs" />

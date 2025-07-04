@@ -111,12 +111,18 @@ namespace Hotel_BusinessLayer
                     if (_AddNewReservation())
                     {
                         _Mode = enMode.Update;
+                        _reservationsCache = null;
                         return true;
                     }
                     return false;
 
                 case enMode.Update:
-                    return _UpdateReservation();
+                    if (_UpdateReservation())
+                    {
+                        _reservationsCache = null;
+                        return true;
+                    }
+                    return false;
 
             }
             return false;
@@ -124,12 +130,23 @@ namespace Hotel_BusinessLayer
 
         public static bool DeleteReservation(int ReservationID)
         {
-            return clsReservationData.DeleteReservation(ReservationID);
+            var result = clsReservationData.DeleteReservation(ReservationID);
+            if (result)
+                _reservationsCache = null;
+            return result;
         }
      
-        public static DataTable GetAllReservations()
+        private static DataTable _reservationsCache;
+        private static readonly object _reservationsLock = new object();
+
+        public static DataTable GetAllReservations(bool forceRefresh = false)
         {
-            return clsReservationData.GetAllReservations();
+            lock (_reservationsLock)
+            {
+                if (_reservationsCache == null || forceRefresh)
+                    _reservationsCache = clsReservationData.GetAllReservations();
+                return _reservationsCache.Copy();
+            }
         }
 
         public static DataTable GetAllReservations(int ReservationPersonID)
@@ -137,9 +154,9 @@ namespace Hotel_BusinessLayer
             return clsReservationData.GetAllReservations(ReservationPersonID);
         }
 
-        public static Task<DataTable> GetAllReservationsAsync()
+        public static Task<DataTable> GetAllReservationsAsync(bool forceRefresh = false)
         {
-            return Task.Run(() => clsReservationData.GetAllReservations());
+            return Task.Run(() => GetAllReservations(forceRefresh));
         }
 
         public static Task<DataTable> GetAllReservationsAsync(int ReservationPersonID)

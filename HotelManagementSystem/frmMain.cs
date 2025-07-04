@@ -113,8 +113,9 @@ namespace HotelManagementSystem
             _frmLogin.Show();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
+        private async void frmMain_Load(object sender, EventArgs e)
         {
+            _ = clsDataCache.PreloadAsync();
             btnDashboard.PerformClick();
         }
     }
