@@ -31,7 +31,7 @@ namespace HotelManagementSystem.Rooms.RoomServices
         {
             if (!clsRoomService.IsRoomServiceExist(_RoomServiceID))
             {
-                MessageBox.Show($"No RoomService with ID = {_RoomServiceID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Сервис с ID = {_RoomServiceID} не найден!", "Не найдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }

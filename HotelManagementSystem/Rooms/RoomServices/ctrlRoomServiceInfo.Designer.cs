@@ -66,7 +66,7 @@
             this.gb.Name = "gb";
             this.gb.Size = new System.Drawing.Size(798, 226);
             this.gb.TabIndex = 5;
-            this.gb.Text = "Room Service Info";
+            this.gb.Text = "Информация о сервисе";
             // 
             // txtDescription
             // 
@@ -115,7 +115,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(105, 23);
             this.label8.TabIndex = 175;
-            this.label8.Text = "Description :";
+            this.label8.Text = "Описание :";
             // 
             // lblFees
             // 
@@ -148,7 +148,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 23);
             this.label9.TabIndex = 172;
-            this.label9.Text = "Fees :";
+            this.label9.Text = "Стоимость :";
             // 
             // lblTitle
             // 
@@ -181,7 +181,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 23);
             this.label2.TabIndex = 166;
-            this.label2.Text = "Title :";
+            this.label2.Text = "Название :";
             // 
             // lblRoomServiceID
             // 
@@ -214,7 +214,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(147, 23);
             this.label14.TabIndex = 163;
-            this.label14.Text = "Room Service ID :";
+            this.label14.Text = "ID сервиса :";
             // 
             // ctrlRoomServiceInfo
             // 

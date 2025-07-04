@@ -40,7 +40,7 @@ namespace HotelManagementSystem.Rooms.RoomServices
 
             if (_RoomService == null)
             {
-                MessageBox.Show($"No RoomService with ID = {_RoomServiceID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Сервис с ID = {_RoomServiceID} не найден!", "Не найдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }
@@ -76,7 +76,7 @@ namespace HotelManagementSystem.Rooms.RoomServices
         {
             if (!ValidateChildren())
             {
-                MessageBox.Show("Some fields are not valid , please put the mouse over the red icon(s) to see the error", "Validation Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Некоторые поля заполнены неверно, наведите мышь на красные иконки, чтобы увидеть ошибку", "Ошибка проверки!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -86,7 +86,7 @@ namespace HotelManagementSystem.Rooms.RoomServices
 
             if (_RoomService.Save())
             {
-                MessageBox.Show("RoomService Data saved successfully !", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Данные сервиса успешно сохранены!", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 _Mode = enMode.Update;
 
@@ -99,7 +99,7 @@ namespace HotelManagementSystem.Rooms.RoomServices
 
             else
             {
-                MessageBox.Show("Error: Data is not saved successfully.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка: данные не сохранены.", "Неудача", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -114,14 +114,14 @@ namespace HotelManagementSystem.Rooms.RoomServices
             if (string.IsNullOrEmpty(txtTitle.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtTitle, "This field is required ! cannot be left blank");
+                errorProvider1.SetError(txtTitle, "Это поле обязательно и не может быть пустым");
                 return;
             }
 
             else if (_RoomService.RoomServiceTitle != txtTitle.Text && clsRoomService.IsRoomServiceExist(txtTitle.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtTitle, "This Room Service already exists !");
+                errorProvider1.SetError(txtTitle, "Такой сервис уже существует!");
                 return;
             }
 
@@ -136,14 +136,14 @@ namespace HotelManagementSystem.Rooms.RoomServices
             if (string.IsNullOrEmpty(txtFees.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtFees, "This field is required ! cannot be left blank");
+                errorProvider1.SetError(txtFees, "Это поле обязательно и не может быть пустым");
                 return;
             }
 
             else if (!clsValidation.IsNumber(txtFees.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtFees, "Invalid Number !");
+                errorProvider1.SetError(txtFees, "Неверное число!");
                 return;
             }
 
@@ -158,7 +158,7 @@ namespace HotelManagementSystem.Rooms.RoomServices
             if (string.IsNullOrEmpty(txtDescription.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtDescription, "This field is required ! cannot be left blank");
+                errorProvider1.SetError(txtDescription, "Это поле обязательно и не может быть пустым");
                 return;
             }
 

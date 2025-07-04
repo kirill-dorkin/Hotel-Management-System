@@ -51,7 +51,7 @@ namespace HotelManagementSystem.Rooms
 
             if (_Room == null)
             {
-                MessageBox.Show($"No Room with ID = {RoomID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Номер с ID = {RoomID} не найден!", "Не найдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ResetRoomInfo();
                 return;
             }
@@ -62,12 +62,12 @@ namespace HotelManagementSystem.Rooms
             lblRoomID.Text = _Room.RoomID.ToString();
             lblRoomTypeID.Text = _Room.RoomTypeID.ToString();
             lblRoomStatus.Text = _Room.AvailabilityStatusText;
-            lblNotes.Text = _Room.AdditionalNotes == "" ? "No Notes" : _Room.AdditionalNotes;
+            lblNotes.Text = _Room.AdditionalNotes == "" ? "Нет заметок" : _Room.AdditionalNotes;
             lblRoomNumber.Text = _Room.RoomNumber;
             lblRoomFloor.Text = _Room.RoomFloor.ToString();
             lblRoomSize.Text = _Room.RoomSize.ToString();
-            lblIsSmokingAllowed.Text = _Room.IsSmokingAllowed ? "Yes" : "No";
-            lblIsPetFriendly.Text = _Room.IsPetFriendly ? "Yes" : "No";
+            lblIsSmokingAllowed.Text = _Room.IsSmokingAllowed ? "Да" : "Нет";
+            lblIsPetFriendly.Text = _Room.IsPetFriendly ? "Да" : "Нет";
 
             ctrlRoomTypeInfo1.LoadRoomTypeData(_Room.RoomTypeID);
         }
@@ -78,7 +78,7 @@ namespace HotelManagementSystem.Rooms
 
             if (_Room == null)
             {
-                MessageBox.Show($"No Room with Number = {RoomNumber} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Номер с номером {RoomNumber} не найден!", "Не найдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ResetRoomInfo();
                 return;
             }
@@ -92,8 +92,8 @@ namespace HotelManagementSystem.Rooms
             lblNotes.Text = _Room.AdditionalNotes;
             lblRoomNumber.Text = _Room.RoomNumber;
             lblRoomFloor.Text = _Room.RoomFloor.ToString();
-            lblIsSmokingAllowed.Text = _Room.IsSmokingAllowed ? "Yes" : "No";
-            lblIsPetFriendly.Text = _Room.IsPetFriendly ? "Yes" : "No";
+            lblIsSmokingAllowed.Text = _Room.IsSmokingAllowed ? "Да" : "Нет";
+            lblIsPetFriendly.Text = _Room.IsPetFriendly ? "Да" : "Нет";
 
             ctrlRoomTypeInfo1.LoadRoomTypeData(_Room.RoomTypeID);
         }

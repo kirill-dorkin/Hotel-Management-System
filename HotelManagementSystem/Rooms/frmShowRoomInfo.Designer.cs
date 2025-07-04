@@ -54,7 +54,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(180, 45);
             this.btnClose.TabIndex = 164;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Закрыть";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblTitle

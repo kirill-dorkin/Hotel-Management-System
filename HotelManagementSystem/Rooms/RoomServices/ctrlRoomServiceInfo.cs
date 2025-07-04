@@ -43,7 +43,7 @@ namespace HotelManagementSystem.Rooms.RoomServices
 
             if (_RoomService == null)
             {
-                MessageBox.Show($"No RoomService with ID = {RoomServiceID} was found !", "Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Сервис с ID = {RoomServiceID} не найден!", "Не найдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ResetRoomServiceInfo();
                 return;
             }
