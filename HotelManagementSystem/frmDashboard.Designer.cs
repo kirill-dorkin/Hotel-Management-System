@@ -77,7 +77,6 @@
             this.viewProfileDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2GradientPanel2.SuspendLayout();
@@ -89,7 +88,6 @@
             this.guna2GradientPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.cms.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -118,6 +116,7 @@
             this.guna2GradientPanel1.Location = new System.Drawing.Point(53, 131);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1202, 268);
+            this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2GradientPanel1.TabIndex = 0;
             // 
             // btnBookNow
@@ -219,6 +218,7 @@
             this.guna2GradientPanel2.Location = new System.Drawing.Point(55, 422);
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
             this.guna2GradientPanel2.Size = new System.Drawing.Size(195, 183);
+            this.guna2GradientPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2GradientPanel2.TabIndex = 25;
             // 
             // lblRoomsCount
@@ -271,6 +271,7 @@
             this.guna2GradientPanel3.Location = new System.Drawing.Point(321, 422);
             this.guna2GradientPanel3.Name = "guna2GradientPanel3";
             this.guna2GradientPanel3.Size = new System.Drawing.Size(195, 183);
+            this.guna2GradientPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2GradientPanel3.TabIndex = 26;
             // 
             // lblReservationsCount
@@ -323,6 +324,7 @@
             this.guna2GradientPanel4.Location = new System.Drawing.Point(587, 422);
             this.guna2GradientPanel4.Name = "guna2GradientPanel4";
             this.guna2GradientPanel4.Size = new System.Drawing.Size(195, 183);
+            this.guna2GradientPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2GradientPanel4.TabIndex = 27;
             // 
             // lblBookingsCount
@@ -375,6 +377,7 @@
             this.guna2GradientPanel5.Location = new System.Drawing.Point(55, 626);
             this.guna2GradientPanel5.Name = "guna2GradientPanel5";
             this.guna2GradientPanel5.Size = new System.Drawing.Size(195, 183);
+            this.guna2GradientPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2GradientPanel5.TabIndex = 28;
             // 
             // lblPaymentsCount
@@ -427,6 +430,7 @@
             this.guna2GradientPanel6.Location = new System.Drawing.Point(321, 626);
             this.guna2GradientPanel6.Name = "guna2GradientPanel6";
             this.guna2GradientPanel6.Size = new System.Drawing.Size(195, 183);
+            this.guna2GradientPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2GradientPanel6.TabIndex = 29;
             // 
             // lblGuestsCount
@@ -479,6 +483,7 @@
             this.guna2GradientPanel7.Location = new System.Drawing.Point(587, 626);
             this.guna2GradientPanel7.Name = "guna2GradientPanel7";
             this.guna2GradientPanel7.Size = new System.Drawing.Size(195, 183);
+            this.guna2GradientPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2GradientPanel7.TabIndex = 30;
             // 
             // lblUsersCount
@@ -529,6 +534,7 @@
             this.guna2GradientPanel8.Location = new System.Drawing.Point(866, 422);
             this.guna2GradientPanel8.Name = "guna2GradientPanel8";
             this.guna2GradientPanel8.Size = new System.Drawing.Size(389, 387);
+            this.guna2GradientPanel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientPanel8.TabIndex = 31;
             // 
             // chart1
@@ -591,6 +597,7 @@
             this.lblUserFullName.Location = new System.Drawing.Point(1053, 16);
             this.lblUserFullName.Name = "lblUserFullName";
             this.lblUserFullName.Size = new System.Drawing.Size(170, 23);
+            this.lblUserFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUserFullName.TabIndex = 32;
             this.lblUserFullName.Text = "Mohammed Ahmed";
             // 
@@ -603,6 +610,7 @@
             this.lblUserEmail.Location = new System.Drawing.Point(1053, 44);
             this.lblUserEmail.Name = "lblUserEmail";
             this.lblUserEmail.Size = new System.Drawing.Size(154, 19);
+            this.lblUserEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUserEmail.TabIndex = 34;
             this.lblUserEmail.Text = "mohammed@gmail.om";
             // 
@@ -617,6 +625,7 @@
             this.btnShowDropDownMenu.Location = new System.Drawing.Point(1248, 29);
             this.btnShowDropDownMenu.Name = "btnShowDropDownMenu";
             this.btnShowDropDownMenu.Size = new System.Drawing.Size(25, 25);
+            this.btnShowDropDownMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowDropDownMenu.TabIndex = 162;
             // 
             // cms
@@ -671,19 +680,8 @@
             this.guna2GradientButton1.Location = new System.Drawing.Point(990, 7);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.Size = new System.Drawing.Size(60, 60);
+            this.guna2GradientButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientButton1.TabIndex = 161;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::HotelManagementSystem.Properties.Resources.hand;
-            this.pictureBox2.InitialImage = global::HotelManagementSystem.Properties.Resources.traveler1;
-            this.pictureBox2.Location = new System.Drawing.Point(343, 59);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(63, 52);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
             // 
             // frmDashboard
             // 
@@ -702,7 +700,6 @@
             this.Controls.Add(this.guna2GradientPanel4);
             this.Controls.Add(this.guna2GradientPanel3);
             this.Controls.Add(this.guna2GradientPanel2);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label);
             this.Controls.Add(this.guna2GradientPanel1);
@@ -729,7 +726,6 @@
             this.guna2GradientPanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.cms.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -745,7 +741,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnBookNow;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private System.Windows.Forms.Label lblRoomsCount;
         private System.Windows.Forms.Label label5;
