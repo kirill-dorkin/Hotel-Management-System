@@ -61,8 +61,11 @@ namespace HotelManagementSystem.GlobalClasses
                         {
                             string[] UserCredentials = Line.Split(new string[] {"#//#"},StringSplitOptions.None);
 
-                            Username = UserCredentials[0];
-                            Password = UserCredentials[1];
+                            if (UserCredentials.Length >= 2)
+                            {
+                                Username = UserCredentials[0];
+                                Password = UserCredentials[1];
+                            }
                         }
 
                         return true;
