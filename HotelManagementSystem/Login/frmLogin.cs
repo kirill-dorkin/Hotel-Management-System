@@ -92,7 +92,7 @@ namespace HotelManagementSystem.Login
                 if(!User.IsActive)
                 {
                     txtUsername.Focus();
-                    MessageBox.Show("Your account is not active ! Please contact the admin", "Inactive Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ваша учетная запись не активна! Пожалуйста, свяжитесь с администратором", "Неактивная учетная запись", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -104,7 +104,7 @@ namespace HotelManagementSystem.Login
             else
             {
                 txtUsername.Focus();
-                MessageBox.Show("Invalid Username/Password.", "Wrong Credintials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Неверное имя пользователя или пароль.", "Неверные учетные данные", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

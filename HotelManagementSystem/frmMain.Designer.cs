@@ -105,7 +105,7 @@
             this.btnGuestOrders.PressedDepth = 10;
             this.btnGuestOrders.Size = new System.Drawing.Size(274, 43);
             this.btnGuestOrders.TabIndex = 16;
-            this.btnGuestOrders.Text = "Guest Orders";
+            this.btnGuestOrders.Text = "Заказы гостей";
             this.btnGuestOrders.TextFormatNoPrefix = true;
             this.btnGuestOrders.TextOffset = new System.Drawing.Point(15, 0);
             this.btnGuestOrders.Click += new System.EventHandler(this.btnGuestOrders_Click);
@@ -140,7 +140,7 @@
             this.btnDiningMenu.PressedDepth = 10;
             this.btnDiningMenu.Size = new System.Drawing.Size(274, 43);
             this.btnDiningMenu.TabIndex = 15;
-            this.btnDiningMenu.Text = "Dining Menu";
+            this.btnDiningMenu.Text = "Меню";
             this.btnDiningMenu.TextFormatNoPrefix = true;
             this.btnDiningMenu.TextOffset = new System.Drawing.Point(15, 0);
             this.btnDiningMenu.Click += new System.EventHandler(this.btnDiningMenu_Click);
@@ -175,7 +175,7 @@
             this.btnLogout.PressedDepth = 10;
             this.btnLogout.Size = new System.Drawing.Size(274, 43);
             this.btnLogout.TabIndex = 14;
-            this.btnLogout.Text = "Logout";
+            this.btnLogout.Text = "Выйти";
             this.btnLogout.TextFormatNoPrefix = true;
             this.btnLogout.TextOffset = new System.Drawing.Point(15, 0);
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -211,7 +211,7 @@
             this.btnDashboard.PressedDepth = 10;
             this.btnDashboard.Size = new System.Drawing.Size(274, 43);
             this.btnDashboard.TabIndex = 5;
-            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.Text = "Панель";
             this.btnDashboard.TextFormatNoPrefix = true;
             this.btnDashboard.TextOffset = new System.Drawing.Point(15, 0);
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
@@ -246,7 +246,7 @@
             this.btnPayments.PressedDepth = 10;
             this.btnPayments.Size = new System.Drawing.Size(274, 43);
             this.btnPayments.TabIndex = 13;
-            this.btnPayments.Text = "Payments";
+            this.btnPayments.Text = "Платежи";
             this.btnPayments.TextFormatNoPrefix = true;
             this.btnPayments.TextOffset = new System.Drawing.Point(15, 0);
             this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
@@ -282,7 +282,7 @@
             this.btnReservations.PressedDepth = 10;
             this.btnReservations.Size = new System.Drawing.Size(274, 43);
             this.btnReservations.TabIndex = 6;
-            this.btnReservations.Text = "Reservations";
+            this.btnReservations.Text = "Бронирования";
             this.btnReservations.TextFormatNoPrefix = true;
             this.btnReservations.TextOffset = new System.Drawing.Point(15, 0);
             this.btnReservations.Click += new System.EventHandler(this.btnReservations_Click);
@@ -317,7 +317,7 @@
             this.btnUsers.PressedDepth = 10;
             this.btnUsers.Size = new System.Drawing.Size(274, 43);
             this.btnUsers.TabIndex = 12;
-            this.btnUsers.Text = "Users      ";
+            this.btnUsers.Text = "Пользователи";
             this.btnUsers.TextFormatNoPrefix = true;
             this.btnUsers.TextOffset = new System.Drawing.Point(15, 0);
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
@@ -353,7 +353,7 @@
             this.btnBookings.PressedDepth = 10;
             this.btnBookings.Size = new System.Drawing.Size(274, 43);
             this.btnBookings.TabIndex = 7;
-            this.btnBookings.Text = "Bookings";
+            this.btnBookings.Text = "Бронирование";
             this.btnBookings.TextFormatNoPrefix = true;
             this.btnBookings.TextOffset = new System.Drawing.Point(15, 0);
             this.btnBookings.Click += new System.EventHandler(this.btnBookings_Click);
@@ -388,7 +388,7 @@
             this.btnRoomTypes.PressedDepth = 10;
             this.btnRoomTypes.Size = new System.Drawing.Size(274, 43);
             this.btnRoomTypes.TabIndex = 9;
-            this.btnRoomTypes.Text = "Room Types";
+            this.btnRoomTypes.Text = "Типы номеров";
             this.btnRoomTypes.TextFormatNoPrefix = true;
             this.btnRoomTypes.TextOffset = new System.Drawing.Point(15, 0);
             this.btnRoomTypes.Click += new System.EventHandler(this.btnRoomTypes_Click);
@@ -423,7 +423,7 @@
             this.btnGuests.PressedDepth = 10;
             this.btnGuests.Size = new System.Drawing.Size(274, 43);
             this.btnGuests.TabIndex = 11;
-            this.btnGuests.Text = "Guests";
+            this.btnGuests.Text = "Гости";
             this.btnGuests.TextFormatNoPrefix = true;
             this.btnGuests.TextOffset = new System.Drawing.Point(15, 0);
             this.btnGuests.Click += new System.EventHandler(this.btnGuests_Click);
@@ -458,7 +458,7 @@
             this.btnRoomServices.PressedDepth = 10;
             this.btnRoomServices.Size = new System.Drawing.Size(274, 43);
             this.btnRoomServices.TabIndex = 10;
-            this.btnRoomServices.Text = "Room Services";
+            this.btnRoomServices.Text = "Сервис";
             this.btnRoomServices.TextFormatNoPrefix = true;
             this.btnRoomServices.TextOffset = new System.Drawing.Point(15, 0);
             this.btnRoomServices.Click += new System.EventHandler(this.btnRoomServices_Click);
@@ -493,7 +493,7 @@
             this.btnRooms.PressedDepth = 10;
             this.btnRooms.Size = new System.Drawing.Size(274, 43);
             this.btnRooms.TabIndex = 8;
-            this.btnRooms.Text = "Rooms";
+            this.btnRooms.Text = "Номера";
             this.btnRooms.TextFormatNoPrefix = true;
             this.btnRooms.TextOffset = new System.Drawing.Point(15, 0);
             this.btnRooms.Click += new System.EventHandler(this.btnRooms_Click);
@@ -532,7 +532,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Главное меню";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

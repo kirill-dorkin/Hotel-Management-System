@@ -99,7 +99,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(252, 55);
             this.btnLogin.TabIndex = 163;
-            this.btnLogin.Text = "Login";
+            this.btnLogin.Text = "Войти";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // tsRememberMe
@@ -127,7 +127,7 @@
             this.lblRoomTypeID.Name = "lblRoomTypeID";
             this.lblRoomTypeID.Size = new System.Drawing.Size(124, 23);
             this.lblRoomTypeID.TabIndex = 166;
-            this.lblRoomTypeID.Text = "Remember Me";
+            this.lblRoomTypeID.Text = "Запомнить меня";
             // 
             // btnClose
             // 
@@ -176,7 +176,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderForeColor = System.Drawing.Color.Gainsboro;
-            this.txtPassword.PlaceholderText = "Enter Password";
+            this.txtPassword.PlaceholderText = "Введите пароль";
             this.txtPassword.SelectedText = "";
             this.txtPassword.Size = new System.Drawing.Size(345, 48);
             this.txtPassword.TabIndex = 85;
@@ -204,7 +204,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.PlaceholderForeColor = System.Drawing.Color.Gainsboro;
-            this.txtUsername.PlaceholderText = "Enter Username";
+            this.txtUsername.PlaceholderText = "Введите имя пользователя";
             this.txtUsername.SelectedText = "";
             this.txtUsername.Size = new System.Drawing.Size(345, 48);
             this.txtUsername.TabIndex = 84;
@@ -227,7 +227,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLogin";
+            this.Text = "Вход";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.guna2GradientPanel1.ResumeLayout(false);
