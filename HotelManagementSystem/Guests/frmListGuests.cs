@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelManagementSystem.GlobalClasses;
 
 namespace HotelManagementSystem.Guests
 {
@@ -28,11 +29,13 @@ namespace HotelManagementSystem.Guests
 
         private async Task _RefreshGuestsList()
         {
+            clsGlobal.ShowLoading(this);
             _DataView = (await clsGuest.GetAllGuestsAsync()).DefaultView;
             dgvGuestsList.DataSource = _DataView;
 
             cbGender.Visible = false;
             cbFilterByOptions.SelectedIndex = 0;
+            clsGlobal.HideLoading();
         }
 
         private void _FilterGuestsList()

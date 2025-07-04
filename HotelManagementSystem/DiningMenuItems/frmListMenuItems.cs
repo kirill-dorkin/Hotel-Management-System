@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelManagementSystem.GlobalClasses;
 
 namespace HotelManagementSystem.MenuItems
 {
@@ -45,14 +46,16 @@ namespace HotelManagementSystem.MenuItems
 
         private async Task _RefreshMenuItemsList()
         {
+            clsGlobal.ShowLoading(this);
             _DataView = (await clsMenuItem.GetAllMenuItemsAsync()).DefaultView;
             dgvMenuItemsList.DataSource = _DataView;
-          
+
             cbItemType.Visible = false;
             cbFilterByOptions.SelectedIndex = 0;
             cbDisplayOption.SelectedIndex = 0;
 
            _RefreshMenuItems();
+           clsGlobal.HideLoading();
 
         }
 

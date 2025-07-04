@@ -135,6 +135,7 @@ namespace HotelManagementSystem
 
         private async void frmMain_Load(object sender, EventArgs e)
         {
+            clsGlobal.ShowLoading(this);
             await clsDataCache.PreloadAsync();
             _EnsureForm(ref _frmDashboard);
             _EnsureForm(ref _frmReservations);
@@ -148,6 +149,7 @@ namespace HotelManagementSystem
             _EnsureForm(ref _frmMenuItems);
             _EnsureForm(ref _frmGuestOrders);
             btnDashboard.PerformClick();
+            clsGlobal.HideLoading();
         }
     }
 }
