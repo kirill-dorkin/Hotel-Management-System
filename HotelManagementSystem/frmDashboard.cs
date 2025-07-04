@@ -24,10 +24,12 @@ namespace HotelManagementSystem
 
         private void _LoadDashboardData()
         {
-            label.Text = $"Hi {clsGlobal.CurrentUser.UserName} !";
-            lblUserFullName.Text = clsGlobal.CurrentUser.PersonInfo.FullName;
-            lblUserEmail.Text = clsGlobal.CurrentUser.PersonInfo.Email;
-
+            // Hide greeting and user info section
+            label.Visible = false;
+            lblUserFullName.Visible = false;
+            lblUserEmail.Visible = false;
+            btnShowDropDownMenu.Visible = false;
+            guna2GradientButton1.Visible = false;
 
             lblRoomsCount.Text = clsRoom.GetRoomsCount().ToString();
             lblReservationsCount.Text = clsReservation.GetReservationsCount().ToString();
