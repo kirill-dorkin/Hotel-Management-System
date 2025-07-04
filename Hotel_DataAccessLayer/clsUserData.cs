@@ -57,7 +57,7 @@ namespace Hotel_DataAccessLayer
             }
             finally
             {
-                reader.Close();
+                reader?.Close();
                 connection.Close();
             }
             return IsFound;
@@ -111,7 +111,7 @@ namespace Hotel_DataAccessLayer
             }
             finally
             {
-                reader.Close();
+                reader?.Close();
                 connection.Close();
             }
             return IsFound;
@@ -384,7 +384,7 @@ namespace Hotel_DataAccessLayer
 
             finally
             {
-                reader.Close();
+                reader?.Close();
                 connection.Close();
             }
 
