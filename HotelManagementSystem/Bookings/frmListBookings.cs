@@ -128,12 +128,12 @@ namespace HotelManagementSystem.Bookings
             {
                 if (Booking.CheckOut(clsGlobal.CurrentUser.UserID))
                 {
-                    MessageBox.Show("Checkout completed successfully", "Checkout Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Выселение прошло успешно", "Выселение успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await _RefreshBookingsList();
                 }
                 else
                 {
-                    MessageBox.Show("Checkout operation failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ошибка при выселении.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -171,19 +171,19 @@ namespace HotelManagementSystem.Bookings
 
         private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure do want to delete this booking?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show("Вы уверены, что хотите удалить это бронирование?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
             int BookingID = (int)dgvBookingsList.CurrentRow.Cells[0].Value;
 
             if (clsBooking.DeleteBooking(BookingID))
             {
-                MessageBox.Show("Booking deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Бронирование успешно удалено", "Удалено", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await _RefreshBookingsList();
             }
             else
             {
-                MessageBox.Show("Booking is not deleted.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Бронирование не удалено.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     

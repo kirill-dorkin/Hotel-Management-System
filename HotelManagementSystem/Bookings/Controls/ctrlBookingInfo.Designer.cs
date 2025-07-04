@@ -73,7 +73,7 @@
             this.gb.Name = "gb";
             this.gb.Size = new System.Drawing.Size(923, 201);
             this.gb.TabIndex = 6;
-            this.gb.Text = "Booking Info";
+            this.gb.Text = "Информация о бронировании";
             // 
             // guna2ImageButton7
             // 
@@ -107,7 +107,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(136, 23);
             this.label4.TabIndex = 254;
-            this.label4.Text = "CheckOut Date :";
+            this.label4.Text = "Дата выезда:";
             // 
             // lblCheckInDate
             // 
@@ -152,7 +152,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(142, 23);
             this.label9.TabIndex = 248;
-            this.label9.Text = "Created By User :";
+            this.label9.Text = "Создано пользователем:";
             // 
             // lblBookingStatus
             // 
@@ -186,7 +186,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 23);
             this.label7.TabIndex = 245;
-            this.label7.Text = "Status :";
+            this.label7.Text = "Статус:";
             // 
             // guna2ImageButton3
             // 
@@ -209,7 +209,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(127, 23);
             this.label6.TabIndex = 240;
-            this.label6.Text = "Check In Date :";
+            this.label6.Text = "Дата заезда:";
             // 
             // lblBookingID
             // 
@@ -243,7 +243,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(104, 23);
             this.label14.TabIndex = 169;
-            this.label14.Text = "Booking ID :";
+            this.label14.Text = "ID бронирования:";
             // 
             // ctrlReservationInfo1
             // 

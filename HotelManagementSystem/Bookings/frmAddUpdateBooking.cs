@@ -44,7 +44,7 @@ namespace HotelManagementSystem.Bookings
             {
                 if (_Booking == null)
                 {
-                    MessageBox.Show($"No Booking with ID = {_BookingID} was found!", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Бронирование с ID = {_BookingID} не найдено!", "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Close();
                     return;
                 }
@@ -61,7 +61,7 @@ namespace HotelManagementSystem.Bookings
         {
             if (!ValidateChildren())
             {
-                MessageBox.Show("Some fields are not valid, please fix them and try again.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Некоторые поля заполнены неверно, пожалуйста, исправьте их и попробуйте снова.", "Проверка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -73,13 +73,13 @@ namespace HotelManagementSystem.Bookings
 
             if (_Booking.Save())
             {
-                MessageBox.Show("Booking saved successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Бронирование успешно сохранено", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 _Mode = enMode.Update;
                 _BookingID = _Booking.BookingID;
             }
             else
             {
-                MessageBox.Show("Failed to save booking", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Не удалось сохранить бронирование", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -88,7 +88,7 @@ namespace HotelManagementSystem.Bookings
             if (!int.TryParse(txtReservationID.Text, out _ReservationID) || !clsReservation.IsReservationExist(_ReservationID))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtReservationID, "Invalid reservation ID");
+                errorProvider1.SetError(txtReservationID, "Недействительный ID брони");
             }
             else
             {
@@ -101,10 +101,10 @@ namespace HotelManagementSystem.Bookings
             txtReservationID = new TextBox { Left = 20, Top = 20, Width = 200 };
             txtGuestID = new TextBox { Left = 20, Top = 60, Width = 200 };
             dtpCheckIn = new DateTimePicker { Left = 20, Top = 100, Width = 200 };
-            chkCheckedOut = new CheckBox { Left = 20, Top = 140, Text = "Checked Out" };
+            chkCheckedOut = new CheckBox { Left = 20, Top = 140, Text = "Выселен" };
             dtpCheckOut = new DateTimePicker { Left = 20, Top = 160, Width = 200 };
-            btnSave = new Button { Left = 20, Top = 200, Width = 80, Text = "Save" };
-            btnClose = new Button { Left = 140, Top = 200, Width = 80, Text = "Close" };
+            btnSave = new Button { Left = 20, Top = 200, Width = 80, Text = "Сохранить" };
+            btnClose = new Button { Left = 140, Top = 200, Width = 80, Text = "Закрыть" };
             errorProvider1 = new ErrorProvider();
 
             btnSave.Click += btnSave_Click;
@@ -121,7 +121,7 @@ namespace HotelManagementSystem.Bookings
 
             Load += frmAddUpdateBooking_Load;
 
-            Text = _Mode == enMode.AddNew ? "Add Booking" : "Update Booking";
+            Text = _Mode == enMode.AddNew ? "Добавить бронирование" : "Изменить бронирование";
             ClientSize = new System.Drawing.Size(260, 250);
         }
     }
