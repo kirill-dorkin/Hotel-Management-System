@@ -18,8 +18,6 @@ namespace HotelManagementSystem.Rooms
 
         private string []_RoomStatusFilters =  {"All","Available", "Booked", "Under Maintenance" };
 
-        private enum _enComboBoxItemsTypes { enRoomTypes = 0, enRoomStatus };
-        private _enComboBoxItemsTypes _ComboBoxItemsTypes;
 
         public frmListRooms()
         {
@@ -35,7 +33,6 @@ namespace HotelManagementSystem.Rooms
                 comboBox.Items.Add(status);
             }
 
-            _ComboBoxItemsTypes = _enComboBoxItemsTypes.enRoomStatus;
         }
 
         private void _FillComboBoxWithRoomTypes()
@@ -49,7 +46,6 @@ namespace HotelManagementSystem.Rooms
                 comboBox.Items.Add(row["Room Type Title"]);
             }
 
-            _ComboBoxItemsTypes = _enComboBoxItemsTypes.enRoomTypes;
         }
 
         private void _FillComboBoxWithItems(string ColumnName)
