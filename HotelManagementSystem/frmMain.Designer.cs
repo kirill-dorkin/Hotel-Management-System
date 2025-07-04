@@ -32,6 +32,8 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.panel = new Guna.UI2.WinForms.Guna2Panel();
             this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblLoadingMain = new System.Windows.Forms.Label();
+            this.timerLoadingMain = new System.Windows.Forms.Timer(this.components);
             this.btnGuestOrders = new Guna.UI2.WinForms.Guna2Button();
             this.btnDiningMenu = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
@@ -74,6 +76,24 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1297, 845);
             this.panelContainer.TabIndex = 0;
+            this.panelContainer.Controls.Add(this.lblLoadingMain);
+
+            //
+            // lblLoadingMain
+            //
+            this.lblLoadingMain.AutoSize = true;
+            this.lblLoadingMain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblLoadingMain.Location = new System.Drawing.Point(600, 400);
+            this.lblLoadingMain.Name = "lblLoadingMain";
+            this.lblLoadingMain.Size = new System.Drawing.Size(88, 28);
+            this.lblLoadingMain.TabIndex = 0;
+            this.lblLoadingMain.Text = "Loading";
+            this.lblLoadingMain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            //
+            // timerLoadingMain
+            //
+            this.timerLoadingMain.Interval = 500;
+            this.timerLoadingMain.Tick += new System.EventHandler(this.timerLoadingMain_Tick);
             // 
             // btnGuestOrders
             // 
@@ -558,6 +578,8 @@
         private Guna.UI2.WinForms.Guna2Button btnLogout;
         private Guna.UI2.WinForms.Guna2Button btnDiningMenu;
         private Guna.UI2.WinForms.Guna2Button btnGuestOrders;
+        private System.Windows.Forms.Label lblLoadingMain;
+        private System.Windows.Forms.Timer timerLoadingMain;
     }
 }
 
