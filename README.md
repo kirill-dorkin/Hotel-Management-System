@@ -37,3 +37,14 @@ It streamlines hotel operations, enhances guest satisfaction, and improves effic
 * SQL Server
 * ADO.NET
 * WinForms (Desktop Interface)
+
+## Development Setup
+
+This project targets **.NET Framework 4.7.2** and requires Windows with Visual Studio to build. To get the solution running:
+
+1. Open `HotelManagementSystem/HotelManagementSystem.sln` in Visual Studio 2017 or newer.
+2. Restore NuGet packages (`nuget restore` or "Restore NuGet Packages" inside Visual Studio).
+3. After restoring, build the solution. The Fody and Costura packages will handle assembly weaving automatically.
+4. Run the application from the `Hotel_PresentationLayer` project.
+
+Building with the cross-platform .NET SDK is not supported.
