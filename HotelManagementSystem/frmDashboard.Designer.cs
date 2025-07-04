@@ -138,7 +138,7 @@
             this.btnBookNow.Image = global::HotelManagementSystem.Properties.Resources.touchscreen;
             this.btnBookNow.ImageSize = new System.Drawing.Size(30, 30);
             this.btnBookNow.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBookNow.Location = new System.Drawing.Point(425, 188);
+            this.btnBookNow.Location = new System.Drawing.Point(520, 188);
             this.btnBookNow.Name = "btnBookNow";
             this.btnBookNow.Size = new System.Drawing.Size(209, 60);
             this.btnBookNow.TabIndex = 160;
@@ -151,7 +151,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(394, 113);
+            this.label1.Location = new System.Drawing.Point(520, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(758, 56);
             this.label1.TabIndex = 6;
@@ -164,7 +164,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(394, 26);
+            this.label2.Location = new System.Drawing.Point(520, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(479, 60);
             this.label2.TabIndex = 5;
@@ -176,7 +176,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::HotelManagementSystem.Properties.Resources.traveler2;
             this.pictureBox1.InitialImage = global::HotelManagementSystem.Properties.Resources.traveler1;
-            this.pictureBox1.Location = new System.Drawing.Point(-74, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(462, 245);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -191,9 +191,10 @@
             this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
             this.label.Location = new System.Drawing.Point(48, 16);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(139, 37);
+            this.label.Size = new System.Drawing.Size(0, 37);
             this.label.TabIndex = 5;
-            this.label.Text = "Привет, user1!";
+            this.label.Text = "";
+            this.label.Visible = false;
             // 
             // label4
             // 
@@ -239,7 +240,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label5.Location = new System.Drawing.Point(80, 32);
+            this.label5.Location = new System.Drawing.Point(55, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 30);
             this.label5.TabIndex = 17;
@@ -254,7 +255,7 @@
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(13, 16);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(13, 20);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton1.Size = new System.Drawing.Size(30, 30);
@@ -292,7 +293,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label7.Location = new System.Drawing.Point(48, 32);
+            this.label7.Location = new System.Drawing.Point(55, 20);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(145, 30);
             this.label7.TabIndex = 17;
@@ -307,7 +308,7 @@
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
             this.guna2ImageButton2.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(13, 16);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(13, 20);
             this.guna2ImageButton2.Name = "guna2ImageButton2";
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton2.Size = new System.Drawing.Size(30, 30);
@@ -345,7 +346,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label9.Location = new System.Drawing.Point(80, 32);
+            this.label9.Location = new System.Drawing.Point(55, 20);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 30);
             this.label9.TabIndex = 17;
@@ -360,7 +361,7 @@
             this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton3.ImageRotate = 0F;
             this.guna2ImageButton3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(13, 16);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(13, 20);
             this.guna2ImageButton3.Name = "guna2ImageButton3";
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton3.Size = new System.Drawing.Size(30, 30);
@@ -398,7 +399,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label11.Location = new System.Drawing.Point(72, 32);
+            this.label11.Location = new System.Drawing.Point(55, 20);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(114, 30);
             this.label11.TabIndex = 17;
@@ -413,7 +414,7 @@
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(13, 16);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(13, 20);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton4.Size = new System.Drawing.Size(30, 30);
@@ -451,7 +452,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label13.Location = new System.Drawing.Point(80, 32);
+            this.label13.Location = new System.Drawing.Point(55, 20);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 30);
             this.label13.TabIndex = 17;
@@ -466,7 +467,7 @@
             this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton5.ImageRotate = 0F;
             this.guna2ImageButton5.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton5.Location = new System.Drawing.Point(13, 16);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(13, 20);
             this.guna2ImageButton5.Name = "guna2ImageButton5";
             this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton5.Size = new System.Drawing.Size(30, 30);
@@ -504,7 +505,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
-            this.label15.Location = new System.Drawing.Point(80, 32);
+            this.label15.Location = new System.Drawing.Point(55, 20);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(70, 30);
             this.label15.TabIndex = 17;
@@ -519,7 +520,7 @@
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
             this.guna2ImageButton6.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(13, 16);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(13, 20);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2ImageButton6.Size = new System.Drawing.Size(30, 30);
