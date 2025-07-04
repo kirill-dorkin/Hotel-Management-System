@@ -23,9 +23,9 @@ namespace HotelManagementSystem.Bookings
             InitializeComponent();
         }
 
-        private void _RefreshBookingsList()
+        private async Task _RefreshBookingsList()
         {
-            _DataView = clsBooking.GetAllBookings().DefaultView;
+            _DataView = (await clsBooking.GetAllBookingsAsync()).DefaultView;
             dgvBookingsList.DataSource = _DataView;
 
             cbStatus.Visible = false;
@@ -46,9 +46,9 @@ namespace HotelManagementSystem.Bookings
                 _DataView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", cbFilterByOptions.Text, txtFilterValue.Text.Trim());
         }
 
-        private void frmListBookings_Load(object sender, EventArgs e)
+        private async void frmListBookings_Load(object sender, EventArgs e)
         {
-            _RefreshBookingsList();
+            await _RefreshBookingsList();
         }
 
         private void dgvBookingsList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -113,7 +113,7 @@ namespace HotelManagementSystem.Bookings
 
         }
 
-        private void checkOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void checkOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int BookingID = (int)dgvBookingsList.CurrentRow.Cells[0].Value;
 
@@ -124,7 +124,7 @@ namespace HotelManagementSystem.Bookings
                 if (Booking.CheckOut(clsGlobal.CurrentUser.UserID))
                 {
                     MessageBox.Show("Checkout completed successfully", "Checkout Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmListBookings_Load(null, null);
+                    await _RefreshBookingsList();
                 }
                 else
                 {

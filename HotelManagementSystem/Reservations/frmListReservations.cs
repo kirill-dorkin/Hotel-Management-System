@@ -24,9 +24,9 @@ namespace HotelManagementSystem.Reservations
             InitializeComponent();
         }
 
-        private void _RefreshReservationsList()
+        private async Task _RefreshReservationsList()
         {
-            _DataView = clsReservation.GetAllReservations().DefaultView;
+            _DataView = (await clsReservation.GetAllReservationsAsync()).DefaultView;
             dgvReservationsList.DataSource = _DataView;
 
             cbStatus.Visible = false;
@@ -47,9 +47,9 @@ namespace HotelManagementSystem.Reservations
                 _DataView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", cbFilterByOptions.Text, txtFilterValue.Text.Trim());
         }
 
-        private void frmListReservations_Load(object sender, EventArgs e)
+        private async void frmListReservations_Load(object sender, EventArgs e)
         {
-            _RefreshReservationsList();
+            await _RefreshReservationsList();
         }
 
         private void dgvReservationsList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -60,11 +60,11 @@ namespace HotelManagementSystem.Reservations
             }
         }
 
-        private void btnAddReservation_Click(object sender, EventArgs e)
+        private async void btnAddReservation_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateReservation();
             frm.ShowDialog();
-            _RefreshReservationsList();
+            await _RefreshReservationsList();
         }
 
         private void cbFilterByOptions_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,27 +133,27 @@ namespace HotelManagementSystem.Reservations
 
         }
 
-        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int ReservationID = (int)dgvReservationsList.CurrentRow.Cells[0].Value;
 
             Form frm = new frmShowReservationInfo(ReservationID);
             frm.ShowDialog();
 
-            frmListReservations_Load(null, null);
+            await _RefreshReservationsList();
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int ReservationID = (int)dgvReservationsList.CurrentRow.Cells[0].Value;
 
             Form frm = new frmAddUpdateReservation(ReservationID);
             frm.ShowDialog();
 
-            frmListReservations_Load(null, null);
+            await _RefreshReservationsList();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure do want to delete this reservation?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
@@ -165,15 +165,15 @@ namespace HotelManagementSystem.Reservations
             if (clsReservation.DeleteReservation(ReservationID))
             {
                 MessageBox.Show("Reservation deleted Successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frmListReservations_Load(null, null);
-            }
+                await _RefreshReservationsList();
+                }
             else
             {
                 MessageBox.Show("Could not delete this reservation.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void confirmToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void confirmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure do want to confirm this reservation?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
@@ -187,7 +187,7 @@ namespace HotelManagementSystem.Reservations
                 if (Reservation.Confirm())
                 {
                     MessageBox.Show("Reservation confirmed successfully! You can now proceed with the check-in process.", "Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmListReservations_Load(null, null);
+                    await _RefreshReservationsList();
                 }
                 else
                 {
@@ -196,7 +196,7 @@ namespace HotelManagementSystem.Reservations
             }
         }
 
-        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void cancelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure do want to cancel this reservation?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
@@ -210,7 +210,7 @@ namespace HotelManagementSystem.Reservations
                 if (Reservation.Cancel())
                 {
                     MessageBox.Show("Reservation Cancelled Successfully.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmListReservations_Load(null, null);
+                    await _RefreshReservationsList();
                 }
                 else
                 {
