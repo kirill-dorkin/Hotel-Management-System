@@ -112,12 +112,12 @@ namespace Hotel_BusinessLayer
 
         public static Task<bool> IsRoomExistAsync(int RoomID)
         {
-            return Task.Run(() => IsRoomExist(RoomID));
+            return clsRoomData.IsRoomExistAsync(RoomID);
         }
 
         public static Task<bool> IsRoomExistAsync(string RoomNumber)
         {
-            return Task.Run(() => IsRoomExist(RoomNumber));
+            return clsRoomData.IsRoomExistAsync(RoomNumber);
         }
 
         private bool _AddNewRoom()

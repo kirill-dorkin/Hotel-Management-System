@@ -70,12 +70,12 @@ namespace Hotel_BusinessLayer
 
         public static Task<bool> IsMenuItemExistAsync(int ItemID)
         {
-            return Task.Run(() => IsMenuItemExist(ItemID));
+            return clsMenuItemData.IsMenuItemExistAsync(ItemID);
         }
 
         public static Task<bool> IsMenuItemExistAsync(string ItemName)
         {
-            return Task.Run(() => IsMenuItemExist(ItemName));
+            return clsMenuItemData.IsMenuItemExistAsync(ItemName);
         }
 
         private bool _AddNewMenuItem()

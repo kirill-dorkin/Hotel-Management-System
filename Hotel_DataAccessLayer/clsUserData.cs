@@ -131,6 +131,42 @@ namespace Hotel_DataAccessLayer
             return IsFound;
         }
 
+        public static async Task<bool> IsUserExistAsync(int UserID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
+
+            string query = @"SELECT IsFound = 1
+                             FROM Users
+                             WHERE UserID = @UserID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@UserID", UserID);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
+                IsFound = (reader != null);
+            }
+
+            catch (Exception ex)
+            {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
         public static bool IsUserExistByPersonID(int PersonID)
         {
             bool IsFound = false;
@@ -167,6 +203,42 @@ namespace Hotel_DataAccessLayer
             return IsFound;
         }
 
+        public static async Task<bool> IsUserExistByPersonIDAsync(int PersonID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
+
+            string query = @"SELECT IsFound = 1
+                             FROM Users
+                             WHERE PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
+                IsFound = (reader != null);
+            }
+
+            catch (Exception ex)
+            {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
         public static bool IsUserExist(string UserName)
         {
             bool IsFound = false;
@@ -187,6 +259,42 @@ namespace Hotel_DataAccessLayer
             {
                 connection.Open();
                 reader = command.ExecuteScalar();
+                IsFound = (reader != null);
+            }
+
+            catch (Exception ex)
+            {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static async Task<bool> IsUserExistAsync(string UserName)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
+
+            string query = @"SELECT IsFound = 1
+                             FROM Users
+                             WHERE UserName = @UserName;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@UserName", UserName);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
                 IsFound = (reader != null);
             }
 

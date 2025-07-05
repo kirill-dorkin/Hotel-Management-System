@@ -179,6 +179,41 @@ namespace Hotel_DataAccessLayer
             return IsFound;
         }
 
+        public static async Task<bool> IsPersonExistAsync(int PersonID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "SELECT IsFound = 1 FROM People WHERE PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
+
+                IsFound = (reader != null);
+
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
         public static bool IsPersonExist(string NationalNo)
         {
             bool IsFound = false;
@@ -199,6 +234,41 @@ namespace Hotel_DataAccessLayer
                 reader = command.ExecuteScalar();
 
                 // Check if the reader object is null to determine if the record was found
+                IsFound = (reader != null);
+
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static async Task<bool> IsPersonExistAsync(string NationalNo)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "SELECT IsFound = 1 FROM People WHERE NationalNo = @NationalNo;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
+
                 IsFound = (reader != null);
 
             }
