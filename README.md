@@ -72,3 +72,4 @@
 файл `packages.config`, который содержит зависимость `System.Data.SQLite`.
 Запустите `nuget restore` в каталоге решения, чтобы скачать необходимые пакеты.
 
+Все SQL-запросы обновлены для поддержки SQLite. Вместо функций SQL Server используются аналоги SQLite (last_insert_rowid, date('now') и т.д.).

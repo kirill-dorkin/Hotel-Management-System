@@ -282,7 +282,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO RoomTypes (RoomTypeTitle,RoomTypeCapacity,RoomTypePricePerNight,RoomTypeDescription)
                             VALUES (@RoomTypeTitle,@RoomTypeCapacity,@RoomTypePricePerNight,@RoomTypeDescription);
-                            SELECT SCOPE_IDENTITY();";
+                            SELECT last_insert_rowid();";
 
             SqlCommand command = new SqlCommand(query, connection);
 

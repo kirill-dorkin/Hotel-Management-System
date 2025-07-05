@@ -225,7 +225,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO GuestCompanions (PersonID,GuestID,BookingID,CreatedByUserID,CreatedDate)
                             VALUES (@PersonID,@GuestID,@BookingID,@CreatedByUserID,@CreatedDate);
-                            SELECT SCOPE_IDENTITY();";
+                            SELECT last_insert_rowid();";
 
             SqlCommand command = new SqlCommand(query, connection);
 

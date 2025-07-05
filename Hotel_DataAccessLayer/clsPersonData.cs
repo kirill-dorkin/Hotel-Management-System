@@ -305,7 +305,7 @@ namespace Hotel_DataAccessLayer
                             BirthDate,Address,Phone,Email,NationalityCountryID,PersonalImagePath)
                             VALUES (@FirstName,@LastName,@NationalNo,@Gender,
                             @BirthDate,@Address,@Phone,@Email,@NationalityCountryID,@PersonalImagePath);
-                            SELECT SCOPE_IDENTITY();";
+                            SELECT last_insert_rowid();";
 
             SqlCommand command = new SqlCommand(query, connection);
 

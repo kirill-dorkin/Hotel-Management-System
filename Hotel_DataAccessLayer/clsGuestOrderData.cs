@@ -121,7 +121,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO GuestOrders (GuestID,RoomID,OrderDate,CreatedByUserID,BookingID,OrderType,RoomServiceID)
                             VALUES (@GuestID,@RoomID,@OrderDate,@CreatedByUserID,@BookingID,@OrderType,@RoomServiceID);
-                            SELECT SCOPE_IDENTITY();";
+                            SELECT last_insert_rowid();";
 
             SqlCommand command = new SqlCommand(query, connection);
 

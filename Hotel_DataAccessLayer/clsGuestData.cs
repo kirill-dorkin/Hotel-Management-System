@@ -200,7 +200,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO Guests (PersonID,CreatedByUserID,CreatedDate)
                             VALUES (@PersonID,@CreatedByUserID,@CreatedDate);
-                            SELECT SCOPE_IDENTITY();";
+                            SELECT last_insert_rowid();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -324,7 +324,7 @@ namespace Hotel_DataAccessLayer
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
             string query = @"SELECT GuestID AS 'Guest ID' , People.PersonID AS 'Person ID' , NationalNo AS 'National No' , 
-                            FirstName + ' ' + LastName AS 'Full Name', 
+                            FirstName || ' ' || LastName AS 'Full Name', 
                             CASE 
 	                            WHEN Gender = 'M' THEN 'Male'
 	                            WHEN Gender = 'F' THEN 'Female'
@@ -373,7 +373,7 @@ namespace Hotel_DataAccessLayer
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
             {
                 string query = @"SELECT GuestID AS 'Guest ID' , People.PersonID AS 'Person ID' , NationalNo AS 'National No' ,
-                            FirstName + ' ' + LastName AS 'Full Name',
+                            FirstName || ' ' || LastName AS 'Full Name',
                             CASE
                                     WHEN Gender = 'M' THEN 'Male'
                                     WHEN Gender = 'F' THEN 'Female'
@@ -414,7 +414,7 @@ namespace Hotel_DataAccessLayer
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
             string query = @"SELECT GuestCompanionID AS 'Guest Companion ID' , NationalNo AS 'National No' , 
-                            FirstName + ' ' + LastName AS 'Full Name', 
+                            FirstName || ' ' || LastName AS 'Full Name', 
                             CASE 
 	                            WHEN Gender = 'M' THEN 'Male'
 	                            WHEN Gender = 'F' THEN 'Female'
