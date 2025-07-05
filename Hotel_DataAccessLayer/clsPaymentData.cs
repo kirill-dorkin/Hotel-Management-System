@@ -275,6 +275,41 @@ namespace Hotel_DataAccessLayer
             return dataTable;
         }
 
+        public static async Task<DataTable> GetAllPaymentsAsync()
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            {
+                string query = @"SELECT PaymentID AS 'Payment ID' , Payments.BookingID AS 'Booking ID' ,
+                            FirstName+ ' ' + LastName AS 'Guest Name',
+                            PaymentDate AS 'Payment Date' , PaidAmount AS 'Paid Amount'
+                            FROM Payments
+                            INNER JOIN Bookings ON Bookings.BookingID = Payments.BookingID
+                            INNER JOIN Guests ON Bookings.GuestID = Guests.GuestID
+                            INNER JOIN People ON People.PersonID = Guests.PersonID;";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    DataTable dataTable = new DataTable();
+
+                    try
+                    {
+                        await connection.OpenAsync();
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            if (reader.HasRows)
+                                dataTable.Load(reader);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+                    }
+
+                    return dataTable;
+                }
+            }
+        }
+
         public static DataTable GetAllPayments(int GuestID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
@@ -319,6 +354,43 @@ namespace Hotel_DataAccessLayer
             }
 
             return dataTable;
+        }
+
+        public static async Task<DataTable> GetAllPaymentsAsync(int GuestID)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            {
+                string query = @"SELECT PaymentID AS 'Payment ID' , Payments.BookingID AS 'Booking ID' ,
+                            FirstName+ ' ' + LastName AS 'Guest Name',
+                            PaymentDate AS 'Payment Date' , PaidAmount AS 'Paid Amount'
+                            FROM Payments
+                            INNER JOIN Bookings ON Bookings.BookingID = Payments.BookingID
+                            INNER JOIN Guests ON Bookings.GuestID = Guests.GuestID
+                            INNER JOIN People ON People.PersonID = Guests.PersonID
+                                                        WHERE Guests.GuestID = @GuestID;";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@GuestID", GuestID);
+                    DataTable dataTable = new DataTable();
+
+                    try
+                    {
+                        await connection.OpenAsync();
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            if (reader.HasRows)
+                                dataTable.Load(reader);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+                    }
+
+                    return dataTable;
+                }
+            }
         }
 
         public static int GetPaymentsCount()

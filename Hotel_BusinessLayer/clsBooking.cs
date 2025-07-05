@@ -185,12 +185,29 @@ namespace Hotel_BusinessLayer
 
         public static Task<DataTable> GetAllBookingsAsync(bool forceRefresh = false)
         {
-            return Task.Run(() => GetAllBookings(forceRefresh));
+            return GetAllBookingsAsyncInternal(forceRefresh);
         }
 
         public static Task<DataTable> GetAllGuestBookingsAsync(int GuestID)
         {
-            return Task.Run(() => clsBookingData.GetAllGuestBookings(GuestID));
+            return clsBookingData.GetAllGuestBookingsAsync(GuestID);
+        }
+
+        private static async Task<DataTable> GetAllBookingsAsyncInternal(bool forceRefresh)
+        {
+            lock (_bookingsLock)
+            {
+                if (_bookingsCache != null && !forceRefresh)
+                    return _bookingsCache.Copy();
+            }
+
+            var data = await clsBookingData.GetAllBookingsAsync();
+
+            lock (_bookingsLock)
+            {
+                _bookingsCache = data;
+                return _bookingsCache.Copy();
+            }
         }
 
         public static string GetBookingStatus(enStatus Status)
