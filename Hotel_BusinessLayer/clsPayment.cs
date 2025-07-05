@@ -145,5 +145,10 @@ namespace Hotel_BusinessLayer
             return clsPaymentData.GetPaymentsCount();
         }
 
+        public static Task<int> GetPaymentsCountAsync()
+        {
+            return clsPaymentData.GetPaymentsCountAsync();
+        }
+
     }
 }

@@ -344,37 +344,14 @@ namespace Hotel_DataAccessLayer
 
         public static int GetGuestOrdersCount()
         {
-            int OrdersCount = 0;
+            const string query = @"SELECT COUNT(GuestOrderID) FROM GuestOrders;";
+            return clsSqlHelper.ExecuteScalarInt(query);
+        }
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-
-            string query = @"SELECT COUNT(GuestOrderID) FROM GuestOrders;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            object RowsCount = null;
-
-            try
-            {
-                connection.Open();
-                RowsCount = command.ExecuteScalar();
-
-                if (RowsCount != null && int.TryParse(RowsCount.ToString(), out int Count))
-                {
-                    OrdersCount = Count;
-                }
-                else
-                    OrdersCount = 0;
-            }
-            catch (Exception ex)
-            {
-                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return OrdersCount;
+        public static Task<int> GetGuestOrdersCountAsync()
+        {
+            const string query = @"SELECT COUNT(GuestOrderID) FROM GuestOrders;";
+            return clsSqlHelper.ExecuteScalarIntAsync(query);
         }
 
         public static float GetOrderPaidFees(int GuestOrderID)

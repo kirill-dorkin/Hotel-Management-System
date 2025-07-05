@@ -405,112 +405,42 @@ namespace Hotel_DataAccessLayer
 
         public static int GetRoomsCountPerRoomType(int RoomTypeID)
         {
-            int RoomsCount = 0;
+            const string query = @"SELECT COUNT(*) FROM Rooms WHERE RoomTypeID = @RoomTypeID";
+            SqlParameter param = new SqlParameter("@RoomTypeID", RoomTypeID);
+            return clsSqlHelper.ExecuteScalarInt(query, param);
+        }
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-
-            string query = @"SELECT Count(*) FROM Rooms WHERE RoomTypeID = @RoomTypeID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@RoomTypeID", RoomTypeID);
-
-            object RowsCount = null;
-
-            try
-            {
-                connection.Open();
-                RowsCount = command.ExecuteScalar();
-
-                if (RowsCount != null && int.TryParse(RowsCount.ToString(), out int Count))
-                {
-                    RoomsCount = Count;
-                }
-                else
-                    RoomsCount = 0;
-            }
-            catch (Exception ex)
-            {
-                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return RoomsCount;
+        public static Task<int> GetRoomsCountPerRoomTypeAsync(int RoomTypeID)
+        {
+            const string query = @"SELECT COUNT(*) FROM Rooms WHERE RoomTypeID = @RoomTypeID";
+            SqlParameter param = new SqlParameter("@RoomTypeID", RoomTypeID);
+            return clsSqlHelper.ExecuteScalarIntAsync(query, param);
         }
 
         public static int GetRoomsCount()
         {
-            int RoomsCount = 0;
+            const string query = @"SELECT COUNT(RoomID) FROM Rooms;";
+            return clsSqlHelper.ExecuteScalarInt(query);
+        }
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-
-            string query = @"SELECT COUNT(RoomID) FROM Rooms;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            object RowsCount = null;
-
-            try
-            {
-                connection.Open();
-                RowsCount = command.ExecuteScalar();
-
-                if (RowsCount != null && int.TryParse(RowsCount.ToString(), out int Count))
-                {
-                    RoomsCount = Count;
-                }
-                else
-                    RoomsCount = 0;
-            }
-            catch (Exception ex)
-            {
-                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return RoomsCount;
+        public static Task<int> GetRoomsCountAsync()
+        {
+            const string query = @"SELECT COUNT(RoomID) FROM Rooms;";
+            return clsSqlHelper.ExecuteScalarIntAsync(query);
         }
 
         public static int GetRoomsCountPerStatus(byte AvailabilityStatus)
         {
-            int RoomsCount = 0;
+            const string query = @"SELECT COUNT(RoomID) FROM Rooms WHERE AvailabilityStatus = @AvailabilityStatus;";
+            SqlParameter param = new SqlParameter("@AvailabilityStatus", AvailabilityStatus);
+            return clsSqlHelper.ExecuteScalarInt(query, param);
+        }
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-
-            string query = @"SELECT COUNT(RoomID) FROM Rooms
-                            WHERE AvailabilityStatus = @AvailabilityStatus;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@AvailabilityStatus", AvailabilityStatus);
-
-            object RowsCount = null;
-
-            try
-            {
-                connection.Open();
-                RowsCount = command.ExecuteScalar();
-
-                if (RowsCount != null && int.TryParse(RowsCount.ToString(), out int Count))
-                {
-                    RoomsCount = Count;
-                }
-                else
-                    RoomsCount = 0;
-            }
-            catch (Exception ex)
-            {
-                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return RoomsCount;
+        public static Task<int> GetRoomsCountPerStatusAsync(byte AvailabilityStatus)
+        {
+            const string query = @"SELECT COUNT(RoomID) FROM Rooms WHERE AvailabilityStatus = @AvailabilityStatus;";
+            SqlParameter param = new SqlParameter("@AvailabilityStatus", AvailabilityStatus);
+            return clsSqlHelper.ExecuteScalarIntAsync(query, param);
         }
 
         public static DataTable GetRoomsPerRoomType(int RoomTypeID, byte AvailabilityStatus)

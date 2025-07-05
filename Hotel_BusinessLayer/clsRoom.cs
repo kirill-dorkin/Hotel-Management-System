@@ -178,14 +178,29 @@ namespace Hotel_BusinessLayer
             return clsRoomData.GetRoomsCountPerRoomType(RoomTypeID);
         }
 
+        public static Task<int> GetRoomsCountPerRoomTypeAsync(int RoomTypeID)
+        {
+            return clsRoomData.GetRoomsCountPerRoomTypeAsync(RoomTypeID);
+        }
+
         public static int GetRoomsCount()
         {
             return clsRoomData.GetRoomsCount();
         }
 
+        public static Task<int> GetRoomsCountAsync()
+        {
+            return clsRoomData.GetRoomsCountAsync();
+        }
+
         public static int GetRoomsCountPerStatus(enAvailabilityStatus AvailabilityStatus)
         {
             return clsRoomData.GetRoomsCountPerStatus((byte)AvailabilityStatus);
+        }
+
+        public static Task<int> GetRoomsCountPerStatusAsync(enAvailabilityStatus AvailabilityStatus)
+        {
+            return clsRoomData.GetRoomsCountPerStatusAsync((byte)AvailabilityStatus);
         }
 
         public static string GetAvailabilityStatus(enAvailabilityStatus AvailabilityStatus)

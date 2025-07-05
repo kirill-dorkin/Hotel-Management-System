@@ -460,36 +460,14 @@ namespace Hotel_DataAccessLayer
 
         public static int GetGuestsCount()
         {
-            int GuestsCount = 0;
+            const string query = @"SELECT COUNT(GuestID) FROM Guests;";
+            return clsSqlHelper.ExecuteScalarInt(query);
+        }
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-
-            string query = @"SELECT COUNT(GuestID)
-                            FROM Guests;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            object reader = null;
-
-            try
-            {
-                connection.Open();
-                reader = command.ExecuteScalar();
-
-                GuestsCount = (int)reader;
-            }
-
-            catch (Exception ex)
-            {
-                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return GuestsCount;
+        public static Task<int> GetGuestsCountAsync()
+        {
+            const string query = @"SELECT COUNT(GuestID) FROM Guests;";
+            return clsSqlHelper.ExecuteScalarIntAsync(query);
         }
 
 

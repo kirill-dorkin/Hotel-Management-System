@@ -22,7 +22,7 @@ namespace HotelManagementSystem
             InitializeComponent();
         }
 
-        private void _LoadDashboardData()
+        private async Task _LoadDashboardDataAsync()
         {
             // Hide greeting and user info section
             label.Visible = false;
@@ -31,12 +31,24 @@ namespace HotelManagementSystem
             btnShowDropDownMenu.Visible = false;
             guna2GradientButton1.Visible = false;
 
-            lblRoomsCount.Text = clsRoom.GetRoomsCount().ToString();
-            lblReservationsCount.Text = clsReservation.GetReservationsCount().ToString();
-            lblBookingsCount.Text = clsBooking.GetBookingsCount().ToString();
-            lblPaymentsCount.Text = clsPayment.GetPaymentsCount().ToString();
-            lblGuestsCount.Text = (clsGuest.GetGuestsCount() + clsGuestCompanion.GetGuestCompanionsCount()).ToString();
-            lblUsersCount.Text = clsUser.GetUsersCount().ToString();
+            var roomsCountTask = clsRoom.GetRoomsCountAsync();
+            var reservationsCountTask = clsReservation.GetReservationsCountAsync();
+            var bookingsCountTask = clsBooking.GetBookingsCountAsync();
+            var paymentsCountTask = clsPayment.GetPaymentsCountAsync();
+            var guestsCountTask = clsGuest.GetGuestsCountAsync();
+            var companionsCountTask = clsGuestCompanion.GetGuestCompanionsCountAsync();
+            var usersCountTask = clsUser.GetUsersCountAsync();
+
+            await Task.WhenAll(roomsCountTask, reservationsCountTask, bookingsCountTask,
+                               paymentsCountTask, guestsCountTask, companionsCountTask,
+                               usersCountTask);
+
+            lblRoomsCount.Text = roomsCountTask.Result.ToString();
+            lblReservationsCount.Text = reservationsCountTask.Result.ToString();
+            lblBookingsCount.Text = bookingsCountTask.Result.ToString();
+            lblPaymentsCount.Text = paymentsCountTask.Result.ToString();
+            lblGuestsCount.Text = (guestsCountTask.Result + companionsCountTask.Result).ToString();
+            lblUsersCount.Text = usersCountTask.Result.ToString();
 
         }
 
@@ -59,9 +71,9 @@ namespace HotelManagementSystem
 
         }
 
-        private void frmDashboard_Load(object sender, EventArgs e)
-        {         
-            _LoadDashboardData();
+        private async void frmDashboard_Load(object sender, EventArgs e)
+        {
+            await _LoadDashboardDataAsync();
 
             _LoadChartData();
         }
