@@ -97,6 +97,42 @@ namespace Hotel_DataAccessLayer
             return IsFound;
         }
 
+        public static async Task<bool> IsRoomServiceExistAsync(int RoomServiceID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"SELECT IsFound = 1
+                             FROM RoomServices
+                             WHERE RoomServiceID = @RoomServiceID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@RoomServiceID", RoomServiceID);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
+                IsFound = (reader != null);
+            }
+
+            catch (Exception ex)
+            {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
         public static bool IsRoomServiceExist(string RoomServiceTitle)
         {
             bool IsFound = false;
@@ -117,6 +153,42 @@ namespace Hotel_DataAccessLayer
             {
                 connection.Open();
                 reader = command.ExecuteScalar();
+                IsFound = (reader != null);
+            }
+
+            catch (Exception ex)
+            {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static async Task<bool> IsRoomServiceExistAsync(string RoomServiceTitle)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"SELECT IsFound = 1
+                             FROM RoomServices
+                             WHERE RoomServiceTitle = @RoomServiceTitle;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@RoomServiceTitle", RoomServiceTitle);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
                 IsFound = (reader != null);
             }
 

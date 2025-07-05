@@ -68,12 +68,12 @@ namespace Hotel_BusinessLayer
 
         public static Task<bool> IsGuestCompanionExistAsync(int GuestCompanionID)
         {
-            return Task.Run(() => IsGuestCompanionExist(GuestCompanionID));
+            return clsGuestCompanionData.IsGuestCompanionExistAsync(GuestCompanionID);
         }
 
         public static Task<bool> IsGuestCompanionExistAsync(int BookingID, int PersonID)
         {
-            return Task.Run(() => IsGuestCompanionExist(BookingID, PersonID));
+            return clsGuestCompanionData.IsGuestCompanionExistAsync(BookingID, PersonID);
         }
 
         private bool _AddNewGuestCompanion()

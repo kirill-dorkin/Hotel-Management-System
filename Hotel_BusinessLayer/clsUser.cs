@@ -93,17 +93,17 @@ namespace Hotel_BusinessLayer
 
         public static Task<bool> IsUserExistAsync(int UserID)
         {
-            return Task.Run(() => IsUserExist(UserID));
+            return clsUserData.IsUserExistAsync(UserID);
         }
 
         public static Task<bool> IsUserExistByPersonIDAsync(int PersonID)
         {
-            return Task.Run(() => IsUserExistByPersonID(PersonID));
+            return clsUserData.IsUserExistByPersonIDAsync(PersonID);
         }
 
         public static Task<bool> IsUserExistAsync(string UserName)
         {
-            return Task.Run(() => IsUserExist(UserName));
+            return clsUserData.IsUserExistAsync(UserName);
         }
 
         private bool _AddNewUser()

@@ -103,6 +103,42 @@ namespace Hotel_DataAccessLayer
             return IsFound;
         }
 
+        public static async Task<bool> IsReservationExistAsync(int ReservationID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"SELECT IsFound = 1
+                             FROM Reservations
+                             WHERE ReservationID = @ReservationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ReservationID", ReservationID);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
+                IsFound = (reader != null);
+            }
+
+            catch (Exception ex)
+            {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
         public static int AddNewReservation(int ReservationPersonID, int RoomID, DateTime ReservationDate, byte NumberOfPeople, byte Status, DateTime LastStatusDate, int CreatedByUserID, DateTime CreatedDate)
         {
             //this function will return the newly added ReservationID if it was inserted successfully

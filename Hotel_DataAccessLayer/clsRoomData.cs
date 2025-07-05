@@ -167,6 +167,42 @@ namespace Hotel_DataAccessLayer
             return IsFound;
         }
 
+        public static async Task<bool> IsRoomExistAsync(int RoomID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"SELECT IsFound = 1
+                             FROM Rooms
+                             WHERE RoomID = @RoomID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@RoomID", RoomID);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
+                IsFound = (reader != null);
+            }
+
+            catch (Exception ex)
+            {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
         public static bool IsRoomExist(string RoomNumber)
         {
             bool IsFound = false;
@@ -187,6 +223,42 @@ namespace Hotel_DataAccessLayer
             {
                 connection.Open();
                 reader = command.ExecuteScalar();
+                IsFound = (reader != null);
+            }
+
+            catch (Exception ex)
+            {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static async Task<bool> IsRoomExistAsync(string RoomNumber)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"SELECT IsFound = 1
+                             FROM Rooms
+                             WHERE RoomNumber = @RoomNumber;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@RoomNumber", RoomNumber);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
                 IsFound = (reader != null);
             }
 

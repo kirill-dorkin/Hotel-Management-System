@@ -100,6 +100,42 @@ namespace Hotel_DataAccessLayer
             return IsFound;
         }
 
+        public static async Task<bool> IsGuestCompanionExistAsync(int GuestCompanionID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"SELECT IsFound = 1
+                             FROM GuestCompanions
+                             WHERE GuestCompanionID = @GuestCompanionID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@GuestCompanionID", GuestCompanionID);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
+                IsFound = (reader != null);
+            }
+
+            catch (Exception ex)
+            {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
         public static bool IsGuestCompanionExist(int BookingID , int PersonID)
         {
             bool IsFound = false;
@@ -121,6 +157,43 @@ namespace Hotel_DataAccessLayer
             {
                 connection.Open();
                 reader = command.ExecuteScalar();
+                IsFound = (reader != null);
+            }
+
+            catch (Exception ex)
+            {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static async Task<bool> IsGuestCompanionExistAsync(int BookingID, int PersonID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"SELECT IsFound = 1
+                             FROM GuestCompanions
+                             WHERE BookingID = @BookingID AND PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@BookingID", BookingID);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            object reader = null;
+
+            try
+            {
+                await connection.OpenAsync();
+                reader = await command.ExecuteScalarAsync();
                 IsFound = (reader != null);
             }
 
