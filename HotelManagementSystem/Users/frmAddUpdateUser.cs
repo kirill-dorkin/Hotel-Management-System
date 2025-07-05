@@ -104,7 +104,7 @@ namespace HotelManagementSystem.Users
                 _PersonID = PersonID;
         }
 
-        private void txtUserName_Validating(object sender, CancelEventArgs e)
+        private async void txtUserName_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtUserName.Text.Trim()))
             {
@@ -116,7 +116,7 @@ namespace HotelManagementSystem.Users
             //In case of mode Update , we check if the old username was changed and if the new username is not taken
             //yet by any other user.
 
-            else if (txtUserName.Text != _User.UserName && clsUser.IsUserExist(txtUserName.Text.Trim()))
+            else if (txtUserName.Text != _User.UserName && await clsUser.IsUserExistAsync(txtUserName.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtUserName, "This Username is already taken by another User!");
@@ -215,9 +215,9 @@ namespace HotelManagementSystem.Users
             this.Close();
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
+        private async void btnNext_Click(object sender, EventArgs e)
         {
-            //Check if a person is selected 
+            //Check if a person is selected
             if(_PersonID == -1)
             {
                 MessageBox.Show("Please select a person !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -226,7 +226,7 @@ namespace HotelManagementSystem.Users
             }
 
             // Check if the selected person is already assigned to another user
-            else if (clsUser.IsUserExistByPersonID(_PersonID))
+            else if (await clsUser.IsUserExistByPersonIDAsync(_PersonID))
             {
                 MessageBox.Show("Selected person already has a user , please choose another one !", "Not valid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ctrlPersonCardWithFilter1.FilterFocus();

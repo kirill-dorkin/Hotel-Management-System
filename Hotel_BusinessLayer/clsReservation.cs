@@ -92,6 +92,11 @@ namespace Hotel_BusinessLayer
             return clsReservationData.IsReservationExist(ReservationID);
         }
 
+        public static Task<bool> IsReservationExistAsync(int ReservationID)
+        {
+            return Task.Run(() => IsReservationExist(ReservationID));
+        }
+
         private bool _AddNewReservation()
         {
             ReservationID = clsReservationData.AddNewReservation(ReservationPersonID, RoomID, ReservationDate, NumberOfPeople, (byte)Status, LastStatusDate, CreatedByUserID, CreatedDate);

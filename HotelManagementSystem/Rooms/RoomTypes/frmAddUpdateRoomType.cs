@@ -116,7 +116,7 @@ namespace HotelManagementSystem.Rooms.RoomTypes
             this.Close();
         }
 
-        private void txtRoomTypeTitle_Validating(object sender, CancelEventArgs e)
+        private async void txtRoomTypeTitle_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtRoomTypeTitle.Text.Trim()))
             {
@@ -125,7 +125,7 @@ namespace HotelManagementSystem.Rooms.RoomTypes
                 return;
             }
 
-            else if (_RoomType.RoomTypeTitle != txtRoomTypeTitle.Text && clsRoomType.IsRoomTypeExist(txtRoomTypeTitle.Text.Trim()))
+            else if (_RoomType.RoomTypeTitle != txtRoomTypeTitle.Text && await clsRoomType.IsRoomTypeExistAsync(txtRoomTypeTitle.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtRoomTypeTitle, "Такой тип комнаты уже существует!");

@@ -110,6 +110,16 @@ namespace Hotel_BusinessLayer
             return clsRoomData.IsRoomExist(RoomNumber);
         }
 
+        public static Task<bool> IsRoomExistAsync(int RoomID)
+        {
+            return Task.Run(() => IsRoomExist(RoomID));
+        }
+
+        public static Task<bool> IsRoomExistAsync(string RoomNumber)
+        {
+            return Task.Run(() => IsRoomExist(RoomNumber));
+        }
+
         private bool _AddNewRoom()
         {
             RoomID = clsRoomData.AddNewRoom(RoomTypeID, RoomNumber, RoomFloor, RoomSize,(byte) AvailabilityStatus, IsSmokingAllowed, IsPetFriendly, AdditionalNotes);

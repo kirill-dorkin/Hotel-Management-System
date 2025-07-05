@@ -83,9 +83,9 @@ namespace HotelManagementSystem.Bookings
             }
         }
 
-        private void txtReservationID_Validating(object sender, CancelEventArgs e)
+        private async void txtReservationID_Validating(object sender, CancelEventArgs e)
         {
-            if (!int.TryParse(txtReservationID.Text, out _ReservationID) || !clsReservation.IsReservationExist(_ReservationID))
+            if (!int.TryParse(txtReservationID.Text, out _ReservationID) || !await clsReservation.IsReservationExistAsync(_ReservationID))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtReservationID, "Недействительный ID брони");

@@ -59,6 +59,16 @@ namespace Hotel_BusinessLayer
             return clsRoomServiceData.IsRoomServiceExist(RoomServiceTitle);
         }
 
+        public static Task<bool> IsRoomServiceExistAsync(int RoomServiceID)
+        {
+            return Task.Run(() => IsRoomServiceExist(RoomServiceID));
+        }
+
+        public static Task<bool> IsRoomServiceExistAsync(string RoomServiceTitle)
+        {
+            return Task.Run(() => IsRoomServiceExist(RoomServiceTitle));
+        }
+
         private bool _AddNewRoomService()
         {
             RoomServiceID = clsRoomServiceData.AddNewRoomService(RoomServiceTitle, RoomServiceDescription, RoomServiceFees);

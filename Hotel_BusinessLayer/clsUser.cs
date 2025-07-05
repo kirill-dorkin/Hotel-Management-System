@@ -91,6 +91,21 @@ namespace Hotel_BusinessLayer
             return clsUserData.IsUserExist(UserName);
         }
 
+        public static Task<bool> IsUserExistAsync(int UserID)
+        {
+            return Task.Run(() => IsUserExist(UserID));
+        }
+
+        public static Task<bool> IsUserExistByPersonIDAsync(int PersonID)
+        {
+            return Task.Run(() => IsUserExistByPersonID(PersonID));
+        }
+
+        public static Task<bool> IsUserExistAsync(string UserName)
+        {
+            return Task.Run(() => IsUserExist(UserName));
+        }
+
         private bool _AddNewUser()
         {
             UserID = clsUserData.AddNewUser(PersonID, UserName, Password, IsActive);

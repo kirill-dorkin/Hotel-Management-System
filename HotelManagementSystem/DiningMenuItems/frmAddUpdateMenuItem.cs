@@ -92,7 +92,7 @@ namespace HotelManagementSystem.DiningMenuItems
             llbRemoveImage.Visible = (ItemImage.ImageLocation != null);
         }
 
-        private void txtItemName_Validating(object sender, CancelEventArgs e)
+        private async void txtItemName_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtItemName.Text.Trim()))
             {
@@ -101,7 +101,7 @@ namespace HotelManagementSystem.DiningMenuItems
                 return;
             }
 
-            else if (_MenuItem.ItemName != txtItemName.Text && clsMenuItem.IsMenuItemExist(txtItemName.Text.Trim()))
+            else if (_MenuItem.ItemName != txtItemName.Text && await clsMenuItem.IsMenuItemExistAsync(txtItemName.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtItemName, "This MenuItem already exists !");

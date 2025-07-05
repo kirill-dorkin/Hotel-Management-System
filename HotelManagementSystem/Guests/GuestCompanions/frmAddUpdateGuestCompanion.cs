@@ -164,12 +164,12 @@ namespace HotelManagementSystem.Guests.GuestCompanions
                 _LoadGuestCompanionData();
         }
 
-        private void ctrlPersonCardWithFilter2_OnPersonSelected(object sender, int PersonID)
+        private async void ctrlPersonCardWithFilter2_OnPersonSelected(object sender, int PersonID)
         {
             if (PersonID != -1)
                 _PersonID = PersonID;
 
-            if (clsGuestCompanion.IsGuestCompanionExist(_BookingID, PersonID))
+            if (await clsGuestCompanion.IsGuestCompanionExistAsync(_BookingID, PersonID))
             {
                 MessageBox.Show("This person is already linked with other guest companions ! Please choose another one.", "Not Valid!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ctrlPersonCardWithFilter2.FilterFocus();

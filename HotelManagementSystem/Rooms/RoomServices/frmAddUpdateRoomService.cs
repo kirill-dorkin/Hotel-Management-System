@@ -110,7 +110,7 @@ namespace HotelManagementSystem.Rooms.RoomServices
             this.Close();
         }
 
-        private void txtTitle_Validating(object sender, CancelEventArgs e)
+        private async void txtTitle_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtTitle.Text.Trim()))
             {
@@ -119,7 +119,7 @@ namespace HotelManagementSystem.Rooms.RoomServices
                 return;
             }
 
-            else if (_RoomService.RoomServiceTitle != txtTitle.Text && clsRoomService.IsRoomServiceExist(txtTitle.Text.Trim()))
+            else if (_RoomService.RoomServiceTitle != txtTitle.Text && await clsRoomService.IsRoomServiceExistAsync(txtTitle.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtTitle, "Такой сервис уже существует!");

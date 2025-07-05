@@ -127,6 +127,16 @@ namespace Hotel_BusinessLayer
             return clsPersonData.IsPersonExist(NationalNo);
         }
 
+        public static Task<bool> IsPersonExistAsync(int PersonID)
+        {
+            return Task.Run(() => IsPersonExist(PersonID));
+        }
+
+        public static Task<bool> IsPersonExistAsync(string NationalNo)
+        {
+            return Task.Run(() => IsPersonExist(NationalNo));
+        }
+
         public static bool DeletePerson(int PersonID)
         {
             return clsPersonData.DeletePerson(PersonID);
