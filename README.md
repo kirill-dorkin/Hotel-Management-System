@@ -34,7 +34,7 @@
 
 * C#
 * .NET Framework
-* SQL Server
+* SQLite
 * ADO.NET
 * WinForms (настольный интерфейс)
 
@@ -51,28 +51,19 @@
 
 ## Работа с базой данных
 
-Для хранения данных приложение использует Microsoft SQL Server. В репозитории уже
-присутствует резервная копия базы `HotelDB.bak`, из которой можно восстановить
-готовую структуру и начальные данные.
+Приложение теперь использует локальную базу **SQLite**. Все данные хранятся в
+файле `HotelDB.sqlite`, который создаётся автоматически при первом запуске.
 
-1. Установите SQL Server (достаточно версии Express) и утилиту **SQL Server
-   Management Studio (SSMS)**.
-2. Запустите SSMS и выполните восстановление базы данных из файла
-   `HotelDB.bak`:
-   - В дерево объектов выберите узел **Databases** → **Restore Database...**.
-   - В разделе **Device** добавьте путь к файлу `HotelDB.bak` из корня проекта
-     и отметьте нужный бэкап для восстановления.
-   - Нажмите **OK** – после восстановления должна появиться база `HotelDB`.
-3. Убедитесь, что строка подключения в файле
-   `HotelManagementSystem/App.config` указывает на ваш экземпляр SQL Server.
-   По умолчанию используется локальный сервер и Windows‑аутентификация:
+1. Убедитесь, что файл `HotelDB.sqlite` доступен для записи в каталоге
+   приложения (по умолчанию используется корень репозитория).
+2. Проверьте строку подключения в файле
+   `HotelManagementSystem/App.config`. Она должна содержать путь к файлу
+   `HotelDB.sqlite` и провайдер `System.Data.SQLite`:
 
    ```xml
-   <add name="connectionString" connectionString="Data Source=localhost;Initial Catalog=HotelDB;Integrated Security=True;" providerName="System.Data.SqlClient" />
+   <add name="connectionString" connectionString="Data Source=HotelDB.sqlite;Version=3;" providerName="System.Data.SQLite" />
    ```
 
-   При необходимости замените `localhost` на имя или адрес сервера и задайте
-   параметры `User ID`/`Password` для SQL‑аутентификации.
-4. Соберите и запустите приложение. Все создаваемые бронирования, счета и прочие
-   данные будут сохраняться в базу `HotelDB`.
+После сборки и запуска программы все бронирования и другие данные будут
+сохраняться в эту локальную базу.
 
