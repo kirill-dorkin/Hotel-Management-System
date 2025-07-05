@@ -1,11 +1,7 @@
 ﻿using Hotel_DataAccessLayer.ErrorLogs;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using SqlConnection = System.Data.SQLite.SQLiteConnection;
-using SqlCommand = System.Data.SQLite.SQLiteCommand;
-using SqlParameter = System.Data.SQLite.SQLiteParameter;
-using SqlDataReader = System.Data.SQLite.SQLiteDataReader;
+using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -290,7 +286,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO Rooms (RoomTypeID,RoomNumber,RoomFloor,RoomSize,AvailabilityStatus,IsSmokingAllowed,IsPetFriendly,AdditionalNotes)
                             VALUES (@RoomTypeID,@RoomNumber,@RoomFloor,@RoomSize,@AvailabilityStatus,@IsSmokingAllowed,@IsPetFriendly,@AdditionalNotes);
-                            SELECT last_insert_rowid();";
+                            SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
 

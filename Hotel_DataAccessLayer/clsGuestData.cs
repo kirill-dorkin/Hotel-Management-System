@@ -1,11 +1,7 @@
 ﻿using Hotel_DataAccessLayer.ErrorLogs;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using SqlConnection = System.Data.SQLite.SQLiteConnection;
-using SqlCommand = System.Data.SQLite.SQLiteCommand;
-using SqlParameter = System.Data.SQLite.SQLiteParameter;
-using SqlDataReader = System.Data.SQLite.SQLiteDataReader;
+using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -200,7 +196,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO Guests (PersonID,CreatedByUserID,CreatedDate)
                             VALUES (@PersonID,@CreatedByUserID,@CreatedDate);
-                            SELECT last_insert_rowid();";
+                            SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -324,7 +320,7 @@ namespace Hotel_DataAccessLayer
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
             string query = @"SELECT GuestID AS 'Guest ID' , People.PersonID AS 'Person ID' , NationalNo AS 'National No' , 
-                            FirstName || ' ' || LastName AS 'Full Name', 
+                            FirstName + ' ' + LastName AS 'Full Name', 
                             CASE 
 	                            WHEN Gender = 'M' THEN 'Male'
 	                            WHEN Gender = 'F' THEN 'Female'
@@ -373,7 +369,7 @@ namespace Hotel_DataAccessLayer
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
             {
                 string query = @"SELECT GuestID AS 'Guest ID' , People.PersonID AS 'Person ID' , NationalNo AS 'National No' ,
-                            FirstName || ' ' || LastName AS 'Full Name',
+                            FirstName + ' ' + LastName AS 'Full Name',
                             CASE
                                     WHEN Gender = 'M' THEN 'Male'
                                     WHEN Gender = 'F' THEN 'Female'
@@ -414,7 +410,7 @@ namespace Hotel_DataAccessLayer
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
             string query = @"SELECT GuestCompanionID AS 'Guest Companion ID' , NationalNo AS 'National No' , 
-                            FirstName || ' ' || LastName AS 'Full Name', 
+                            FirstName + ' ' + LastName AS 'Full Name', 
                             CASE 
 	                            WHEN Gender = 'M' THEN 'Male'
 	                            WHEN Gender = 'F' THEN 'Female'

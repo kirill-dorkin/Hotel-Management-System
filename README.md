@@ -34,7 +34,7 @@
 
 * C#
 * .NET Framework
-* SQLite
+* SQL Server
 * ADO.NET
 * WinForms (настольный интерфейс)
 
@@ -51,25 +51,28 @@
 
 ## Работа с базой данных
 
-Приложение теперь использует локальную базу **SQLite**. Все данные хранятся в
-файле `HotelDB.sqlite`, который создаётся автоматически при первом запуске.
+Для хранения данных приложение использует Microsoft SQL Server. В репозитории уже
+присутствует резервная копия базы `HotelDB.bak`, из которой можно восстановить
+готовую структуру и начальные данные.
 
-1. Убедитесь, что файл `HotelDB.sqlite` доступен для записи в каталоге
-   приложения (по умолчанию используется корень репозитория).
-2. Проверьте строку подключения в файле
-   `HotelManagementSystem/App.config`. Она должна содержать путь к файлу
-   `HotelDB.sqlite` и провайдер `System.Data.SQLite`:
+1. Установите SQL Server (достаточно версии Express) и утилиту **SQL Server
+   Management Studio (SSMS)**.
+2. Запустите SSMS и выполните восстановление базы данных из файла
+   `HotelDB.bak`:
+   - В дерево объектов выберите узел **Databases** → **Restore Database...**.
+   - В разделе **Device** добавьте путь к файлу `HotelDB.bak` из корня проекта
+     и отметьте нужный бэкап для восстановления.
+   - Нажмите **OK** – после восстановления должна появиться база `HotelDB`.
+3. Убедитесь, что строка подключения в файле
+   `HotelManagementSystem/App.config` указывает на ваш экземпляр SQL Server.
+   По умолчанию используется локальный сервер и Windows‑аутентификация:
 
    ```xml
-   <add name="connectionString" connectionString="Data Source=HotelDB.sqlite;Version=3;" providerName="System.Data.SQLite" />
+   <add name="connectionString" connectionString="Data Source=localhost;Initial Catalog=HotelDB;Integrated Security=True;" providerName="System.Data.SqlClient" />
    ```
 
-После сборки и запуска программы все бронирования и другие данные будут
-сохраняться в эту локальную базу.
+   При необходимости замените `localhost` на имя или адрес сервера и задайте
+   параметры `User ID`/`Password` для SQL‑аутентификации.
+4. Соберите и запустите приложение. Все создаваемые бронирования, счета и прочие
+   данные будут сохраняться в базу `HotelDB`.
 
-Если сборка завершается ошибкой "System.Data.SQLite" не найден, выполните
-восстановление пакетов NuGet. Для проекта `Hotel_DataAccessLayer` добавлен
-файл `packages.config`, который содержит зависимость `System.Data.SQLite`.
-Запустите `nuget restore` в каталоге решения, чтобы скачать необходимые пакеты.
-
-Все SQL-запросы обновлены для поддержки SQLite. Вместо функций SQL Server используются аналоги SQLite (last_insert_rowid, date('now') и т.д.).

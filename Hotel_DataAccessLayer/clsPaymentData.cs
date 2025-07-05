@@ -1,11 +1,7 @@
 ﻿using Hotel_DataAccessLayer.ErrorLogs;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using SqlConnection = System.Data.SQLite.SQLiteConnection;
-using SqlCommand = System.Data.SQLite.SQLiteCommand;
-using SqlParameter = System.Data.SQLite.SQLiteParameter;
-using SqlDataReader = System.Data.SQLite.SQLiteDataReader;
+using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -114,7 +110,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO Payments (BookingID,PaymentDate,PaidAmount,CreatedByUserID)
                             VALUES (@BookingID,@PaymentDate,@PaidAmount,@CreatedByUserID);
-                            SELECT last_insert_rowid();";
+                            SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -241,7 +237,7 @@ namespace Hotel_DataAccessLayer
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
             string query = @"SELECT PaymentID AS 'Payment ID' , Payments.BookingID AS 'Booking ID' ,
-                            FirstName || ' ' || LastName AS 'Guest Name',
+                            FirstName+ ' ' + LastName AS 'Guest Name',
                             PaymentDate AS 'Payment Date' , PaidAmount AS 'Paid Amount' 
                             FROM Payments
                             INNER JOIN Bookings ON Bookings.BookingID = Payments.BookingID
@@ -284,7 +280,7 @@ namespace Hotel_DataAccessLayer
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
             {
                 string query = @"SELECT PaymentID AS 'Payment ID' , Payments.BookingID AS 'Booking ID' ,
-                            FirstName || ' ' || LastName AS 'Guest Name',
+                            FirstName+ ' ' + LastName AS 'Guest Name',
                             PaymentDate AS 'Payment Date' , PaidAmount AS 'Paid Amount'
                             FROM Payments
                             INNER JOIN Bookings ON Bookings.BookingID = Payments.BookingID
@@ -319,7 +315,7 @@ namespace Hotel_DataAccessLayer
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
             string query = @"SELECT PaymentID AS 'Payment ID' , Payments.BookingID AS 'Booking ID' ,
-                            FirstName || ' ' || LastName AS 'Guest Name',
+                            FirstName+ ' ' + LastName AS 'Guest Name',
                             PaymentDate AS 'Payment Date' , PaidAmount AS 'Paid Amount' 
                             FROM Payments
                             INNER JOIN Bookings ON Bookings.BookingID = Payments.BookingID
@@ -365,7 +361,7 @@ namespace Hotel_DataAccessLayer
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
             {
                 string query = @"SELECT PaymentID AS 'Payment ID' , Payments.BookingID AS 'Booking ID' ,
-                            FirstName || ' ' || LastName AS 'Guest Name',
+                            FirstName+ ' ' + LastName AS 'Guest Name',
                             PaymentDate AS 'Payment Date' , PaidAmount AS 'Paid Amount'
                             FROM Payments
                             INNER JOIN Bookings ON Bookings.BookingID = Payments.BookingID

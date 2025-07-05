@@ -2,11 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SQLite;
-using SqlConnection = System.Data.SQLite.SQLiteConnection;
-using SqlCommand = System.Data.SQLite.SQLiteCommand;
-using SqlParameter = System.Data.SQLite.SQLiteParameter;
-using SqlDataReader = System.Data.SQLite.SQLiteDataReader;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -305,7 +301,7 @@ namespace Hotel_DataAccessLayer
                             BirthDate,Address,Phone,Email,NationalityCountryID,PersonalImagePath)
                             VALUES (@FirstName,@LastName,@NationalNo,@Gender,
                             @BirthDate,@Address,@Phone,@Email,@NationalityCountryID,@PersonalImagePath);
-                            SELECT last_insert_rowid();";
+                            SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
