@@ -15,8 +15,20 @@ namespace Hotel_BusinessLayer
         public static DataTable Payments { get; private set; }
         public static DataTable MenuItems { get; private set; }
 
-        public static async Task PreloadAsync()
+        public static async Task PreloadAsync(bool forceRefresh = false)
         {
+            if (!forceRefresh &&
+                Reservations != null &&
+                Bookings != null &&
+                Rooms != null &&
+                RoomTypes != null &&
+                RoomServices != null &&
+                Guests != null &&
+                Users != null &&
+                Payments != null &&
+                MenuItems != null)
+                return;
+
             var reservationsTask = clsReservation.GetAllReservationsAsync(true);
             var bookingsTask = clsBooking.GetAllBookingsAsync(true);
             var roomsTask = clsRoom.GetAllRoomsAsync(true);
