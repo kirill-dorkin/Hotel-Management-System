@@ -285,12 +285,12 @@ namespace Hotel_DataAccessLayer
             command.Parameters.AddWithValue("@RoomTypeTitle", RoomTypeTitle);
             command.Parameters.AddWithValue("@RoomTypeCapacity", RoomTypeCapacity);
             command.Parameters.AddWithValue("@RoomTypePricePerNight", RoomTypePricePerNight);
-            if (RoomTypeDescription != "" && RoomTypeDescription != null)
-            {
-                command.Parameters.AddWithValue("@RoomTypeDescription", RoomTypeDescription);
-            }
-            else
-                command.Parameters.AddWithValue("@RoomTypeDescription", DBNull.Value);
+
+            // Avoid passing null description because database might not allow NULL
+            if (string.IsNullOrWhiteSpace(RoomTypeDescription))
+                RoomTypeDescription = "";
+
+            command.Parameters.AddWithValue("@RoomTypeDescription", RoomTypeDescription);
 
 
             object InsertedRowID = 0;
@@ -350,12 +350,12 @@ namespace Hotel_DataAccessLayer
             command.Parameters.AddWithValue("@RoomTypeTitle", RoomTypeTitle);
             command.Parameters.AddWithValue("@RoomTypeCapacity", RoomTypeCapacity);
             command.Parameters.AddWithValue("@RoomTypePricePerNight", RoomTypePricePerNight);
-            if (RoomTypeDescription != "")
-            {
-                command.Parameters.AddWithValue("@RoomTypeDescription", RoomTypeDescription);
-            }
-            else
-                command.Parameters.AddWithValue("@RoomTypeDescription", DBNull.Value);
+
+            // Avoid passing null description in case database field is NOT NULL
+            if (string.IsNullOrWhiteSpace(RoomTypeDescription))
+                RoomTypeDescription = "";
+
+            command.Parameters.AddWithValue("@RoomTypeDescription", RoomTypeDescription);
 
             int rowsAffected = 0;
 
