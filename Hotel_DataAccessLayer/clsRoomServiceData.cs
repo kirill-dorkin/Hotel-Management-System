@@ -220,7 +220,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO RoomServices (RoomServiceTitle,RoomServiceDescription,RoomServiceFees)
                             VALUES (@RoomServiceTitle,@RoomServiceDescription,@RoomServiceFees);
-                            SELECT SCOPE_IDENTITY();";
+                            SELECT last_insert_rowid();";
 
             SqlCommand command = new SqlCommand(query, connection);
 

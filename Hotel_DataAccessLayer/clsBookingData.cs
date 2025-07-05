@@ -218,7 +218,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO Bookings (ReservationID,GuestID,CheckInDate,CheckOutDate,Status,CreatedByUserID)
                             VALUES (@ReservationID,@GuestID,@CheckInDate,@CheckOutDate,@Status,@CreatedByUserID);
-                            SELECT SCOPE_IDENTITY();";
+                            SELECT last_insert_rowid();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -356,7 +356,7 @@ namespace Hotel_DataAccessLayer
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName + ' ' + LastName as 'Гость' ,
+            string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName || ' ' || LastName as 'Гость' ,
                             RoomNumber as 'Номер комнаты', CheckInDate as 'Дата заезда', CheckOutDate as 'Дата выезда' ,
                             NumberOfPeople as 'Всего человек',
                             CASE
@@ -403,7 +403,7 @@ namespace Hotel_DataAccessLayer
         {
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
             {
-                string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName + ' ' + LastName as 'Гость' ,
+                string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName || ' ' || LastName as 'Гость' ,
                             RoomNumber as 'Номер комнаты', CheckInDate as 'Дата заезда', CheckOutDate as 'Дата выезда' ,
                             NumberOfPeople as 'Всего человек',
                             CASE
@@ -441,7 +441,7 @@ namespace Hotel_DataAccessLayer
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName + ' ' + LastName as 'Гость' ,
+            string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName || ' ' || LastName as 'Гость' ,
                             RoomNumber as 'Номер комнаты', CheckInDate as 'Дата заезда', CheckOutDate as 'Дата выезда' ,
                             NumberOfPeople as 'Всего человек',
                             CASE
@@ -491,7 +491,7 @@ namespace Hotel_DataAccessLayer
         {
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
             {
-                string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName + ' ' + LastName as 'Гость' ,
+                string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName || ' ' || LastName as 'Гость' ,
                             RoomNumber as 'Номер комнаты', CheckInDate as 'Дата заезда', CheckOutDate as 'Дата выезда' ,
                             NumberOfPeople as 'Всего человек',
                             CASE

@@ -326,7 +326,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO Users (PersonID,UserName,Password,IsActive)
                             VALUES (@PersonID,@UserName,@Password,@IsActive);
-                            SELECT SCOPE_IDENTITY();";
+                            SELECT last_insert_rowid();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -452,7 +452,7 @@ namespace Hotel_DataAccessLayer
         {
             SqlConnection connection = clsDataAccessSettings.CreateConnection();
 
-            string query = @"SELECT UserID as 'User ID', Users.PersonID as 'Person ID', FirstName + ' ' + LastName as 'Full Name',
+            string query = @"SELECT UserID as 'User ID', Users.PersonID as 'Person ID', FirstName || ' ' || LastName as 'Full Name',
                             UserName , IsActive as 'Is Active'
                             FROM Users
                             INNER JOIN People ON People.PersonID = Users.PersonID;";
