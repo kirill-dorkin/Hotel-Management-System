@@ -133,5 +133,10 @@ namespace Hotel_BusinessLayer
         {
             return clsGuestOrderData.GetGuestOrdersCount();
         }
+
+        public static Task<int> GetGuestOrdersCountAsync()
+        {
+            return clsGuestOrderData.GetGuestOrdersCountAsync();
+        }
     }
 }

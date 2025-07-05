@@ -41,26 +41,27 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="clsBookingData.cs" />
-    <Compile Include="clsCountryData.cs" />
-    <Compile Include="clsDataAccessSettings.cs" />
-    <Compile Include="clsGuestCompanionData.cs" />
-    <Compile Include="clsGuestData.cs" />
-    <Compile Include="clsGuestOrderData.cs" />
-    <Compile Include="clsMenuItemData.cs" />
-    <Compile Include="clsOrderItemData.cs" />
-    <Compile Include="clsPaymentData.cs" />
-    <Compile Include="clsPersonData.cs" />
-    <Compile Include="clsReservationData.cs" />
-    <Compile Include="clsRoomData.cs" />
-    <Compile Include="clsRoomServiceData.cs" />
-    <Compile Include="clsRoomTypeData.cs" />
-    <Compile Include="clsUserData.cs" />
-    <Compile Include="ErrorLogs\clsGlobal.cs" />
-    <Compile Include="ErrorLogs\clsLogger.cs" />
-    <Compile Include="ErrorLogs\clsDBLogger.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Include="clsBookingData.cs" />
+        <Compile Include="clsCountryData.cs" />
+        <Compile Include="clsDataAccessSettings.cs" />
+        <Compile Include="clsGuestCompanionData.cs" />
+        <Compile Include="clsGuestData.cs" />
+        <Compile Include="clsGuestOrderData.cs" />
+        <Compile Include="clsMenuItemData.cs" />
+        <Compile Include="clsOrderItemData.cs" />
+        <Compile Include="clsPaymentData.cs" />
+        <Compile Include="clsPersonData.cs" />
+        <Compile Include="clsReservationData.cs" />
+        <Compile Include="clsRoomData.cs" />
+        <Compile Include="clsRoomServiceData.cs" />
+        <Compile Include="clsRoomTypeData.cs" />
+        <Compile Include="clsUserData.cs" />
+        <Compile Include="clsSqlHelper.cs" />
+        <Compile Include="ErrorLogs\clsGlobal.cs" />
+        <Compile Include="ErrorLogs\clsLogger.cs" />
+        <Compile Include="ErrorLogs\clsDBLogger.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

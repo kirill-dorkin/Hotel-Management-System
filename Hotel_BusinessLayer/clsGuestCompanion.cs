@@ -120,5 +120,10 @@ namespace Hotel_BusinessLayer
         {
             return clsGuestCompanionData.GetGuestCompanionsCount();
         }
+
+        public static Task<int> GetGuestCompanionsCountAsync()
+        {
+            return clsGuestCompanionData.GetGuestCompanionsCountAsync();
+        }
     }
 }

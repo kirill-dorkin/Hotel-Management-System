@@ -266,6 +266,11 @@ namespace Hotel_BusinessLayer
             return clsReservationData.GetReservationsCount();
         }
 
+        public static Task<int> GetReservationsCountAsync()
+        {
+            return clsReservationData.GetReservationsCountAsync();
+        }
+
         public static int GetAvailableRoomType()
         {
             return clsReservationData.GetAvailableRoomType();

@@ -351,36 +351,14 @@ namespace Hotel_DataAccessLayer
 
         public static int GetGuestCompanionsCount()
         {
-            int GuestCompanionsCount = 0;
+            const string query = @"SELECT COUNT(GuestCompanionID) FROM GuestCompanions;";
+            return clsSqlHelper.ExecuteScalarInt(query);
+        }
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-
-            string query = @"SELECT COUNT(GuestCompanionID)
-                            FROM GuestCompanions;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            object reader = null;
-
-            try
-            {
-                connection.Open();
-                reader = command.ExecuteScalar();
-
-                GuestCompanionsCount = (int)reader;
-            }
-
-            catch (Exception ex)
-            {
-                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return GuestCompanionsCount;
+        public static Task<int> GetGuestCompanionsCountAsync()
+        {
+            const string query = @"SELECT COUNT(GuestCompanionID) FROM GuestCompanions;";
+            return clsSqlHelper.ExecuteScalarIntAsync(query);
         }
 
 

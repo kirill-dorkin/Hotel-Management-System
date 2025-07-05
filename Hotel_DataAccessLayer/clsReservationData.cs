@@ -425,36 +425,14 @@ namespace Hotel_DataAccessLayer
 
         public static int GetReservationsCount()
         {
-            int ReservationsCount = 0;
+            const string query = @"SELECT COUNT(ReservationID) FROM Reservations;";
+            return clsSqlHelper.ExecuteScalarInt(query);
+        }
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-
-            string query = @"SELECT COUNT(ReservationID)
-                            FROM Reservations;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            object reader = null;
-
-            try
-            {
-                connection.Open();
-                reader = command.ExecuteScalar();
-
-                ReservationsCount = (int)reader;
-            }
-
-            catch (Exception ex)
-            {
-                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return ReservationsCount;
+        public static Task<int> GetReservationsCountAsync()
+        {
+            const string query = @"SELECT COUNT(ReservationID) FROM Reservations;";
+            return clsSqlHelper.ExecuteScalarIntAsync(query);
         }
 
         public static int GetAvailableRoomType()
