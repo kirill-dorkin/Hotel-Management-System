@@ -2,6 +2,7 @@ using Hotel_BusinessLayer;
 using HotelManagementSystem.GlobalClasses;
 using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelManagementSystem.Bookings
