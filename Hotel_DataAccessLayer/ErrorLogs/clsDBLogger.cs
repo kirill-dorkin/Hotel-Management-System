@@ -13,36 +13,26 @@ namespace Hotel_DataAccessLayer.ErrorLogs
     {
         private static bool _LogNewError(string ErrorMessage , string ExceptionType)
         {
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-
-            string query = @"INSERT INTO ErrorLogs (ErrorMessage,ExceptionType,OccurredDate)
+            const string query = @"INSERT INTO ErrorLogs (ErrorMessage,ExceptionType,OccurredDate)
                             VALUES (@ErrorMessage,@ExceptionType,@OccurredDate);";
 
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@ErrorMessage", ErrorMessage);
-            command.Parameters.AddWithValue("@ExceptionType", ExceptionType);
-            command.Parameters.AddWithValue("@OccurredDate", DateTime.Now);
-
-
-            int rowsAffected = 0;
-
-            try
+            using (SqlConnection connection = clsDataAccessSettings.CreateConnection())
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
-                connection.Open();
-                rowsAffected = command.ExecuteNonQuery();
+                command.Parameters.AddWithValue("@ErrorMessage", ErrorMessage);
+                command.Parameters.AddWithValue("@ExceptionType", ExceptionType);
+                command.Parameters.AddWithValue("@OccurredDate", DateTime.Now);
 
+                try
+                {
+                    connection.Open();
+                    return command.ExecuteNonQuery() > 0;
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return rowsAffected > 0;
         }
 
         public static void LogErrorToDatabase(string ErrorMessage,string ExceptionType)

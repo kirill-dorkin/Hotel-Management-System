@@ -15,50 +15,39 @@ namespace Hotel_DataAccessLayer
         {
             bool IsFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-
-            string query = @"SELECT * 
-                            FROM Users 
+            const string query = @"SELECT *
+                            FROM Users
                             WHERE UserID = @UserID;";
 
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@UserID", UserID);
-
-            SqlDataReader reader = null;
-
-            try
+            using (SqlConnection connection = clsDataAccessSettings.CreateConnection())
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
-                connection.Open();
-                reader = command.ExecuteReader();
+                command.Parameters.AddWithValue("@UserID", UserID);
 
-                if (reader.Read())
+                try
                 {
-                    // The record was found successfully !
-                    IsFound = true;
-                    PersonID = (int)reader["PersonID"];
-                    UserName = (string)reader["UserName"];
-                    Password = (string)reader["Password"];
-                    IsActive = (bool)reader["IsActive"];
-
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            IsFound = true;
+                            PersonID = (int)reader["PersonID"];
+                            UserName = (string)reader["UserName"];
+                            Password = (string)reader["Password"];
+                            IsActive = (bool)reader["IsActive"];
+                        }
+                        else
+                        {
+                            IsFound = false;
+                        }
+                    }
                 }
-
-                else
+                catch (Exception ex)
                 {
-                    // The record wasn't found !
+                    clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
                     IsFound = false;
                 }
-
-            }
-            catch (Exception ex)
-            {
-                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
-                IsFound = false;
-            }
-            finally
-            {
-                reader?.Close();
-                connection.Close();
             }
             return IsFound;
         }
@@ -67,52 +56,41 @@ namespace Hotel_DataAccessLayer
         {
             bool IsFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-
-            string query = @"SELECT * 
-                            FROM Users 
+            const string query = @"SELECT *
+                            FROM Users
                             WHERE UserName = @UserName AND Password = @Password;";
 
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@UserName", UserName);
-            command.Parameters.AddWithValue("@Password", Password);
-
-            SqlDataReader reader = null;
-
-            try
+            using (SqlConnection connection = clsDataAccessSettings.CreateConnection())
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
-                connection.Open();
-                reader = command.ExecuteReader();
+                command.Parameters.AddWithValue("@UserName", UserName);
+                command.Parameters.AddWithValue("@Password", Password);
 
-                if (reader.Read())
+                try
                 {
-                    // The record was found successfully !
-                    IsFound = true;
-                    UserID = (int)reader["UserID"];
-                    PersonID = (int)reader["PersonID"];
-                    UserName = (string)reader["UserName"];
-                    Password = (string)reader["Password"];
-                    IsActive = (bool)reader["IsActive"];
-
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            IsFound = true;
+                            UserID = (int)reader["UserID"];
+                            PersonID = (int)reader["PersonID"];
+                            UserName = (string)reader["UserName"];
+                            Password = (string)reader["Password"];
+                            IsActive = (bool)reader["IsActive"];
+                        }
+                        else
+                        {
+                            IsFound = false;
+                        }
+                    }
                 }
-
-                else
+                catch (Exception ex)
                 {
-                    // The record wasn't found !
+                    clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
                     IsFound = false;
                 }
-
-            }
-            catch (Exception ex)
-            {
-                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
-                IsFound = false;
-            }
-            finally
-            {
-                reader?.Close();
-                connection.Close();
             }
             return IsFound;
         }
@@ -121,7 +99,7 @@ namespace Hotel_DataAccessLayer
         {
             bool IsFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
 
             string query = @"SELECT IsFound = 1 
                              FROM Users
@@ -157,7 +135,7 @@ namespace Hotel_DataAccessLayer
         {
             bool IsFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
 
             string query = @"SELECT IsFound = 1 
                              FROM Users
@@ -193,7 +171,7 @@ namespace Hotel_DataAccessLayer
         {
             bool IsFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
 
             string query = @"SELECT IsFound = 1 
                              FROM Users
@@ -232,7 +210,7 @@ namespace Hotel_DataAccessLayer
 
             int UserID = -1;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
 
             string query = @"INSERT INTO Users (PersonID,UserName,Password,IsActive)
                             VALUES (@PersonID,@UserName,@Password,@IsActive);
@@ -287,7 +265,7 @@ namespace Hotel_DataAccessLayer
 
         public static bool UpdateUserInfo(int UserID, int PersonID, string UserName, string Password, bool IsActive)
         {
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
 
             string query = @"UPDATE Users
                             SET 
@@ -328,7 +306,7 @@ namespace Hotel_DataAccessLayer
 
         public static bool DeleteUser(int UserID)
         {
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
 
             string query = @"DELETE Users
                               WHERE UserID = @UserID;";
@@ -360,7 +338,7 @@ namespace Hotel_DataAccessLayer
 
         public static DataTable GetAllUsers()
         {
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
 
             string query = @"SELECT UserID as 'User ID', Users.PersonID as 'Person ID', FirstName + ' ' + LastName as 'Full Name',
                             UserName , IsActive as 'Is Active'
@@ -400,7 +378,7 @@ namespace Hotel_DataAccessLayer
 
         public static bool UpdateUserPassword(int UserID, string NewPassword)
         {
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
 
             string query = @"UPDATE Users
                             SET 
@@ -437,7 +415,7 @@ namespace Hotel_DataAccessLayer
         {
             int UsersCount = 0;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            SqlConnection connection = clsDataAccessSettings.CreateConnection();
 
             string query = @"SELECT COUNT(UserID)
                             FROM Users;";
