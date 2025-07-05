@@ -106,6 +106,16 @@ namespace Hotel_BusinessLayer
             return clsBookingData.IsBookingExistByReservationID(ReservationID);
         }
 
+        public static Task<bool> IsBookingExistAsync(int BookingID)
+        {
+            return Task.Run(() => IsBookingExist(BookingID));
+        }
+
+        public static Task<bool> IsBookingExistByReservationIDAsync(int ReservationID)
+        {
+            return Task.Run(() => IsBookingExistByReservationID(ReservationID));
+        }
+
         public static bool IsBookingCompleted(int BookingID)
         {
             return clsBookingData.IsBookingCompleted(BookingID);

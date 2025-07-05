@@ -77,6 +77,16 @@ namespace Hotel_BusinessLayer
             return clsRoomTypeData.IsRoomTypeExist(RoomTypeTitle);
         }
 
+        public static Task<bool> IsRoomTypeExistAsync(int RoomTypeID)
+        {
+            return Task.Run(() => IsRoomTypeExist(RoomTypeID));
+        }
+
+        public static Task<bool> IsRoomTypeExistAsync(string RoomTypeTitle)
+        {
+            return Task.Run(() => IsRoomTypeExist(RoomTypeTitle));
+        }
+
         private bool _AddNewRoomType()
         {
             RoomTypeID = clsRoomTypeData.AddNewRoomType(RoomTypeTitle, RoomTypeCapacity, RoomTypePricePerNight, RoomTypeDescription);

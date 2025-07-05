@@ -209,7 +209,7 @@ namespace HotelManagementSystem.Rooms
             _SaveRoomData();
         }
 
-        private void txtRoomNumber_Validating(object sender, CancelEventArgs e)
+        private async void txtRoomNumber_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtRoomNumber.Text.Trim()))
             {
@@ -218,7 +218,7 @@ namespace HotelManagementSystem.Rooms
                 return;
             }
 
-            else if (_Room.RoomNumber != txtRoomNumber.Text.Trim() && clsRoom.IsRoomExist(txtRoomNumber.Text.Trim()))
+            else if (_Room.RoomNumber != txtRoomNumber.Text.Trim() && await clsRoom.IsRoomExistAsync(txtRoomNumber.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtRoomNumber, "Такой номер уже занят другим существующим номером");

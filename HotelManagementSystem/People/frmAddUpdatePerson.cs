@@ -297,7 +297,7 @@ namespace HotelManagementSystem.People
             }
         }
 
-        private void txtNationalNo_Validating(object sender, CancelEventArgs e)
+        private async void txtNationalNo_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtNationalNo.Text.Trim()))
             {
@@ -306,7 +306,7 @@ namespace HotelManagementSystem.People
                 return;
             }
 
-            else if (txtNationalNo.Text.Trim() != _Person.NationalNo && clsPerson.IsPersonExist(txtNationalNo.Text.Trim()))
+            else if (txtNationalNo.Text.Trim() != _Person.NationalNo && await clsPerson.IsPersonExistAsync(txtNationalNo.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtNationalNo, "This NationalNo is already taken ! , please enter a valid one.");

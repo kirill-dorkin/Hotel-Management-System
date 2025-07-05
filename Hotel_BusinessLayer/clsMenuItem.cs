@@ -68,6 +68,16 @@ namespace Hotel_BusinessLayer
             return clsMenuItemData.IsMenuItemExist(ItemName);
         }
 
+        public static Task<bool> IsMenuItemExistAsync(int ItemID)
+        {
+            return Task.Run(() => IsMenuItemExist(ItemID));
+        }
+
+        public static Task<bool> IsMenuItemExistAsync(string ItemName)
+        {
+            return Task.Run(() => IsMenuItemExist(ItemName));
+        }
+
         private bool _AddNewMenuItem()
         {
             ItemID = clsMenuItemData.AddNewMenuItem(ItemName, (byte)ItemType, Price, Description, ImagePath);
