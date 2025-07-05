@@ -1,11 +1,7 @@
 ﻿using Hotel_DataAccessLayer.ErrorLogs;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using SqlConnection = System.Data.SQLite.SQLiteConnection;
-using SqlCommand = System.Data.SQLite.SQLiteCommand;
-using SqlParameter = System.Data.SQLite.SQLiteParameter;
-using SqlDataReader = System.Data.SQLite.SQLiteDataReader;
+using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -154,7 +150,7 @@ namespace Hotel_DataAccessLayer
 
             string query = @"INSERT INTO Reservations (ReservationPersonID,RoomID,ReservationDate,NumberOfPeople,Status,LastStatusDate,CreatedByUserID,CreatedDate)
                             VALUES (@ReservationPersonID,@RoomID,@ReservationDate,@NumberOfPeople,@Status,@LastStatusDate,@CreatedByUserID,@CreatedDate);
-                            SELECT last_insert_rowid();";
+                            SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -292,10 +288,10 @@ namespace Hotel_DataAccessLayer
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = @"SELECT ReservationID as 'Reservation ID' , FirstName || ' ' || LastName as 'Reserved By' ,
+            string query = @"SELECT ReservationID as 'Reservation ID' , FirstName + ' ' + LastName as 'Reserved By' ,
                             RoomNumber as 'Room Number', ReservationDate as 'Reservation Date', NumberOfPeople as 'Number Of People',
                             CASE 
-								WHEN date(ReservationDate) <  date('now') 
+								WHEN CONVERT(date, ReservationDate) <  CONVERT(date, GETDATE()) 
 								AND Status = 1 THEN 'Invalid'
 	                            WHEN Status = 1 THEN 'Pending'
 	                            WHEN Status = 2 THEN 'Confirmed'
@@ -340,10 +336,10 @@ namespace Hotel_DataAccessLayer
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = @"SELECT ReservationID as 'Reservation ID' , FirstName || ' ' || LastName as 'Reserved By' ,
+            string query = @"SELECT ReservationID as 'Reservation ID' , FirstName + ' ' + LastName as 'Reserved By' ,
                             RoomNumber as 'Room Number', ReservationDate as 'Reservation Date', NumberOfPeople as 'Number Of People',
                             CASE 
-								WHEN date(ReservationDate) <  date('now')
+								WHEN CONVERT(date, ReservationDate) <  CONVERT(date, GETDATE())
 								AND Status = 1 THEN 'Invalid'
 	                            WHEN Status = 1 THEN 'Pending'
 	                            WHEN Status = 2 THEN 'Confirmed'
@@ -396,7 +392,7 @@ namespace Hotel_DataAccessLayer
             string query = @"SELECT IsRoomHasActiveReservation = 1
                             FROM Reservations
                             WHERE RoomID = @RoomID AND Status != 3
-                            AND date(ReservationDate) = date(@ReservationDate);";
+                            AND CONVERT(date,ReservationDate) = CONVERT(date, @ReservationDate);";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -481,11 +477,11 @@ namespace Hotel_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = @"SELECT RoomTypes.RoomTypeID 
+            string query = @"SELECT TOP 1 RoomTypes.RoomTypeID 
                             FROM RoomTypes
                             INNER JOIN Rooms ON Rooms.RoomTypeID = RoomTypes.RoomTypeID
                             WHERE AvailabilityStatus = 1
-                            ORDER BY RoomTypeID LIMIT 1;";
+                            ORDER BY RoomTypeID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
