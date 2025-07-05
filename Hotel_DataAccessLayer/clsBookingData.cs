@@ -395,6 +395,44 @@ namespace Hotel_DataAccessLayer
             return dataTable;
         }
 
+        public static async Task<DataTable> GetAllBookingsAsync()
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            {
+                string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName + ' ' + LastName as 'Гость' ,
+                            RoomNumber as 'Номер комнаты', CheckInDate as 'Дата заезда', CheckOutDate as 'Дата выезда' ,
+                            NumberOfPeople as 'Всего человек',
+                            CASE
+                                    WHEN Bookings.Status = 1 THEN 'В процессе'
+                                    WHEN Bookings.Status = 2 THEN 'Завершено'
+                            END AS 'Статус'
+                            FROM Bookings
+                            INNER JOIN Reservations ON Reservations.ReservationID = Bookings.ReservationID
+                            INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID
+                            INNER JOIN People ON Reservations.ReservationPersonID = People.PersonID;";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    DataTable dataTable = new DataTable();
+
+                    try
+                    {
+                        await connection.OpenAsync();
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            if (reader.HasRows)
+                                dataTable.Load(reader);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+                    }
+
+                    return dataTable;
+                }
+            }
+        }
+
         public static DataTable GetAllGuestBookings(int GuestID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
@@ -443,6 +481,47 @@ namespace Hotel_DataAccessLayer
             }
 
             return dataTable;
+        }
+
+        public static async Task<DataTable> GetAllGuestBookingsAsync(int GuestID)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            {
+                string query = @"SELECT BookingID as 'ID бронирования' , Bookings.ReservationID as 'ID брони', FirstName + ' ' + LastName as 'Гость' ,
+                            RoomNumber as 'Номер комнаты', CheckInDate as 'Дата заезда', CheckOutDate as 'Дата выезда' ,
+                            NumberOfPeople as 'Всего человек',
+                            CASE
+                                    WHEN Bookings.Status = 1 THEN 'В процессе'
+                                    WHEN Bookings.Status = 2 THEN 'Завершено'
+                            END AS 'Статус'
+                            FROM Bookings
+                            INNER JOIN Reservations ON Reservations.ReservationID = Bookings.ReservationID
+                            INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID
+                            INNER JOIN People ON Reservations.ReservationPersonID = People.PersonID
+                            WHERE GuestID = @GuestID;";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@GuestID", GuestID);
+                    DataTable dataTable = new DataTable();
+
+                    try
+                    {
+                        await connection.OpenAsync();
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            if (reader.HasRows)
+                                dataTable.Load(reader);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+                    }
+
+                    return dataTable;
+                }
+            }
         }
 
         public static bool IsAllGuestCompanionsAdded(int ReservationID)

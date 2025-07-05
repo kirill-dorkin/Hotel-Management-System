@@ -110,12 +110,34 @@ namespace Hotel_BusinessLayer
 
         public static Task<DataTable> GetAllPaymentsAsync(bool forceRefresh = false)
         {
-            return Task.Run(() => GetAllPayments(forceRefresh));
+            return GetAllPaymentsAsyncInternal(forceRefresh);
         }
 
         public static DataTable GetAllPayments(int GuestID)
         {
             return clsPaymentData.GetAllPayments(GuestID);
+        }
+
+        public static Task<DataTable> GetAllPaymentsAsync(int GuestID)
+        {
+            return clsPaymentData.GetAllPaymentsAsync(GuestID);
+        }
+
+        private static async Task<DataTable> GetAllPaymentsAsyncInternal(bool forceRefresh)
+        {
+            lock (_paymentsLock)
+            {
+                if (_paymentsCache != null && !forceRefresh)
+                    return _paymentsCache.Copy();
+            }
+
+            var data = await clsPaymentData.GetAllPaymentsAsync();
+
+            lock (_paymentsLock)
+            {
+                _paymentsCache = data;
+                return _paymentsCache.Copy();
+            }
         }
 
         public static int GetPaymentsCount()
