@@ -438,6 +438,7 @@ namespace Hotel_DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
                 return false;
             }
             finally
