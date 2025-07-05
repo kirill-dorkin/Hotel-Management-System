@@ -125,7 +125,24 @@ namespace Hotel_BusinessLayer
 
         public static Task<DataTable> GetAllGuestsAsync(bool forceRefresh = false)
         {
-            return Task.Run(() => GetAllGuests(forceRefresh));
+            return GetAllGuestsAsyncInternal(forceRefresh);
+        }
+
+        private static async Task<DataTable> GetAllGuestsAsyncInternal(bool forceRefresh)
+        {
+            lock (_guestsLock)
+            {
+                if (_guestsCache != null && !forceRefresh)
+                    return _guestsCache.Copy();
+            }
+
+            var data = await clsGuestData.GetAllGuestsAsync();
+
+            lock (_guestsLock)
+            {
+                _guestsCache = data;
+                return _guestsCache.Copy();
+            }
         }
 
         public static DataTable GetAllGuestCompanions(int GuestID , int BookingID)

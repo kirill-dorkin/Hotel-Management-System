@@ -364,6 +364,47 @@ namespace Hotel_DataAccessLayer
             return dataTable;
         }
 
+        public static async Task<DataTable> GetAllGuestsAsync()
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            {
+                string query = @"SELECT GuestID AS 'Guest ID' , People.PersonID AS 'Person ID' , NationalNo AS 'National No' ,
+                            FirstName + ' ' + LastName AS 'Full Name',
+                            CASE
+                                    WHEN Gender = 'M' THEN 'Male'
+                                    WHEN Gender = 'F' THEN 'Female'
+                                    ELSE 'Unknown'
+                            END AS 'Gender' ,
+                            BirthDate AS 'Birth Date' , CountryName AS 'Nationality',
+                            Phone , Email
+                            FROM Guests
+                            INNER JOIN People ON Guests.PersonID = People.PersonID
+                            INNER JOIN Countries ON People.NationalityCountryID =
+                            Countries.CountryID;";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    DataTable dataTable = new DataTable();
+
+                    try
+                    {
+                        await connection.OpenAsync();
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            if (reader.HasRows)
+                                dataTable.Load(reader);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        clsGlobal.DBLogger.LogError(ex.Message, ex.GetType().FullName);
+                    }
+
+                    return dataTable;
+                }
+            }
+        }
+
         public static DataTable GetAllGuestCompanions(int GuestID , int BookingID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
